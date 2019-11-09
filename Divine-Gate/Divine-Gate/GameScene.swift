@@ -11,12 +11,6 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    override func didMove(to view: SKView) {
-    }
-        
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-         
-    }
 //    private var label : SKLabelNode?
 //    private var spinnyNode : SKShapeNode?
     
