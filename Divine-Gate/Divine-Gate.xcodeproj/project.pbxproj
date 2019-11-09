@@ -17,6 +17,7 @@
 		EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8ABF237654B20013120E /* LaunchScreen.storyboard */; };
 		EE5E8ACC237654B20013120E /* Divine_GateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8ACB237654B20013120E /* Divine_GateTests.swift */; };
 		EE5E8AD7237654B20013120E /* Divine_GateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8AD6237654B20013120E /* Divine_GateUITests.swift */; };
+		EE5E8AE5237673CB0013120E /* panels in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8AE4237673CB0013120E /* panels */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		EE5E8AD2237654B20013120E /* Divine-GateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Divine-GateUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5E8AD6237654B20013120E /* Divine_GateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divine_GateUITests.swift; sourceTree = "<group>"; };
 		EE5E8AD8237654B20013120E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE5E8AE4237673CB0013120E /* panels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = panels; path = ../../../Downloads/panels; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				EE5E8ACA237654B20013120E /* Divine-GateTests */,
 				EE5E8AD5237654B20013120E /* Divine-GateUITests */,
 				EE5E8AAE237654B00013120E /* Products */,
+				EE5E8AE4237673CB0013120E /* panels */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,6 +246,7 @@
 				EE5E8ABE237654B20013120E /* Assets.xcassets in Resources */,
 				EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */,
 				EE5E8AB5237654B00013120E /* Actions.sks in Resources */,
+				EE5E8AE5237673CB0013120E /* panels in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
