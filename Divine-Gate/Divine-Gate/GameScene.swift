@@ -6,84 +6,93 @@
 //  Copyright © 2019 宮里　佳音. All rights reserved.
 //
 
-import SpriteKit
-import GameplayKit
 
-class GameScene: SKScene {
+import UIKit
+ 
+class GameScene: UIViewController {
+ 
+    @IBOutlet var labelX: UILabel!
+    @IBOutlet var labelY: UILabel!
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    // 画像インスタンス
+    let imageBag = UIImageView()
     
-    override func didMove(to view: SKView) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
+        // Screen Size の取得
+        let screenWidth:CGFloat = view.frame.size.width
+        let screenHeight:CGFloat = view.frame.size.height
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        // ハンドバッグの画像を設定
+        imageBag.image = UIImage(named: "blue_panel")
+        // 画像のフレームを設定
+        imageBag.frame = CGRect(x:0, y:0, width:128, height:128)
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+        // 画像をスクリーン中央に設定
+        imageBag.center = CGPoint(x:screenWidth/2, y:screenHeight/2)
+        
+        // タッチ操作を enable
+        imageBag.isUserInteractionEnabled = true
+        
+        self.view.addSubview(imageBag)
+        
+        // 小数点以下２桁のみ表示
+        labelX.text = "x: ".appendingFormat("%.2f", screenWidth/2)
+        labelY.text = "y: ".appendingFormat("%.2f", screenHeight/2)
+ 
+        // 画面背景を設定
+        self.view.backgroundColor = UIColor(red:0.85,green:1.0,blue:0.95,alpha:1.0)
+        
     }
     
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
+    // 画面にタッチで呼ばれる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
+        print("touchesBegan")
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
+    //　ドラッグ時に呼ばれる
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+        // タッチイベントを取得
+        let touchEvent = touches.first!
+        
+        // ドラッグ前の座標, Swift 1.2 から
+        let preDx = touchEvent.previousLocation(in: self.view).x
+        let preDy = touchEvent.previousLocation(in: self.view).y
+        
+        // ドラッグ後の座標
+        let newDx = touchEvent.location(in: self.view).x
+        let newDy = touchEvent.location(in: self.view).y
+        
+        // ドラッグしたx座標の移動距離
+        let dx = newDx - preDx
+        print("x:\(dx)")
+        
+        // ドラッグしたy座標の移動距離
+        let dy = newDy - preDy
+        print("y:\(dy)")
+        
+        // 画像のフレーム
+        var viewFrame: CGRect = imageBag.frame
+        
+        // 移動分を反映させる
+        viewFrame.origin.x += dx
+        viewFrame.origin.y += dy
+        
+        imageBag.frame = viewFrame
+        
+        self.view.addSubview(imageBag)
+        
+        // 小数点以下２桁のみ表示
+        labelX.text = "x: ".appendingFormat("%.2f", newDx)
+        labelY.text = "y: ".appendingFormat("%.2f", newDy)
     }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+ 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
+ 
+ 
 }
