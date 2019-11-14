@@ -25,12 +25,32 @@ class Panel: SKSpriteNode {
     
     func setScene(scene: SKScene){
         self.gameScene = scene
+        
     }
     
-    init(){
-        super.init(texture: SKTexture(imageNamed: "blue_panel"), color: UIColor.clear, size: CGSize(width: 100, height: 100));
-        self.position = CGPoint(x: 15, y: 15);
+    func setType(){
+        // fire water wind light dark
+        switch self.type{
+        case "fire":
+            self.image_path = "red_panel";
+        case "water":
+            self.image_path = "blue_panel";
+        case "wind":
+            self.image_path = "green_panel";
+        case .none:
+            print("none");
+        case .some(_):
+            print("some");
+        }
+    }
+    
+    init(type : String){
         
+        super.init(texture: SKTexture(imageNamed: "blue_panel"), color: UIColor.clear, size: CGSize(width: 100, height: 100));
+        self.position = CGPoint(x: 15, y: 15)
+        self.type = type;
+        self.setType();
+        self.texture = SKTexture(imageNamed: self.image_path)
     }
     
     func setPosition(x: Int, y: Int){

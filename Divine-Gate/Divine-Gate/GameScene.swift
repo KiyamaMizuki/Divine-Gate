@@ -23,7 +23,7 @@ class GameScene: SKScene {
     //        hoge.position = CGPoint(x: 10, y:10);
     //        addChild(hoge);
             
-            self.panel = Panel();
+            self.panel = Panel(type: "wind");
             print(self.panel);
             self.addChild(self.panel);
                 
@@ -83,13 +83,13 @@ class GameScene: SKScene {
         //
         //        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
                 
-                for touch in touches{
-                    let location = touch.location(in: self);
-                    self.panel.position = CGPoint(x: 15, y: 15);
-                    
-                    
-                    
-                }
+//                for touch in touches{
+//                    let location = touch.location(in: self);
+//                    self.panel.position = CGPoint(x: 15, y: 15);
+//                    
+//                    
+//                    
+//                }
             }
             
             override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 
 class PanelBase: SKSpriteNode {
-    
+//    Panel belong_panel;
     init(){
         super.init(texture: SKTexture(imageNamed: "blue_panel"), color: UIColor.clear, size: CGSize(width: 80, height: 20));
         self.position = CGPoint(x: 15, y: 15);
