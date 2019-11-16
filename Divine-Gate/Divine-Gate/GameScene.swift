@@ -10,11 +10,14 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+//    var frame_panel_list : [PanelGenerate];
     
 //    private var label : SKLabelNode?
 //    private var spinnyNode : SKShapeNode?
     
     var panel:Panel!;
+    let len : Int = 5;
+    var frame_panel_list:[PanelGenerate] = [];
         override func didMove(to view: SKView) {
             
     //        let hoge:SKSpriteNode! = SKSpriteNode(imageNamed: "red_panel");
@@ -22,10 +25,17 @@ class GameScene: SKScene {
     //        hoge.yScale = 0.3
     //        hoge.position = CGPoint(x: 10, y:10);
     //        addChild(hoge);
+            add_list();
             
-            self.panel = Panel(type: "wind");
-            print(self.panel);
-            self.addChild(self.panel);
+//            var gene: PanelGenerate = PanelGenerate();
+//            gene.generate();
+//            print(gene.pal);
+//            self.addChild(gene);
+//            self.panel = gene.pal!;
+//            self.addChild(gene.pal!);
+            //self.panel = Panel(type: "wind");
+//            print(self.panel);
+            //self.addChild(self.panel);
                 
         //        // Get label node from scene and store it for use later
         //        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -50,7 +60,18 @@ class GameScene: SKScene {
                 print("The Scene was loaded in new scene");
             }
             
-            
+    func add_list(){
+        for i in 0..<self.len{
+            var pg : PanelGenerate = PanelGenerate();
+            pg.setpoint(x:i * -50 ,y : -100);
+            self.frame_panel_list.append(pg);
+            pg.generate();
+            self.addChild(pg.pal!);
+            self.addChild(pg);
+        }
+        self.panel = self.frame_panel_list[0].pal!;
+        
+    }
             func touchDown(atPoint pos : CGPoint) {
         //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
         //            n.position = pos

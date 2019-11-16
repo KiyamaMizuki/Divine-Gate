@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF96237672FB005E6E10 /* Panel.swift */; };
-		CF4DBF9B23767E78005E6E10 /* PanelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelBase.swift */; };
+		CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */; };
 		EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8AB0237654B00013120E /* AppDelegate.swift */; };
 		EE5E8AB3237654B00013120E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8AB2237654B00013120E /* GameScene.sks */; };
 		EE5E8AB5237654B00013120E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8AB4237654B00013120E /* Actions.sks */; };
@@ -40,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		CF4DBF96237672FB005E6E10 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
-		CF4DBF9A23767E78005E6E10 /* PanelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelBase.swift; sourceTree = "<group>"; };
+		CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGenerate.swift; sourceTree = "<group>"; };
 		EE5E8AAD237654B00013120E /* Divine-Gate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Divine-Gate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5E8AB0237654B00013120E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE5E8AB2237654B00013120E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 				EE5E8ABF237654B20013120E /* LaunchScreen.storyboard */,
 				EE5E8AC2237654B20013120E /* Info.plist */,
 				CF4DBF96237672FB005E6E10 /* Panel.swift */,
-				CF4DBF9A23767E78005E6E10 /* PanelBase.swift */,
+				CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */,
 			);
 			path = "Divine-Gate";
 			sourceTree = "<group>";
@@ -274,7 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE5E8AB7237654B00013120E /* GameScene.swift in Sources */,
-				CF4DBF9B23767E78005E6E10 /* PanelBase.swift in Sources */,
+				CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */,
 				EE5E8AB9237654B00013120E /* GameViewController.swift in Sources */,
 				CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */,
 				EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */,
