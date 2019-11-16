@@ -9,14 +9,18 @@
 import SpriteKit
 import GameplayKit
 
+
 class GameScene: SKScene {
 //    var frame_panel_list : [PanelGenerate];
     
 //    private var label : SKLabelNode?
 //    private var spinnyNode : SKShapeNode?
     
-    var panel:Panel!;
+    var activePanel:Panel!;
     let len : Int = 5;
+    var began_location_x :Int = 1;//パネルの初期x座標
+    var began_location_y :Int = 1;//パネルの初期y座標
+    
     var frame_panel_list:[PanelGenerate] = [];
         override func didMove(to view: SKView) {
             
@@ -63,13 +67,13 @@ class GameScene: SKScene {
     func add_list(){
         for i in 0..<self.len{
             var pg : PanelGenerate = PanelGenerate();
-            pg.setpoint(x:i * -50 ,y : -100);
+            pg.setpoint(x:-250 + i * 125 ,y : -200);
             self.frame_panel_list.append(pg);
             pg.generate();
             self.addChild(pg.pal!);
             self.addChild(pg);
         }
-        self.panel = self.frame_panel_list[0].pal!;
+//        self.panel = self.frame_panel_list[0].pal!;
         
     }
             func touchDown(atPoint pos : CGPoint) {
@@ -78,7 +82,6 @@ class GameScene: SKScene {
         //            n.strokeColor = SKColor.green
         //            self.addChild(n)
         //        }
-                
             }
             
             func touchMoved(toPoint pos : CGPoint) {
@@ -98,6 +101,18 @@ class GameScene: SKScene {
             }
             
             override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+                for touch in touches{
+                    let location = touch.location(in: self);
+                    for i in 0..<self.frame_panel_list.count{
+                        if (frame_panel_list[i].contain(touchX: Int(location.x), touchY: Int(location.y))){
+//                            print(frame_panel_list[i].x, frame_panel_list[i].y);
+                            self.activePanel = frame_panel_list[i].pal;
+                            self.began_location_x  = Int(self.activePanel.position.x);
+                            self.began_location_y  = Int(self.activePanel.position.y);
+                        }
+                    }
+                }
+
         //        if let label = self.label {
         //            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
         //        }
@@ -115,14 +130,21 @@ class GameScene: SKScene {
             
             override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         //        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-                for touch in touches{
-                    let location = touch.location(in: self);
-                    self.panel.setPosition(x: Int(location.x), y: Int(location.y));
+                if (activePanel != nil){
+                    for touch in touches{
+                        let location = touch.location(in: self);
+                        self.activePanel.setPosition(x: Int(location.x), y: Int(location.y));
+                    }
                 }
             }
             
             override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         //        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+                if (activePanel != nil){
+                    activePanel.setPosition(x: began_location_x, y: began_location_y);
+                    self.activePanel = nil;
+                }
+                
             }
             
             override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

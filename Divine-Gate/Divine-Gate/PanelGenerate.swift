@@ -13,10 +13,14 @@ class PanelGenerate: SKSpriteNode {
 //    Panel belong_panel;
     var x: Int;
     var y: Int;
+    var width: Int;
+    var height: Int;
     var pal: Panel?;
     init(){
         self.x = 15;
         self.y = 15;
+        self.width = 100;
+        self.height = 100;
 
         super.init(texture: SKTexture(imageNamed: "frame_panel"), color: UIColor.clear, size: CGSize(width: 100, height: 100));
         self.position = CGPoint(x: 15, y: 15);
@@ -32,9 +36,14 @@ class PanelGenerate: SKSpriteNode {
         
     }
     
-//    func contain(x: Int, y:Int){
-//        if ()
-//    }
+    func contain(touchX: Int, touchY:Int) -> Bool{
+        if (self.x - width/2 < touchX && touchX < self.x + width/2 && self.y - height/2 < touchY && touchY < self.y + height / 2){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     
     func setpoint(x:Int, y:Int) {
         self.x = x;
