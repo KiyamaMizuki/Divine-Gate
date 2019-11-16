@@ -53,6 +53,11 @@ class PanelGenerate: SKSpriteNode {
         self.zPosition = CGFloat(z);
         
     }
+    
+    func destroyPanel(){
+        self.pal = nil;
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

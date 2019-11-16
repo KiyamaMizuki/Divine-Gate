@@ -23,7 +23,7 @@ class GameScene: SKScene {
     
     var frame_panel_list:[PanelGenerate] = [];
         override func didMove(to view: SKView) {
-            
+            self.name = "battle";
     //        let hoge:SKSpriteNode! = SKSpriteNode(imageNamed: "red_panel");
     //        hoge.xScale = 0.1;
     //        hoge.yScale = 0.3
@@ -141,9 +141,23 @@ class GameScene: SKScene {
             override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         //        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
                 if (activePanel != nil){
-                    activePanel.setPosition(x: began_location_x, y: began_location_y);
+                    // 1. containerに含まれる時
+                    // activePanelCopyToContainer();
+                    for i in 0..<len{
+                        if( frame_panel_list[i].pal == self.activePanel){
+                            frame_panel_list[i].destroyPanel();
+                            frame_panel_list[i].generate();
+                            self.addChild(frame_panel_list[i].pal!);
+                        }
+                    }
+                    // 2. containerに含まれない時
+//                    activePanel.setPosition(x: began_location_x, y: began_location_y);
                     self.activePanel = nil;
+                    
                 }
+                /*
+                 elseで、パネルを収容した際には、新しいパネルを生成する。
+                 */
                 
             }
             

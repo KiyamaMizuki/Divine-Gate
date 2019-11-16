@@ -25,7 +25,6 @@ class Panel: SKSpriteNode {
     
     func setScene(scene: SKScene){
         self.gameScene = scene
-        
     }
     
     func setType(){
@@ -51,10 +50,13 @@ class Panel: SKSpriteNode {
         self.type = type;
         self.setType();
         self.texture = SKTexture(imageNamed: self.image_path)
+        
+
     }
     
     func setPosition(x: Int, y: Int){
         self.position = CGPoint(x: x, y: y);
+
     }
     
     required init?(coder aDecoder: NSCoder) {
