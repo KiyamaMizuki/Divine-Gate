@@ -28,7 +28,7 @@ class PanelGenerate: SKSpriteNode {
     }
     
     func generate() {
-        let type_list = ["fire","water","wind"];
+        let type_list = ["fire","water","wind","dark","light"];
         var len  = type_list.count;
         var ran = Int.random(in:0..<len);
         self.pal = Panel(type:type_list[ran]);

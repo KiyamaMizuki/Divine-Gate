@@ -36,6 +36,10 @@ class Panel: SKSpriteNode {
             self.image_path = "blue_panel";
         case "wind":
             self.image_path = "green_panel";
+        case "dark":
+            self.image_path = "purple_panel";
+        case "light":
+            self.image_path = "yellow_panel";
         case .none:
             print("none");
         case .some(_):
