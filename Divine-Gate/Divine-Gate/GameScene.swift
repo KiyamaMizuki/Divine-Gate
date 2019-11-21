@@ -15,6 +15,9 @@ class GameScene: SKScene {
 //    private var spinnyNode : SKShapeNode?
     
     var panel:Panel!;
+    var container:PanelContainer!;
+    private var targetNode : SKSpriteNode?
+    
         override func didMove(to view: SKView) {
             
     //        let hoge:SKSpriteNode! = SKSpriteNode(imageNamed: "red_panel");
@@ -26,6 +29,11 @@ class GameScene: SKScene {
             self.panel = Panel(type: "wind");
             print(self.panel);
             self.addChild(self.panel);
+            
+            self.container = PanelContainer()
+            self.targetNode = self.container
+            print(self.container)
+            self.addChild(self.container)
                 
         //        // Get label node from scene and store it for use later
         //        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -49,6 +57,7 @@ class GameScene: SKScene {
             
                 print("The Scene was loaded in new scene");
             }
+                
             
             
             func touchDown(atPoint pos : CGPoint) {
@@ -101,8 +110,8 @@ class GameScene: SKScene {
             }
             
             override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-            }
+            //        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
             
             override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         //        for t in touches { self.touchUp(atPoint: t.location(in: self)) }

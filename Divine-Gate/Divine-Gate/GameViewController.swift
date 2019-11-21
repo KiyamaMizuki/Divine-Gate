@@ -12,6 +12,8 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    var container : PanelContainer!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,4 +49,5 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+
 }
