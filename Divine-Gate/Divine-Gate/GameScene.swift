@@ -20,49 +20,32 @@ class GameScene: SKScene {
     let len : Int = 5;
     var began_location_x :Int = 1;//パネルの初期x座標
     var began_location_y :Int = 1;//パネルの初期y座標
+    var startDate : NSDate = NSDate();//開始時間
+    var countable = false;//カウントする為のフラグ
+    var countjudge = true;//countableの値を変えない為のフラグ
+    let labeli = SKLabelNode(fontNamed: "Verdana")
+    var dateFormatter = DateFormatter();
     
     var frame_panel_list:[PanelGenerate] = [];
-        override func didMove(to view: SKView) {
-            self.name = "battle";
-    //        let hoge:SKSpriteNode! = SKSpriteNode(imageNamed: "red_panel");
-    //        hoge.xScale = 0.1;
-    //        hoge.yScale = 0.3
-    //        hoge.position = CGPoint(x: 10, y:10);
-    //        addChild(hoge);
-            add_list();
-            
-//            var gene: PanelGenerate = PanelGenerate();
-//            gene.generate();
-//            print(gene.pal);
-//            self.addChild(gene);
-//            self.panel = gene.pal!;
-//            self.addChild(gene.pal!);
-            //self.panel = Panel(type: "wind");
-//            print(self.panel);
-            //self.addChild(self.panel);
-                
-        //        // Get label node from scene and store it for use later
-        //        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        //        if let label = self.label {
-        //            label.alpha = 0.0
-        //            label.run(SKAction.fadeIn(withDuration: 2.0))
-        //        }
-        //
-        //        // Create shape node to use during mouse interaction
-        //        let w = (self.size.width + self.size.height) * 0.05
-        //        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        //
-        //        if let spinnyNode = self.spinnyNode {
-        //            spinnyNode.lineWidth = 2.5
-        //
-        //            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-        //            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-        //                                              SKAction.fadeOut(withDuration: 0.5),
-        //                                              SKAction.removeFromParent()]))
-        //        }
-            
-                print("The Scene was loaded in new scene");
-            }
+    var containers:[PanelContainer] = [];
+    
+    override func didMove(to view: SKView) {
+        self.name = "battle";
+        add_list();
+        initPanelContainer();
+//        self.label.color = UIColor(named: "white");
+        self.labeli.fontSize = 100;
+        self.labeli.zPosition = 100;
+        self.labeli.fontColor = UIColor.white;
+        self.labeli.text = "iasd;oihasdlifh:asdjf:";
+        self.labeli.position = CGPoint(x: 0, y: 150)
+//        self.labeli
+        labeli.name = "buttonLabel"
+
+        print(self.labeli);
+        self.addChild(labeli);
+        print("The Scene was loaded in new scene");
+    }
             
     func add_list(){
         for i in 0..<self.len{
@@ -76,106 +59,125 @@ class GameScene: SKScene {
 //        self.panel = self.frame_panel_list[0].pal!;
         
     }
-            func touchDown(atPoint pos : CGPoint) {
-        //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-        //            n.position = pos
-        //            n.strokeColor = SKColor.green
-        //            self.addChild(n)
-        //        }
-            }
-            
-            func touchMoved(toPoint pos : CGPoint) {
-        //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-        //            n.position = pos
-        //            n.strokeColor = SKColor.blue
-        //            self.addChild(n)
-        //        }
-            }
-            
-            func touchUp(atPoint pos : CGPoint) {
-        //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-        //            n.position = pos
-        //            n.strokeColor = SKColor.red
-        //            self.addChild(n)
-        //        }
-            }
-            
-            override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-                for touch in touches{
-                    let location = touch.location(in: self);
-                    for i in 0..<self.frame_panel_list.count{
-                        if (frame_panel_list[i].contain(touchX: Int(location.x), touchY: Int(location.y))){
-//                            print(frame_panel_list[i].x, frame_panel_list[i].y);
-                            self.activePanel = frame_panel_list[i].pal;
-                            self.began_location_x  = Int(self.activePanel.position.x);
-                            self.began_location_y  = Int(self.activePanel.position.y);
-                        }
-                    }
-                }
+    
+    func initPanelContainer(){
+        for i in 0..<self.len{
+            var pc: PanelContainer = PanelContainer();
+            pc.position = CGPoint(x: -250 + i * 125 , y : 100);
+            self.containers.append(pc);
+            self.addChild(pc);
+        }
+    }
+    
+    func touchDown(atPoint pos : CGPoint) {
 
-        //        if let label = self.label {
-        //            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        //        }
-        //
-        //        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-                
-//                for touch in touches{
-//                    let location = touch.location(in: self);
-//                    self.panel.position = CGPoint(x: 15, y: 15);
-//                    
-//                    
-//                    
-//                }
-            }
+    }
             
-            override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-                if (activePanel != nil){
-                    for touch in touches{
-                        let location = touch.location(in: self);
-                        self.activePanel.setPosition(x: Int(location.x), y: Int(location.y));
-                    }
+    func touchMoved(toPoint pos : CGPoint) {
+
+    }
+    
+    func touchUp(atPoint pos : CGPoint) {
+        if (activePanel != nil){ // 選択中のpanelが存在する場合
+            var interact_pc_index = getInteractedContainerIndex(pos: pos);
+            
+            if (interact_pc_index != -1){ // 1. タップを離した部分の座標がcontainerに含まれる時
+                if countjudge{
+                    countable = true//カウントするためのフラグを立てる
+                    startDate = NSDate();//開始時間
                 }
-            }
-            
-            override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-                if (activePanel != nil){
-                    // 1. containerに含まれる時
-                    // activePanelCopyToContainer();
-                    for i in 0..<len{
+                countjudge = false;
+                if self.containers[interact_pc_index].addPanel(panel: self.activePanel){ // 1.1 containerの容量が空いていたら
+                    for i in 0..<len{ //generate処理
                         if( frame_panel_list[i].pal == self.activePanel){
                             frame_panel_list[i].destroyPanel();
                             frame_panel_list[i].generate();
                             self.addChild(frame_panel_list[i].pal!);
                         }
                     }
-                    // 2. containerに含まれない時
-//                    activePanel.setPosition(x: began_location_x, y: began_location_y);
-                    self.activePanel = nil;
-                    
+                }else{ // 1.2 containerの容量が空いていなかったら(満タンだったら)
+                    backToBeginPoint();
                 }
-                /*
-                 elseで、パネルを収容した際には、新しいパネルを生成する。
-                 */
-                
+            }else{  // 2. containerに含まれない時
+                backToBeginPoint();
+            }
+
+            self.activePanel = nil;
+        }
+    }
+            
+    func getInteractedContainerIndex(pos : CGPoint) -> Int
+    {
+        var all_nodes = self.nodes(at: pos);
+        var i : Int = -1;
+        for node_ in all_nodes{
+            for i in 0..<self.containers.count{
+                if (containers[i] == node_){
+                    return i;
+                }
+            }
+        }
+        return i;
+    }
+    
+    func backToBeginPoint(){
+        self.activePanel.position = CGPoint(x: self.began_location_x, y: self.began_location_y);
+    }
+            
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches{
+            let location = touch.location(in: self);
+            for i in 0..<self.frame_panel_list.count{
+                if (frame_panel_list[i].contain(touchX: Int(location.x), touchY: Int(location.y))){
+//                            print(frame_panel_list[i].x, frame_panel_list[i].y);
+                    self.activePanel = frame_panel_list[i].pal;
+                    self.began_location_x  = Int(self.activePanel.position.x);
+                    self.began_location_y  = Int(self.activePanel.position.y);
+                }
+            }
+        }
+
+    }
+            
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+        if (activePanel != nil){
+            for touch in touches{
+                let location = touch.location(in: self);
+                self.activePanel.setPosition(x: Int(location.x), y: Int(location.y));
+            }
+        }
+    }
+            
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+           
+         /*
+         elseで、パネルを収容した際には、新しいパネルを生成する。
+         */
+        
+    }
+            
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+            
+            
+    override func update(_ currentTime: TimeInterval) {
+        if countable{
+            dateFormatter.dateFormat = "mm:ss.SS"
+            var time = NSDate().timeIntervalSince(self.startDate as Date);//NSDateは現在の時刻
+            let targetDate = Date(timeIntervalSinceReferenceDate: time);
+            labeli.text = dateFormatter.string(from: targetDate);
+//            labeli.text = "hoge";
+            if time > 5.0{
+                countable = false;
             }
             
-            override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-            }
-            
-            
-            override func update(_ currentTime: TimeInterval) {
-                // Called before each frame is rendered
-            }
-    //
-    //    func dragInterraction(_ interaction: UIDragInteraction, previewForLifting item: UIDragItem, session: UIDragSession) -> UITargetedDragPreview?{
-    //
-    //        guard let panel = self.panel else return nil;
-    //        return UITargetedDragPreview(view: panel);
-    //    }
-    //
-    //    func
+            print(time)
+        }
+            // Called before each frame is rendered
+    }
+    
 
 }

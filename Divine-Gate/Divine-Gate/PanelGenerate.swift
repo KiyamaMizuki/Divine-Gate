@@ -33,7 +33,7 @@ class PanelGenerate: SKSpriteNode {
         var ran = Int.random(in:0..<len);
         self.pal = Panel(type:type_list[ran]);
         self.pal!.setPosition(x: self.x, y:self.y);
-        
+        self.pal!.zPosition = self.zPosition + 3;
     }
     
     func contain(touchX: Int, touchY:Int) -> Bool{
@@ -48,9 +48,9 @@ class PanelGenerate: SKSpriteNode {
     func setpoint(x:Int, y:Int) {
         self.x = x;
         self.y = y;
-        let z : Int = -10
+//        let z : Int = -10
         self.position = CGPoint(x: self.x, y: self.y);
-        self.zPosition = CGFloat(z);
+//        self.zPosition = CGFloat(z);
         
     }
     
