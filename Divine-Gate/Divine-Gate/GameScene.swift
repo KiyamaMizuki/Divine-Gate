@@ -11,55 +11,59 @@ import GameplayKit
 
 
 class GameScene: SKScene {
-//    var frame_panel_list : [PanelGenerate];
+//    var generators : [PanelGenerate];
     
 //    private var label : SKLabelNode?
 //    private var spinnyNode : SKShapeNode?
     
-    var activePanel:Panel!;
-    let len : Int = 5;
-    var began_location_x :Int = 1;//パネルの初期x座標
-    var began_location_y :Int = 1;//パネルの初期y座標
+    var activePanel:Panel!; // 操作対象にあるパネルを指す
+    let len : Int = 5; // 表示するcontainerとgeneratorの数
+    var began_location_x :Int = 1;// activePanelの初期x座標. container外でタップが離されたときに元のPanelGenerateに戻すときに使う
+    var began_location_y :Int = 1;// activePanelの初期y座標. 同上.
     var startDate : NSDate = NSDate();//開始時間
-    var countable = false;//カウントする為のフラグ
-    var countjudge = true;//countableの値を変えない為のフラグ
-    let labeli = SKLabelNode(fontNamed: "Verdana")
-    var dateFormatter = DateFormatter();
+//    var countable = false;//カウントする為のフラグ
+//    var countjudge = true;//countableの値を変えない為のフラグ
+//    let labeli = SKLabelNode(fontNamed: "Verdana")
+//    var dateFormatter = DateFormatter();
     
-    var frame_panel_list:[PanelGenerate] = [];
+    var generators:[PanelGenerate] = [];
     var containers:[PanelContainer] = [];
     
     override func didMove(to view: SKView) {
         self.name = "battle";
-        add_list();
+        initPanelGenerate();
         initPanelContainer();
 //        self.label.color = UIColor(named: "white");
-        self.labeli.fontSize = 100;
-        self.labeli.zPosition = 100;
-        self.labeli.fontColor = UIColor.white;
-        self.labeli.text = "iasd;oihasdlifh:asdjf:";
-        self.labeli.position = CGPoint(x: 0, y: 150)
+//        self.labeli.fontSize = 100;
+//        self.labeli.zPosition = 100;
+//        self.labeli.fontColor = UIColor.white;
+//        self.labeli.text = "iasd;oihasdlifh:asdjf:";
+//        self.labeli.position = CGPoint(x: 0, y: 150)
 //        self.labeli
-        labeli.name = "buttonLabel"
+//        labeli.name = "buttonLabel"
 
-        print(self.labeli);
-        self.addChild(labeli);
-        print("The Scene was loaded in new scene");
+//        print(self.labeli);
+//        self.addChild(labeli);
+        print("name of this scene: " + self.name!);
     }
-            
-    func add_list(){
+    
+    /*
+        5つのPanelGenerateインスタンスを用意してSceneに配置
+     */
+    func initPanelGenerate(){
         for i in 0..<self.len{
             var pg : PanelGenerate = PanelGenerate();
             pg.setpoint(x:-250 + i * 125 ,y : -200);
-            self.frame_panel_list.append(pg);
+            self.generators.append(pg);
             pg.generate();
             self.addChild(pg.pal!);
             self.addChild(pg);
         }
-//        self.panel = self.frame_panel_list[0].pal!;
-        
     }
     
+    /*
+        5つのPanelContainerインスタンスを用意してSceneに配置
+     */
     func initPanelContainer(){
         for i in 0..<self.len{
             var pc: PanelContainer = PanelContainer();
@@ -69,45 +73,58 @@ class GameScene: SKScene {
         }
     }
     
+    /*
+        touchesbeginから呼ばれる
+     */
     func touchDown(atPoint pos : CGPoint) {
-
+        let location = pos;
+        for i in 0..<self.generators.count{
+            if (generators[i].contain(touchX: Int(location.x), touchY: Int(location.y))){
+//                            print(generators[i].x, generators[i].y);
+                self.activePanel = generators[i].pal;
+                self.began_location_x  = Int(self.activePanel.position.x);
+                self.began_location_y  = Int(self.activePanel.position.y);
+            }
+        }
     }
             
     func touchMoved(toPoint pos : CGPoint) {
-
+        if (activePanel != nil){
+            let location = pos;
+            self.activePanel.setPosition(x: Int(location.x), y: Int(location.y));
+        }
     }
     
     func touchUp(atPoint pos : CGPoint) {
         if (activePanel != nil){ // 選択中のpanelが存在する場合
-            var interact_pc_index = getInteractedContainerIndex(pos: pos);
+            var interacted_pc_index = getInteractedContainerIndex(pos: pos); // 離した座標から、どのcontainerかを判別。具体的には、self.containersのインデックスを返す。どのcontainerも含まれてなかったと判断したら、-1を返す。
             
-            if (interact_pc_index != -1){ // 1. タップを離した部分の座標がcontainerに含まれる時
-                if countjudge{
-                    countable = true//カウントするためのフラグを立てる
-                    startDate = NSDate();//開始時間
-                }
-                countjudge = false;
-                if self.containers[interact_pc_index].addPanel(panel: self.activePanel){ // 1.1 containerの容量が空いていたら
+            if (interacted_pc_index != -1){ // 1 タップを離した部分の座標がcontainerに含まれる時
+//                if countjudge{
+//                    countable = true//カウントするためのフラグを立てる
+//                    startDate = NSDate();//開始時間
+//                }
+//                countjudge = false;
+                if self.containers[interacted_pc_index].addPanel(panel: self.activePanel){ // 1.1 containerの容量が空いていたら
                     for i in 0..<len{ //generate処理
-                        if( frame_panel_list[i].pal == self.activePanel){
-                            frame_panel_list[i].destroyPanel();
-                            frame_panel_list[i].generate();
-                            self.addChild(frame_panel_list[i].pal!);
+                        if( generators[i].pal == self.activePanel){
+                            generators[i].destroyPanel();
+                            generators[i].generate();
+                            self.addChild(generators[i].pal!);
                         }
                     }
                 }else{ // 1.2 containerの容量が空いていなかったら(満タンだったら)
                     backToBeginPoint();
                 }
-            }else{  // 2. containerに含まれない時
+            }else{  // 2 containerに含まれない時
                 backToBeginPoint();
             }
 
             self.activePanel = nil;
         }
     }
-            
-    func getInteractedContainerIndex(pos : CGPoint) -> Int
-    {
+    
+    func getInteractedContainerIndex(pos : CGPoint) -> Int{
         var all_nodes = self.nodes(at: pos);
         var i : Int = -1;
         for node_ in all_nodes{
@@ -120,42 +137,32 @@ class GameScene: SKScene {
         return i;
     }
     
+    /*
+        container外でactivePanelをタップする指が離されたときに、元の位置に戻す関数.
+     */
     func backToBeginPoint(){
         self.activePanel.position = CGPoint(x: self.began_location_x, y: self.began_location_y);
     }
-            
+    
+    /*
+        タップが開始したときに呼ばれる
+     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches{
-            let location = touch.location(in: self);
-            for i in 0..<self.frame_panel_list.count{
-                if (frame_panel_list[i].contain(touchX: Int(location.x), touchY: Int(location.y))){
-//                            print(frame_panel_list[i].x, frame_panel_list[i].y);
-                    self.activePanel = frame_panel_list[i].pal;
-                    self.began_location_x  = Int(self.activePanel.position.x);
-                    self.began_location_y  = Int(self.activePanel.position.y);
-                }
-            }
-        }
-
+        for touch in touches{ self.touchDown(atPoint: touch.location(in: self)) }
     }
             
+    /*
+        タップした状態で動かしたときに呼ばれる
+     */
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-        if (activePanel != nil){
-            for touch in touches{
-                let location = touch.location(in: self);
-                self.activePanel.setPosition(x: Int(location.x), y: Int(location.y));
-            }
-        }
+        for touch in touches{ self.touchMoved(toPoint: touch.location(in: self)) }
     }
-            
+    
+    /*
+        タップが終了したとき(シーンから指が離されたとき)に呼ばれる
+     */
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-           
-         /*
-         elseで、パネルを収容した際には、新しいパネルを生成する。
-         */
-        
     }
             
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -164,18 +171,18 @@ class GameScene: SKScene {
             
             
     override func update(_ currentTime: TimeInterval) {
-        if countable{
-            dateFormatter.dateFormat = "mm:ss.SS"
-            var time = NSDate().timeIntervalSince(self.startDate as Date);//NSDateは現在の時刻
-            let targetDate = Date(timeIntervalSinceReferenceDate: time);
-            labeli.text = dateFormatter.string(from: targetDate);
+//        if countable{
+//            dateFormatter.dateFormat = "mm:ss.SS"
+//            var time = NSDate().timeIntervalSince(self.startDate as Date);//NSDateは現在の時刻
+//            let targetDate = Date(timeIntervalSinceReferenceDate: time);
+//            labeli.text = dateFormatter.string(from: targetDate);
 //            labeli.text = "hoge";
-            if time > 5.0{
-                countable = false;
-            }
-            
-            print(time)
-        }
+//            if time > 5.0{
+//                countable = false;
+//            }
+//
+//            print(time)
+//        }
             // Called before each frame is rendered
     }
     
