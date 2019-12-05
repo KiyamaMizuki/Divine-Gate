@@ -25,7 +25,6 @@ class Panel: SKSpriteNode {
     
     func setScene(scene: SKScene){
         self.gameScene = scene
-        
     }
     
     func setType(){
@@ -37,6 +36,10 @@ class Panel: SKSpriteNode {
             self.image_path = "blue_panel";
         case "wind":
             self.image_path = "green_panel";
+        case "dark":
+            self.image_path = "purple_panel";
+        case "light":
+            self.image_path = "yellow_panel";
         case .none:
             print("none");
         case .some(_):
@@ -55,6 +58,7 @@ class Panel: SKSpriteNode {
     
     func setPosition(x: Int, y: Int){
         self.position = CGPoint(x: x, y: y);
+
     }
     
     required init?(coder aDecoder: NSCoder) {
