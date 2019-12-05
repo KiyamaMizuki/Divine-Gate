@@ -15,7 +15,9 @@ class PanelGenerate: SKSpriteNode {
     var y: Int;
     var width: Int;
     var height: Int;
-    var pal: Panel?;
+    var pal: Panel?;//パネルクラスのインスタンス生成
+    let panelwidth = UIScreen.main.bounds.size.width//スマホの横幅
+    //lazy var pal = Panel?(width: Int(panelwidth), height: Int(panelwidth))//lazyプロパティにすることで遅延して初期化する　またオプショナル型にしたい
     init(){
         self.x = 15;
         self.y = 15;
@@ -28,6 +30,7 @@ class PanelGenerate: SKSpriteNode {
     }
     
     func generate() {
+        
         let type_list = ["fire","water","wind","dark","light"];
         var len  = type_list.count;
         var ran = Int.random(in:0..<len);
@@ -55,7 +58,7 @@ class PanelGenerate: SKSpriteNode {
     }
     
     func destroyPanel(){
-        self.pal = nil;
+        self.pal = nil;//palはまだオプショナル型じゃないからnil入らんw
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -54,8 +54,6 @@ class Panel: SKSpriteNode {
         self.type = type;
         self.setType();
         self.texture = SKTexture(imageNamed: self.image_path)
-        
-
     }
     
     func setPosition(x: Int, y: Int){

@@ -21,11 +21,11 @@ class GameScene: SKScene {
     var began_location_x :Int = 1;// activePanelの初期x座標. container外でタップが離されたときに元のPanelGenerateに戻すときに使う
     var began_location_y :Int = 1;// activePanelの初期y座標. 同上.
     var startDate : NSDate = NSDate();//開始時間
-//    var countable = false;//カウントする為のフラグ
-//    var countjudge = true;//countableの値を変えない為のフラグ
-//    let labeli = SKLabelNode(fontNamed: "Verdana")
-//    var dateFormatter = DateFormatter();
-    
+    var countable = false;//カウントする為のフラグ
+    var countjudge = true;//countableの値を変えない為のフラグ
+    let labeli = SKLabelNode(fontNamed: "Verdana")//文字を扱うための変数labeli
+                                                  //"Verdana"はフォントの名前
+    var dateFormatter = DateFormatter();//日付と時刻を表現
     var generators:[PanelGenerate] = [];
     var containers:[PanelContainer] = [];
     
@@ -33,17 +33,17 @@ class GameScene: SKScene {
         self.name = "battle";
         initPanelGenerate();
         initPanelContainer();
-//        self.label.color = UIColor(named: "white");
-//        self.labeli.fontSize = 100;
-//        self.labeli.zPosition = 100;
-//        self.labeli.fontColor = UIColor.white;
-//        self.labeli.text = "iasd;oihasdlifh:asdjf:";
-//        self.labeli.position = CGPoint(x: 0, y: 150)
-//        self.labeli
-//        labeli.name = "buttonLabel"
+        self.labeli.color = UIColor(named: "white");//表示される文字の色?
+        self.labeli.fontSize = 100;//文字のサイズ
+        self.labeli.zPosition = 100;//文字のZ座標
+        self.labeli.fontColor = UIColor.white;//表示される文字の色
+        self.labeli.text = "Divine:"; //画面に表示される文字
+        self.labeli.position = CGPoint(x: 0, y: 150)//文字の位置を指定
+        //self.labeli
+        labeli.name = "buttonLabel"
 
-//        print(self.labeli);
-//        self.addChild(labeli);
+        print(self.labeli);
+        self.addChild(labeli);
         print("name of this scene: " + self.name!);
     }
     
@@ -51,9 +51,16 @@ class GameScene: SKScene {
         5つのPanelGenerateインスタンスを用意してSceneに配置
      */
     func initPanelGenerate(){
+        //パネル生成のクラス
         for i in 0..<self.len{
-            var pg : PanelGenerate = PanelGenerate();
-            pg.setpoint(x:-250 + i * 125 ,y : -200);
+            let pg : PanelGenerate = PanelGenerate();
+            
+            // スクリーンサイズの取得
+            let width = UIScreen.main.bounds.size.width
+            let height = UIScreen.main.bounds.size.height
+
+            
+            pg.setpoint(x:-250 + i * 125 ,y : -450);
             self.generators.append(pg);
             pg.generate();
             self.addChild(pg.pal!);
@@ -67,7 +74,7 @@ class GameScene: SKScene {
     func initPanelContainer(){
         for i in 0..<self.len{
             var pc: PanelContainer = PanelContainer();
-            pc.position = CGPoint(x: -250 + i * 125 , y : 100);
+            pc.position = CGPoint(x: -250 + i * 125 , y : -300);
             self.containers.append(pc);
             self.addChild(pc);
         }
@@ -100,11 +107,11 @@ class GameScene: SKScene {
             var interacted_pc_index = getInteractedContainerIndex(pos: pos); // 離した座標から、どのcontainerかを判別。具体的には、self.containersのインデックスを返す。どのcontainerも含まれてなかったと判断したら、-1を返す。
             
             if (interacted_pc_index != -1){ // 1 タップを離した部分の座標がcontainerに含まれる時
-//                if countjudge{
-//                    countable = true//カウントするためのフラグを立てる
-//                    startDate = NSDate();//開始時間
-//                }
-//                countjudge = false;
+                if countjudge{
+                    countable = true//カウントするためのフラグを立てる
+                    startDate = NSDate();//開始時間
+                }
+                countjudge = false;
                 if self.containers[interacted_pc_index].addPanel(panel: self.activePanel){ // 1.1 containerの容量が空いていたら
                     for i in 0..<len{ //generate処理
                         if( generators[i].pal == self.activePanel){
@@ -171,19 +178,21 @@ class GameScene: SKScene {
             
             
     override func update(_ currentTime: TimeInterval) {
-//        if countable{
-//            dateFormatter.dateFormat = "mm:ss.SS"
-//            var time = NSDate().timeIntervalSince(self.startDate as Date);//NSDateは現在の時刻
-//            let targetDate = Date(timeIntervalSinceReferenceDate: time);
-//            labeli.text = dateFormatter.string(from: targetDate);
-//            labeli.text = "hoge";
-//            if time > 5.0{
-//                countable = false;
-//            }
-//
-//            print(time)
-//        }
-            // Called before each frame is rendered
+        if countable{
+            dateFormatter.dateFormat = "mm:ss.SS"
+            var time = NSDate().timeIntervalSince(self.startDate as Date);//NSDateは現在の時刻
+            let targetDate = Date(timeIntervalSinceReferenceDate: time);
+            labeli.text = dateFormatter.string(from: targetDate);
+            var int: Int = Int(time)//intにキャスト
+            var str: String = String(int)//strngにキャスト
+            labeli.text = str;
+            if time > 5.0{
+                countable = false;
+            }
+
+            print(time)
+        }
+     //   Called; before; each; frame is rendered
     }
     
 
