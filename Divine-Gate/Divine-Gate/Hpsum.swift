@@ -10,11 +10,18 @@ import Foundation
 
 class Hpsum{
     
-    var before_hp : Int!;
+    //全回復時のHP
+    let hull_hp : Int;
+    
+    var before_hp : Int;
     var after_hp : Int;
     
     init(){
-        //戦闘前HP
+        //全回復時のHP
+        //どこかのクラスからもってくるのですかね？
+        self.hull_hp = 1000;
+        
+        //戦闘後HPを次戦闘時に現在HPとして保持するためのHP
         self.before_hp = 1000;
         //戦闘後HP
         self.after_hp = 1000;
