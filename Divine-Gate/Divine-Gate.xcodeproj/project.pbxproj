@@ -20,7 +20,6 @@
 		EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8ABF237654B20013120E /* LaunchScreen.storyboard */; };
 		EE5E8ACC237654B20013120E /* Divine_GateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8ACB237654B20013120E /* Divine_GateTests.swift */; };
 		EE5E8AD7237654B20013120E /* Divine_GateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8AD6237654B20013120E /* Divine_GateUITests.swift */; };
-		EE9B1F48239B9DE1001D4E01 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9B1F47239B9DE1001D4E01 /* Container.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +59,6 @@
 		EE5E8AD2237654B20013120E /* Divine-GateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Divine-GateUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5E8AD6237654B20013120E /* Divine_GateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divine_GateUITests.swift; sourceTree = "<group>"; };
 		EE5E8AD8237654B20013120E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE9B1F47239B9DE1001D4E01 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +121,6 @@
 				CF4DBF96237672FB005E6E10 /* Panel.swift */,
 				CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */,
 				CF077E10238FA376003B6C47 /* PanelContainer.swift */,
-				EE9B1F47239B9DE1001D4E01 /* Container.swift */,
 			);
 			path = "Divine-Gate";
 			sourceTree = "<group>";
@@ -283,7 +280,6 @@
 				CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */,
 				EE5E8AB9237654B00013120E /* GameViewController.swift in Sources */,
 				CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */,
-				EE9B1F48239B9DE1001D4E01 /* Container.swift in Sources */,
 				CF077E11238FA376003B6C47 /* PanelContainer.swift in Sources */,
 				EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */,
 			);
