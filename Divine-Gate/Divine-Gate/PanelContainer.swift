@@ -26,16 +26,17 @@ class PanelContainer: SKSpriteNode {
     
     var holdpanel : [String:Int] = ["fire":0,"water":0,"wind":0,"light":0,"dark":0];
     
+    var judgeflag : Bool?;
 //    Panel belong_panel;
     init(){
         super.init(texture: SKTexture(imageNamed: "Box"), color: UIColor.clear, size: CGSize(width: 100, height: 100));
         self.position = CGPoint(x: 10, y: 10);
     }
     
-    func addPanel(panel : Panel) -> Bool{
+    func addPanel(panel : Panel, judgeflag : Bool) -> Bool{
 //        let reSize = CGSize(width: self.width * 0.5, height: self.size.height * scaleSize)
 //        self.scaleImage(scaleSize: 0.5)
-        if self.panels.count < MAXLEN{
+        if self.panels.count < MAXLEN&&judgeflag{
             self.panels.append(panel)
             panel.zPosition = self.zPosition + 1
             panel.size = CGSize(width:self.size.width/2, height:self.size.height/2)

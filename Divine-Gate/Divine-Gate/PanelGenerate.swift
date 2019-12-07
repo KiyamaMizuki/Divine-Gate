@@ -16,25 +16,28 @@ class PanelGenerate: SKSpriteNode {
     var width: Int;
     var height: Int;
     var pal: Panel?;//パネルクラスのインスタンス生成
-    let panelwidth = UIScreen.main.bounds.size.width//スマホの横幅
+    let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
     //lazy var pal = Panel?(width: Int(panelwidth), height: Int(panelwidth))//lazyプロパティにすることで遅延して初期化する　またオプショナル型にしたい
     init(){
+        var size :Int = Int(screenwidth)
         self.x = 15;
         self.y = 15;
-        self.width = 100;
-        self.height = 100;
+        self.width = size/5;//パネルの横タップ判定
+        self.height = size/5;//パネルの縦タップ判定
 
-        super.init(texture: SKTexture(imageNamed: "frame_panel"), color: UIColor.clear, size: CGSize(width: 100, height: 100));
+        super.init(texture: SKTexture(imageNamed: "frame_panel"), color: UIColor.clear, size: CGSize(width: size/5, height: size/5));//ジェネレータの情報
         self.position = CGPoint(x: 15, y: 15);
                 
     }
     
     func generate() {
         
+        var size :Int = Int(screenwidth)
         let type_list = ["fire","water","wind","dark","light"];
         var len  = type_list.count;
         var ran = Int.random(in:0..<len);
-        self.pal = Panel(type:type_list[ran]);
+        //self.pal = Panel(type:type_list[ran]);
+        self.pal = Panel(type: type_list[ran], panelwidth: size, panelheight:size)
         self.pal!.setPosition(x: self.x, y:self.y);
         self.pal!.zPosition = self.zPosition + 3;
     }

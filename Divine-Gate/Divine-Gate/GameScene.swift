@@ -26,8 +26,10 @@ class GameScene: SKScene {
     let labeli = SKLabelNode(fontNamed: "Verdana")//文字を扱うための変数labeli
                                                   //"Verdana"はフォントの名前
     var dateFormatter = DateFormatter();//日付と時刻を表現
-    var generators:[PanelGenerate] = [];
-    var containers:[PanelContainer] = [];
+    var generators:[PanelGenerate] = [];//パネル生成ボックスのリスト
+    var containers:[PanelContainer] = [];//
+    let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
+    let screenheight = UIScreen.main.bounds.size.height//スマホの横幅
     
     //Hpsumクラスの運転確認用
     var hpsum : Hpsum = Hpsum();
@@ -46,6 +48,8 @@ class GameScene: SKScene {
         labeli.name = "buttonLabel"
 
         print(self.labeli);
+        print(screenwidth);
+        print(screenheight);
         self.addChild(labeli);
         print("name of this scene: " + self.name!);
     }
@@ -57,10 +61,6 @@ class GameScene: SKScene {
         //パネル生成のクラス
         for i in 0..<self.len{
             let pg : PanelGenerate = PanelGenerate();
-            
-            // スクリーンサイズの取得
-            let width = UIScreen.main.bounds.size.width
-            let height = UIScreen.main.bounds.size.height
 
             
             pg.setpoint(x:-250 + i * 125 ,y : -450);
@@ -111,11 +111,11 @@ class GameScene: SKScene {
             
             if (interacted_pc_index != -1){ // 1 タップを離した部分の座標がcontainerに含まれる時
                 if countjudge{
-                    countable = true//カウントするためのフラグを立てる
+                    countable = true//カウントするためのフラグを立てる。また５秒経ったらfalseになる
                     startDate = NSDate();//開始時間
                 }
                 countjudge = false;
-                if self.containers[interacted_pc_index].addPanel(panel: self.activePanel){ // 1.1 containerの容量が空いていたら
+                if self.containers[interacted_pc_index].addPanel(panel: self.activePanel,judgeflag : countable)&&countable{ // 1.1 containerの容量が空いていたら
                     for i in 0..<len{ //generate処理
                         if( generators[i].pal == self.activePanel){
                             generators[i].destroyPanel();
@@ -123,8 +123,6 @@ class GameScene: SKScene {
                             self.addChild(generators[i].pal!);
                         }
                     }
-                    //Hpsumの確認用
-                    self.hpsum.CalculationHp();
                 }else{ // 1.2 containerの容量が空いていなかったら(満タンだったら)
                     backToBeginPoint();
                 }
@@ -193,6 +191,8 @@ class GameScene: SKScene {
             labeli.text = str;
             if time > 5.0{
                 countable = false;
+                //Hpsumの確認用
+                self.hpsum.CalculationHp();
             }
         }
      //   Called; before; each; frame is rendered
