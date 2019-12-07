@@ -29,6 +29,9 @@ class GameScene: SKScene {
     var generators:[PanelGenerate] = [];
     var containers:[PanelContainer] = [];
     
+    //Hpsumクラスの運転確認用
+    var hpsum : Hpsum = Hpsum();
+    
     override func didMove(to view: SKView) {
         self.name = "battle";
         initPanelGenerate();
@@ -120,6 +123,8 @@ class GameScene: SKScene {
                             self.addChild(generators[i].pal!);
                         }
                     }
+                    //Hpsumの確認用
+                    self.hpsum.CalculationHp();
                 }else{ // 1.2 containerの容量が空いていなかったら(満タンだったら)
                     backToBeginPoint();
                 }

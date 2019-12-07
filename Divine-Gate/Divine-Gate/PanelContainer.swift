@@ -18,6 +18,14 @@ class PanelContainer: SKSpriteNode {
     //このコンテナに入っているパネルの属性をString配列で記録しています
     var belong_panel:[String] = [];
     
+    var firepanel : Int!;
+    var waterpanel : Int!;
+    var windpanel : Int!;
+    var lightpanel : Int!;
+    var darkpanel : Int!;
+    
+    var holdpanel : [String:Int] = ["fire":0,"water":0,"wind":0,"light":0,"dark":0];
+    
 //    Panel belong_panel;
     init(){
         super.init(texture: SKTexture(imageNamed: "Box"), color: UIColor.clear, size: CGSize(width: 100, height: 100));
@@ -63,10 +71,9 @@ class PanelContainer: SKSpriteNode {
             }
             
             //ここでContainerクラスのインスタンスを作って
-            //コンテナに入っているパネルのtypeを記録しているbelong_panel変数を
-            //ContainerクラスのgetType関数に代入しています
-            var container : Container = Container();
-            container.getType(panel:self.belong_panel);
+            //コンテナに入っているパネルのtypeを記録しているbelong_panel変数をgetType関数に代入しています
+            getType(panel:self.belong_panel);
+            
             return true;
         }else{
             return false;
@@ -81,7 +88,33 @@ class PanelContainer: SKSpriteNode {
     }
     
     
-    
+    func getType(panel : [String]) -> [String:Int] {
+        var setpanel : [String];
+        setpanel = [];
+        setpanel.append(contentsOf: panel);
+        let orderedSet: NSOrderedSet = NSOrderedSet(array: setpanel);
+        var belongpanel = orderedSet.array as! [String];
+        
+        for type in belongpanel{
+            if type=="fire"{
+                self.holdpanel["fire"]=Int(setpanel.filter{$0 == "fire"}.count);
+            }else if type=="water"{
+                self.holdpanel["water"]=Int(setpanel.filter{$0 == "water"}.count);
+            }else if type=="wind"{
+                self.holdpanel["wind"]=Int(setpanel.filter{$0 == "wind"}.count);
+            }else if type=="light"{
+                self.holdpanel["light"]=Int(setpanel.filter{$0 == "light"}.count);
+            }else if type=="dark"{
+                self.holdpanel["dark"]=Int(setpanel.filter{$0 == "dark"}.count);
+            }
+        }
+        
+        for (type,count) in self.holdpanel{
+            print("\(type)=\(count)");
+        }
+        
+        return self.holdpanel;
+    }
     
     
     required init?(coder aDecoder: NSCoder) {
