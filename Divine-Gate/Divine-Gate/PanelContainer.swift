@@ -15,6 +15,9 @@ class PanelContainer: SKSpriteNode {
     
     var MAXLEN : Int = 5;
     
+    //このコンテナに入っているパネルの属性をString配列で記録しています
+    var belong_panel:[String] = [];
+    
 //    Panel belong_panel;
     init(){
         super.init(texture: SKTexture(imageNamed: "Box"), color: UIColor.clear, size: CGSize(width: 100, height: 100));
@@ -31,35 +34,51 @@ class PanelContainer: SKSpriteNode {
             switch self.panels.count{
                 case 1:
                     panel.setPosition(x: Int(self.position.x - self.size.width/4), y: Int(self.position.y + self.size.height/4))
+                    CountInPanel(panel_type: panel.type);
                     //一番目のパネルを正しい場所に固定する
                 case 2:
                     print("２ ")
                     panel.setPosition(x: Int(self.position.x + self.size.width/4), y: Int(self.position.y + self.size.height/4))
+                   CountInPanel(panel_type: panel.type);
                     //一番目のパネルを正しい場所に固定する
                 case 3:
                     print("３ ")
                     panel.setPosition(x: Int(self.position.x - self.size.width/4), y: Int(self.position.y - self.size.height/4))
+                    CountInPanel(panel_type: panel.type);
                     //一番目のパネルを正しい場所に固定する
                 case 4:
                     print(" ")
                     panel.setPosition(x: Int(self.position.x + self.size.width/4), y: Int(self.position.y - self.size.height/4))
+                    CountInPanel(panel_type: panel.type);
                 //一番目のパネルを正しい場所に固定する
                 case 5:
                     panel.setPosition(x: Int(self.position.x), y: Int(self.position.y))
                     panel.zPosition = panel.zPosition + 1;
                     print(" ")
+                    CountInPanel(panel_type: panel.type);
                 //コンテナに持ってきたパネルを入れる
                 //一番目のパネルを正しい場所に固定する
                 default:
                     print("ifの段階で弾かれてる")
             }
+            
+            //ここでContainerクラスのインスタンスを作って
+            //コンテナに入っているパネルのtypeを記録しているbelong_panel変数を
+            //ContainerクラスのgetType関数に代入しています
+            var container : Container = Container();
+            container.getType(panel:self.belong_panel);
             return true;
         }else{
             return false;
         }
-        
     }
     
+    //コンテナの中に入っているパネルのtypeをbelong_panel配列に記録します
+    //addPanel関数で使用しています
+    func CountInPanel(panel_type : String){
+        self.belong_panel.append(panel_type);
+        print(belong_panel);
+    }
     
     
     
