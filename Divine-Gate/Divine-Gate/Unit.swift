@@ -9,5 +9,9 @@
 import Foundation
 
 class Unit{
-    
+    var attack : Int;
+    var skills : [NormalSkill] = [];
+    init(attack : Int) {
+        self.attack = attack;
+    }
 }
