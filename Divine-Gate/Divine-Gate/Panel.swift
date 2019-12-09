@@ -48,7 +48,7 @@ class Panel: SKSpriteNode {
     init(type : String,panelwidth : Int,panelheight : Int){
         
         super.init(texture: SKTexture(imageNamed: "blue_panel"), color: UIColor.clear, size: CGSize(width: panelwidth/5, height: panelheight/5));
-        self.position = CGPoint(x: 15, y: 15)
+        self.position = CGPoint(x: 15, y: 15)//生成した後座標を変更している
         self.type = type;
         self.setType();
         self.texture = SKTexture(imageNamed: self.image_path)

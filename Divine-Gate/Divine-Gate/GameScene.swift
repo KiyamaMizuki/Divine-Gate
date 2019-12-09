@@ -189,8 +189,6 @@ class GameScene: SKScene {
             if time > 5.0{
                 countable = false;
             }
-
-            print(time)
         }
      //   Called; before; each; frame is rendered
     }
