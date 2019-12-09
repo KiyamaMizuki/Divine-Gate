@@ -11,8 +11,7 @@ import SpriteKit
 
 class Panel: SKSpriteNode {
 //    init(imageNamed: String){
-//        super.init(imageNamed: imageNamed);
-//        
+//        super.init(imageNamed: imageNamed);        
 //    }
 //    
 //    required init?(coder aDecoder: NSCoder) {
@@ -21,7 +20,6 @@ class Panel: SKSpriteNode {
     var gameScene: SKScene!
     var type: String!
     var image_path: String!
-    
     
     func setScene(scene: SKScene){
         self.gameScene = scene
@@ -58,7 +56,6 @@ class Panel: SKSpriteNode {
     
     func setPosition(x: Int, y: Int){
         self.position = CGPoint(x: x, y: y);
-
     }
     
     required init?(coder aDecoder: NSCoder) {
