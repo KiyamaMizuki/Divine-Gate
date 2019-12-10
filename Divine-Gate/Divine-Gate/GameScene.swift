@@ -27,7 +27,7 @@ class GameScene: SKScene {
                                                   //"Verdana"はフォントの名前
     var dateFormatter = DateFormatter();//日付と時刻を表現
     var generators:[PanelGenerate] = [];//パネル生成ボックスのリスト
-    var containers:[PanelContainer] = [];//
+    var containers:[PanelContainer] = [];//パネル収容ボックスのリスト
     let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
     let screenheight = UIScreen.main.bounds.size.height//スマホの横幅
     
@@ -60,7 +60,7 @@ class GameScene: SKScene {
             let pg : PanelGenerate = PanelGenerate();
 
             
-            pg.setpoint(x:-250 + i * 125 ,y : -450);
+            pg.setpoint(x:-250 + i * 125 ,y : -450);//パネル生成の箱の位置
             self.generators.append(pg);
             pg.generate();
             self.addChild(pg.pal!);
@@ -74,7 +74,7 @@ class GameScene: SKScene {
     func initPanelContainer(){
         for i in 0..<self.len{
             var pc: PanelContainer = PanelContainer();
-            pc.position = CGPoint(x: -250 + i * 125 , y : -300);
+            pc.position = CGPoint(x: -250 + i * 125 , y : -300);//パネルコンテナボックスの位置
             self.containers.append(pc);
             self.addChild(pc);
         }

@@ -11,14 +11,14 @@ import SpriteKit
 import UIKit
 
 class NormalSkill : Skill{
-    var requirePanels : Dictionary<String, Int> = [:];
-    var ratio : Float = 0.0;
+    var requirePanels : Dictionary<String, Int> = [:];//スキル発動に必要なパネルを格納する
+    var ratio : Float = 0.0;//コンボ倍率
     var toSingle : Bool = false;
-    var executable : Bool = false;
-    var skillType : String = "";
+    var executable : Bool = false;//実行可能
+    var skillType : String = "";//スキルの種類(ノーマル、パッシブ)
     
     
-    init(requirePanels : Dictionary<String, Int>, ratio : Float, toSingle : Bool, skillType : String, name : String, description : String, type : String, belong : Unit) {
+    init(requirePanels : Dictionary<String, Int>, ratio : Float, toSingle : Bool, skillType : String, name : String, description : String, type : String, belong : DVUnit) {
         super.init(name : name, description : description, type : type, belong : belong);
         self.requirePanels = requirePanels;
         self.ratio = ratio;
@@ -27,14 +27,18 @@ class NormalSkill : Skill{
         self.skillType = skillType;
     }
     
-    func judgeExecutable(container : PanelContainer) -> Bool{ // containerの持つパネルの情報を見て、実行可能か判断する
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+    
+    func judgeExecutable(container : PanelContainer) -> Bool{// containerの持つパネルの情報を見て、実行可能か判断する
 //        for container.
         var panelInfo : [String:Int] = container.getType(panel : container.belong_panel);
         var fill_count = 0;
         for key in panelInfo.keys{
             if panelInfo[key]! >= self.requirePanels[key]!{
                 fill_count += 1;
-                if (fill_count == 5){
+                if (fill_count == 7){
                     return true;
                 }
             }

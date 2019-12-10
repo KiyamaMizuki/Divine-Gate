@@ -10,19 +10,17 @@ import Foundation
 import SpriteKit
 import UIKit
 
-class Skill {
-    let name : String;
-    let description : String;
-    let type : String;
-    var belong : Unit;
+class Skill : Codable{
+    let name : String
+    let description : String
+    let type : String
+    var belong : DVUnit
     
-    init(name : String, description : String, type : String, belong : Unit) {
+    init(name : String, description : String, type : String, belong : DVUnit) {
         self.name = name;
         self.description = description
         self.type = type;
         self.belong = belong;
     }
-    
-    
     
 }

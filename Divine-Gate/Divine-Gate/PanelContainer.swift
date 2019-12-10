@@ -16,7 +16,7 @@ class PanelContainer: SKSpriteNode {
     var MAXLEN : Int = 5;
     
     //このコンテナに入っているパネルの属性をString配列で記録しています
-    var belong_panel:[String] = [];
+    var belong_panel:[String] = [];//コンテナに入ってるパネルの属性を記録
     
     var firepanel : Int!;
     var waterpanel : Int!;
@@ -46,27 +46,23 @@ class PanelContainer: SKSpriteNode {
                     CountInPanel(panel_type: panel.type);
                     //一番目のパネルを正しい場所に固定する
                 case 2:
-                    print("２ ")
                     panel.setPosition(x: Int(self.position.x + self.size.width/4), y: Int(self.position.y + self.size.height/4))
                    CountInPanel(panel_type: panel.type);
-                    //一番目のパネルを正しい場所に固定する
+                    //二番目のパネルを正しい場所に固定する
                 case 3:
-                    print("３ ")
                     panel.setPosition(x: Int(self.position.x - self.size.width/4), y: Int(self.position.y - self.size.height/4))
                     CountInPanel(panel_type: panel.type);
-                    //一番目のパネルを正しい場所に固定する
+                    //三番目のパネルを正しい場所に固定する
                 case 4:
-                    print(" ")
                     panel.setPosition(x: Int(self.position.x + self.size.width/4), y: Int(self.position.y - self.size.height/4))
                     CountInPanel(panel_type: panel.type);
-                //一番目のパネルを正しい場所に固定する
+                    //四番目のパネルを正しい場所に固定する
                 case 5:
                     panel.setPosition(x: Int(self.position.x), y: Int(self.position.y))
                     panel.zPosition = panel.zPosition + 1;
-                    print(" ")
                     CountInPanel(panel_type: panel.type);
-                //コンテナに持ってきたパネルを入れる
-                //一番目のパネルを正しい場所に固定する
+                    //コンテナに持ってきたパネルを入れる
+                    //五番目のパネルを正しい場所に固定する
                 default:
                     print("ifの段階で弾かれてる")
             }
@@ -88,7 +84,6 @@ class PanelContainer: SKSpriteNode {
         print(belong_panel);
     }
     
-    
     func getType(panel : [String]) -> [String:Int] {
         var setpanel : [String];
         setpanel = [];
@@ -109,6 +104,7 @@ class PanelContainer: SKSpriteNode {
                 self.holdpanel["dark"]=Int(setpanel.filter{$0 == "dark"}.count);
             }
         }
+        
         
         for (type,count) in self.holdpanel{
             print("\(type)=\(count)");
