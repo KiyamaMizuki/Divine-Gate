@@ -30,6 +30,7 @@ class DVUnit : Codable{
 //    let Skill boostSkill; // ブーストスキル
     let isLeader: Bool; // リーダーかどうか
     let isNormalSkillInclude: Bool; // ノーマルスキルの必要とするパネルの枚数に包含関係があるかどうか
+    
 //    init(attack : Int) {
 //        self.attack = attack;
 //    }
@@ -41,4 +42,13 @@ class DVUnit : Codable{
 //        self.hp = hp;
 //        self.attack = attack;
 //    }
+    
+    func  getexecutable(container: PanelContainer) ->
+        [NormalSkill] {
+            var panelInfo : [String:Int] = container.getType(panel : container.belong_panel)
+            
+    }
+    func skill(executoanel: [String]) -> Bool{
+        
+    }
 }

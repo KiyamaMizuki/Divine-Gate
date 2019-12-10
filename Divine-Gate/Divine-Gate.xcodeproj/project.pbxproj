@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ACC02F16239BC44D008B314E /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC02F15239BC44D008B314E /* Unit.swift */; };
+		ACC02F16239BC44D008B314E /* DVUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC02F15239BC44D008B314E /* DVUnit.swift */; };
+		ACC10D53239DDAD300209DC3 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC10D52239DDAD300209DC3 /* Skill.swift */; };
+		ACC10D55239DDAE200209DC3 /* NormalSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC10D54239DDAE200209DC3 /* NormalSkill.swift */; };
+		ACC10D57239DDB0400209DC3 /* Hpsum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC10D56239DDB0400209DC3 /* Hpsum.swift */; };
+		ACC10D59239DDB2000209DC3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC10D58239DDB2000209DC3 /* Enemy.swift */; };
 		CF077E11238FA376003B6C47 /* PanelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF077E10238FA376003B6C47 /* PanelContainer.swift */; };
 		CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF96237672FB005E6E10 /* Panel.swift */; };
 		CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */; };
@@ -41,7 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		ACC02F15239BC44D008B314E /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		ACC02F15239BC44D008B314E /* DVUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVUnit.swift; sourceTree = "<group>"; };
+		ACC10D52239DDAD300209DC3 /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		ACC10D54239DDAE200209DC3 /* NormalSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalSkill.swift; sourceTree = "<group>"; };
+		ACC10D56239DDB0400209DC3 /* Hpsum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hpsum.swift; sourceTree = "<group>"; };
+		ACC10D58239DDB2000209DC3 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		CF077E10238FA376003B6C47 /* PanelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelContainer.swift; sourceTree = "<group>"; };
 		CF4DBF96237672FB005E6E10 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGenerate.swift; sourceTree = "<group>"; };
@@ -123,7 +131,11 @@
 				CF4DBF96237672FB005E6E10 /* Panel.swift */,
 				CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */,
 				CF077E10238FA376003B6C47 /* PanelContainer.swift */,
-				ACC02F15239BC44D008B314E /* Unit.swift */,
+				ACC02F15239BC44D008B314E /* DVUnit.swift */,
+				ACC10D56239DDB0400209DC3 /* Hpsum.swift */,
+				ACC10D54239DDAE200209DC3 /* NormalSkill.swift */,
+				ACC10D58239DDB2000209DC3 /* Enemy.swift */,
+				ACC10D52239DDAD300209DC3 /* Skill.swift */,
 			);
 			path = "Divine-Gate";
 			sourceTree = "<group>";
@@ -280,10 +292,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE5E8AB7237654B00013120E /* GameScene.swift in Sources */,
+				ACC10D55239DDAE200209DC3 /* NormalSkill.swift in Sources */,
 				CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */,
+				ACC10D59239DDB2000209DC3 /* Enemy.swift in Sources */,
 				EE5E8AB9237654B00013120E /* GameViewController.swift in Sources */,
-				ACC02F16239BC44D008B314E /* Unit.swift in Sources */,
+				ACC02F16239BC44D008B314E /* DVUnit.swift in Sources */,
+				ACC10D57239DDB0400209DC3 /* Hpsum.swift in Sources */,
 				CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */,
+				ACC10D53239DDAD300209DC3 /* Skill.swift in Sources */,
 				CF077E11238FA376003B6C47 /* PanelContainer.swift in Sources */,
 				EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */,
 			);
