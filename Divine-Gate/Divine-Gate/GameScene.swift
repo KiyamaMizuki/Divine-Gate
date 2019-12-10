@@ -30,6 +30,7 @@ class GameScene: SKScene {
     var containers:[PanelContainer] = [];//
     let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
     let screenheight = UIScreen.main.bounds.size.height//スマホの横幅
+    var queue : NormalSkillQueue = NormalSkillQueue();
     
     override func didMove(to view: SKView) {
         self.name = "battle";
@@ -48,6 +49,11 @@ class GameScene: SKScene {
         print(screenwidth);
         print(screenheight);
         self.addChild(labeli);
+        self.queue.insert(inserted_skill: NormalSkill(requirePanels: ["fire":2, "water":0, "wind":0, "light":0, "dark":0], ratio: 1.5, toSingle: true, skillType: "attack", name: "hogesukill", description: "testようっす", type: "fire", belong: Unit(attack: 2)));
+        print("queue検証")
+        print(self.queue.skillqueue.count);
+        print(self.queue.pop());
+        print(self.queue.pop());
         print("name of this scene: " + self.name!);
     }
     
