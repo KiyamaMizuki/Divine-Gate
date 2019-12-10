@@ -30,6 +30,7 @@ class GameScene: SKScene {
     var containers:[PanelContainer] = [];//パネル収容ボックスのリスト
     let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
     let screenheight = UIScreen.main.bounds.size.height//スマホの横幅
+    var u : DVUnit = DVUnit();
     
     override func didMove(to view: SKView) {
         self.name = "battle";
@@ -43,7 +44,7 @@ class GameScene: SKScene {
         self.labeli.position = CGPoint(x: 0, y: 150)//文字の位置を指定
         //self.labeli
         labeli.name = "buttonLabel"
-
+        
         print(self.labeli);
         print(screenwidth);
         print(screenheight);
@@ -106,6 +107,7 @@ class GameScene: SKScene {
         if (activePanel != nil){ // 選択中のpanelが存在する場合
             var interacted_pc_index = getInteractedContainerIndex(pos: pos); // 離した座標から、どのcontainerかを判別。具体的には、self.containersのインデックスを返す。どのcontainerも含まれてなかったと判断したら、-1を返す。
             
+            
             if (interacted_pc_index != -1){ // 1 タップを離した部分の座標がcontainerに含まれる時
                 if countjudge{
                     countable = true//カウントするためのフラグを立てる。また５秒経ったらfalseになる
@@ -123,6 +125,8 @@ class GameScene: SKScene {
                 }else{ // 1.2 containerの容量が空いていなかったら(満タンだったら)
                     backToBeginPoint();
                 }
+                print("実行すスキルは?");
+                print(self.u.getexecutable(container: containers[interacted_pc_index])[0].name);
             }else{  // 2 containerに含まれない時
                 backToBeginPoint();
             }

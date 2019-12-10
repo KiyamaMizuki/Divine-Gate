@@ -14,13 +14,12 @@ class Skill : Codable{
     let name : String
     let description : String
     let type : String
-    var belong : DVUnit
+    var belong : DVUnit?
     
-    init(name : String, description : String, type : String, belong : DVUnit) {
+    init(name : String, description : String, type : String) {
         self.name = name;
         self.description = description
         self.type = type;
-        self.belong = belong;
     }
     
 }
