@@ -26,10 +26,13 @@ class GameScene: SKScene {
     var countjudge = true;//countableの値を変えない為のフラグ
     let labeli = SKLabelNode(fontNamed: "Verdana")//文字を扱うための変数labeli
                                                   //"Verdana"はフォントの名前
+    let skillLabel = SKLabelNode(fontNamed: "Verdana");
     var dateFormatter = DateFormatter();//日付と時刻を表現
     var generators:[PanelGenerate] = [];//パネル生成ボックスのリスト
     var containers:[PanelContainer] = [];//パネル収容ボックスのリスト
-    var uvunits : [DVUnit] = [];
+    var dvunits : [DVUnit] = [];
+    var units_hpsum : Hpsum!;
+    var queues : [NormalSkillQueue] = []; // queue
     let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
     let screenheight = UIScreen.main.bounds.size.height//スマホの横幅
 //    var u : DVUnit = DVUnit();
@@ -38,14 +41,8 @@ class GameScene: SKScene {
         self.name = "battle";
         initPanelGenerate();
         initPanelContainer();
-        self.labeli.color = UIColor(named: "white");//表示される文字の色?
-        self.labeli.fontSize = 100;//文字のサイズ
-        self.labeli.zPosition = 100;//文字のZ座標
-        self.labeli.fontColor = UIColor.white;//表示される文字の色
-        self.labeli.text = "Divine:"; //画面に表示される文字
-        self.labeli.position = CGPoint(x: 0, y: 150)//文字の位置を指定
-        //self.labeli
-        labeli.name = "buttonLabel"
+        initLabel();
+        initSkillLabel();
         var unitStr1 = """
             {
                 "name":"testunit",
@@ -71,7 +68,23 @@ class GameScene: SKScene {
                         "ratio":1.2,
                         "toSingle": true,
                         "skillType": "attack",
-                        "name": "skill1",
+                        "name": "fire2",
+                        "executable":false,
+                        "description": "fuga",
+                        "type": "fire"
+                    },
+                    {
+                        "requirePanels":{
+                            "fire":1,
+                            "water":0,
+                            "wind":0,
+                            "light":0,
+                            "dark":0
+                        },
+                        "ratio":1.2,
+                        "toSingle": true,
+                        "skillType": "attack",
+                        "name": "fire1",
                         "executable":false,
                         "description": "fuga",
                         "type": "fire"
@@ -96,8 +109,8 @@ class GameScene: SKScene {
             "normalSkills":[
                 {
                     "requirePanels":{
-                        "fire":2,
-                        "water":0,
+                        "fire":0,
+                        "water":1,
                         "wind":0,
                         "light":0,
                         "dark":0
@@ -105,9 +118,9 @@ class GameScene: SKScene {
                     "ratio":1.2,
                     "toSingle": true,
                     "skillType": "attack",
-                    "name": "skill1",
+                    "name": "water1",
                     "executable":false,
-                    "description": "fuga",
+                    "description": "piyo",
                     "type": "fire"
                 }
             ],
@@ -120,34 +133,63 @@ class GameScene: SKScene {
         let dvunit2 = try! JSONDecoder().decode(DVUnit.self, from: unitData2!);
         print(dvunit1.name, dvunit1.level, dvunit1.plus, dvunit1.isLeader);
         print(dvunit2.name, dvunit2.level, dvunit2.plus, dvunit2.isLeader);
-        uvunits.append(dvunit1);
-        uvunits.append(dvunit2);
+        dvunits.append(dvunit1);
+        dvunits.append(dvunit2);
         
         // 体力表示
-        var hpsum = Hpsum();
-        // 1. inithpメソッドをよび、setProgressを利用する
-        hpsum.inithp(units: uvunits, x: 0, y: 50);
-        // 2.
-        print("体力")
-        print(hpsum.hp)
-        hpsum.wounded(damage: 50, type:"fire");
-        print(hpsum.hp)
-//        hpsum.setProgress(progress: 0.0) // 初期値
-
-        let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: hpsum.width, height: hpsum.height));
-        backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
-        backgroundBar.position = CGPoint(x: hpsum.position.x, y: hpsum.position.y);
-        backgroundBar.size = CGSize(width: hpsum.width, height: hpsum.height);
-
-        self.addChild(hpsum);
-        self.addChild(backgroundBar)
-
+//        initHPsum();
+        // normalSkillキュー初期化
+        initQueues();
         
-        print(self.labeli);
-        print(screenwidth);
-        print(screenheight);
-        self.addChild(labeli);
+        
         print("name of this scene: " + self.name!);
+    }
+    
+    func initLabel(){
+        self.labeli.color = UIColor(named: "white");//表示される文字の色?
+        self.labeli.fontSize = 100;//文字のサイズ
+        self.labeli.zPosition = 100;//文字のZ座標
+        self.labeli.fontColor = UIColor.white;//表示される文字の色
+        self.labeli.text = "Divine:"; //画面に表示される文字
+        self.labeli.position = CGPoint(x: 0, y: 150)//文字の位置を指定
+        //self.labeli
+        labeli.name = "buttonLabel"
+        
+        self.addChild(labeli);
+    }
+    
+    func initSkillLabel(){
+        self.skillLabel.color = UIColor(named: "white");//表示される文字の色?
+        self.skillLabel.fontSize = 30;//文字のサイズ
+        self.skillLabel.zPosition = 100;//文字のZ座標
+        self.skillLabel.fontColor = UIColor.white;//表示される文字の色
+        self.skillLabel.text = "skilllabel"; //画面に表示される文字
+        self.skillLabel.position = CGPoint(x: 0, y: 400)//文字の位置を指定
+        //self.skillLabel
+        skillLabel.name = "buttonLabel"
+        
+        self.addChild(skillLabel);
+    }
+    
+    func initHPsum(){
+        self.units_hpsum = Hpsum();
+        self.units_hpsum.inithp(units: dvunits, x: 0, y: 50); // 1. inithpメソッドをよび、setProgressを利用する
+        self.units_hpsum.wounded(damage: 50, type:"fire");
+
+        let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height));
+        backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
+        backgroundBar.position = CGPoint(x: self.units_hpsum.position.x, y: self.units_hpsum.position.y);
+        backgroundBar.size = CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height);
+
+        self.addChild(self.units_hpsum);
+        self.addChild(backgroundBar)
+    }
+    
+    func initQueues(){
+        for i in 0..<self.len{
+            var queue : NormalSkillQueue = NormalSkillQueue();
+            self.queues.append(queue);
+        }
     }
     
     /*
@@ -226,17 +268,42 @@ class GameScene: SKScene {
                             self.addChild(generators[i].pal!);
                         }
                     }
+                    insertExecutableSkill(index : interacted_pc_index); // queueに実行可能な
+                    displayExecutableSkill(index: interacted_pc_index);
                 }else{ // 1.2 containerの容量が空いていなかったら(満タンだったら)
                     backToBeginPoint();
                 }
 //                print("実行すスキルは?");
 //                print(self.u.getexecutable(container: containers[interacted_pc_index])[0].name);
+                
+                
             }else{  // 2 containerに含まれない時
                 backToBeginPoint();
             }
 
             self.activePanel = nil;
         }
+    }
+    
+    func insertExecutableSkill(index : Int){
+        
+        self.queues[index].skillqueue = [];
+        for unit in self.dvunits{
+            var normalskills : [NormalSkill] = unit.getexecutable(container: self.containers[index])
+            for ns in normalskills{
+                self.queues[index].insert(inserted_skill: ns);
+            }
+        }
+    
+    }
+    
+    func displayExecutableSkill(index : Int){
+        var displayStr : String = "container" + String(index) + ": ";
+        for skill in self.queues[index].skillqueue{
+            displayStr += skill.name;
+            displayStr += " ";
+        }
+        self.skillLabel.text = displayStr;
     }
     
     func getInteractedContainerIndex(pos : CGPoint) -> Int{
@@ -294,7 +361,7 @@ class GameScene: SKScene {
             var int: Int = Int(time)//intにキャスト
             var str: String = String(int)//strngにキャスト
             labeli.text = str;
-            if time > 5.0{
+            if time > 8.0{
                 countable = false;
             }
         }
