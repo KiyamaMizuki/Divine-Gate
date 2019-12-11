@@ -11,25 +11,25 @@ import SpriteKit
 import UIKit
 
 class DVUnit : Codable{
-    let name: String = ""; // 名前
-    let type: String = ""; // 属性
-    let tribe: String = ""; // 種族
-    let description: String = ""; // 説明文
-    let image_path: String = ""; // 画像のパス
-    let id: String = ""; // 図鑑番号
+    let name: String; // 名前
+    let type: String; // 属性
+    let tribe: String; // 種族
+    let description: String; // 説明文
+    let image_path: String; // 画像のパス
+    let id: String; // 図鑑番号
     let rerelity: Int = 0; // レア度
     var hp: Int = 0; // 体力
     var attack : Int = 0;//攻撃力
     var level: Int = 0; // レベル
     var plus: Int = 0; // statusの値に振ることで、上昇させることができる
-    let normalSkills : [NormalSkill] ; // ノーマルスキル
+    let normalSkills : [NormalSkill]; // ノーマルスキル
 //    let LinkSkill linkSkill; // リンクスキル
 //    let LeaderSkill LeaderSKill; // リーダースキル
 //    let PassiveSkill passiveSkill; // パッシブスキル
 //    let ActiveSkill activeSkill: // アクティブスキル
 //    let Skill boostSkill; // ブーストスキル
-    let isLeader: Bool = false; // リーダーかどうか
-    let isNormalSkillInclude: Bool = true; // ノーマルスキルの必要とするパネルの枚数に包含関係があるかどうか
+    let isLeader: Bool; // リーダーかどうか
+    let isNormalSkillInclude: Bool = false; // ノーマルスキルの必要とするパネルの枚数に包含関係があるかどうか
     
 //    init(attack : Int) {
 //        self.attack = attack;
@@ -43,11 +43,11 @@ class DVUnit : Codable{
 //        self.attack = attack;
 //
 //    }
-    init() {
-        self.normalSkills = [NormalSkill(requirePanels: ["fire":2,
-                                                         "water":0, "wind":0, "light":0, "dark":0], ratio:1.2, toSingle: true, skillType: "attack", name: "skill1", description: "fuga", type: "fire"), NormalSkill(requirePanels: ["fire":1, "water":0, "wind":0, "light":0, "dark":0], ratio:1.2, toSingle: true, skillType: "attack", name: "skill2", description: "fuga", type: "fire")];
-        self.normalSkills[0].belong = self
-    }
+//    init() {
+//        self.normalSkills = [NormalSkill(requirePanels: ["fire":2,
+//                                                         "water":0, "wind":0, "light":0, "dark":0], ratio:1.2, toSingle: true, skillType: "attack", name: "skill1", description: "fuga", type: "fire"), NormalSkill(requirePanels: ["fire":1, "water":0, "wind":0, "light":0, "dark":0], ratio:1.2, toSingle: true, skillType: "attack", name: "skill2", description: "fuga", type: "fire")];
+//        self.normalSkills[0].belong = self
+//    }
     
     func  getexecutable(container: PanelContainer) ->
         [NormalSkill] {

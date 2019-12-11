@@ -16,10 +16,11 @@ class Skill : Codable{
     let type : String
     var belong : DVUnit?
     
-    init(name : String, description : String, type : String) {
-        self.name = name;
-        self.description = description
-        self.type = type;
-    }
+//    init(name : String, description : String, type : String) {
+//        self.name = name;
+//        self.description = description
+//        self.type = type;
+//    }
+    
     
 }

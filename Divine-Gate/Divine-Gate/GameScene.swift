@@ -18,6 +18,7 @@ class GameScene: SKScene {
     
     var activePanel:Panel!; // 操作対象にあるパネルを指す
     let len : Int = 5; // 表示するcontainerとgeneratorの数
+    let unit_num : Int = 5; // ユニットの数
     var began_location_x :Int = 1;// activePanelの初期x座標. container外でタップが離されたときに元のPanelGenerateに戻すときに使う
     var began_location_y :Int = 1;// activePanelの初期y座標. 同上.
     var startDate : NSDate = NSDate();//開始時間
@@ -28,9 +29,10 @@ class GameScene: SKScene {
     var dateFormatter = DateFormatter();//日付と時刻を表現
     var generators:[PanelGenerate] = [];//パネル生成ボックスのリスト
     var containers:[PanelContainer] = [];//パネル収容ボックスのリスト
+    var uvunits : [DVUnit] = [];
     let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
     let screenheight = UIScreen.main.bounds.size.height//スマホの横幅
-    var u : DVUnit = DVUnit();
+//    var u : DVUnit = DVUnit();
     
     override func didMove(to view: SKView) {
         self.name = "battle";
@@ -44,6 +46,102 @@ class GameScene: SKScene {
         self.labeli.position = CGPoint(x: 0, y: 150)//文字の位置を指定
         //self.labeli
         labeli.name = "buttonLabel"
+        var unitStr1 = """
+            {
+                "name":"testunit",
+                "type":"fire",
+                "tribe":"human",
+                "description":"this is test unit",
+                "image_path":"hoge",
+                "id":"1",
+                "rarelity":0,
+                "hp":100,
+                "attack":10,
+                "level":5,
+                "plus":10,
+                "normalSkills":[
+                    {
+                        "requirePanels":{
+                            "fire":2,
+                            "water":0,
+                            "wind":0,
+                            "light":0,
+                            "dark":0
+                        },
+                        "ratio":1.2,
+                        "toSingle": true,
+                        "skillType": "attack",
+                        "name": "skill1",
+                        "executable":false,
+                        "description": "fuga",
+                        "type": "fire"
+                    }
+                ],
+                "isLeader":true,
+            }
+            """;
+        var unitStr2 = """
+        {
+            "name":"testunit2",
+            "type":"water",
+            "tribe":"human",
+            "description":"this is test unit",
+            "image_path":"hoge",
+            "id":"2",
+            "rarelity":0,
+            "hp":100,
+            "attack":10,
+            "level":5,
+            "plus":10,
+            "normalSkills":[
+                {
+                    "requirePanels":{
+                        "fire":2,
+                        "water":0,
+                        "wind":0,
+                        "light":0,
+                        "dark":0
+                    },
+                    "ratio":1.2,
+                    "toSingle": true,
+                    "skillType": "attack",
+                    "name": "skill1",
+                    "executable":false,
+                    "description": "fuga",
+                    "type": "fire"
+                }
+            ],
+            "isLeader":true,
+        }
+        """;
+        let unitData1 = unitStr1.data(using: .utf8)
+        let unitData2 = unitStr2.data(using: .utf8)
+        let dvunit1 = try! JSONDecoder().decode(DVUnit.self, from: unitData1!);
+        let dvunit2 = try! JSONDecoder().decode(DVUnit.self, from: unitData2!);
+        print(dvunit1.name, dvunit1.level, dvunit1.plus, dvunit1.isLeader);
+        print(dvunit2.name, dvunit2.level, dvunit2.plus, dvunit2.isLeader);
+        uvunits.append(dvunit1);
+        uvunits.append(dvunit2);
+        
+        // 体力表示
+        var hpsum = Hpsum();
+        // 1. inithpメソッドをよび、setProgressを利用する
+        hpsum.inithp(units: uvunits, x: 0, y: 50);
+        // 2.
+        print("体力")
+        print(hpsum.hp)
+        hpsum.wounded(damage: 50, type:"fire");
+        print(hpsum.hp)
+//        hpsum.setProgress(progress: 0.0) // 初期値
+
+        let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: hpsum.width, height: hpsum.height));
+        backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
+        backgroundBar.position = CGPoint(x: hpsum.position.x, y: hpsum.position.y);
+        backgroundBar.size = CGSize(width: hpsum.width, height: hpsum.height);
+
+        self.addChild(hpsum);
+        self.addChild(backgroundBar)
+
         
         print(self.labeli);
         print(screenwidth);
@@ -80,6 +178,12 @@ class GameScene: SKScene {
             self.addChild(pc);
         }
     }
+    
+//    func initUVUnit(){
+//        for i in 0..<self.unit_num{
+//            var
+//        }
+//    }
     
     /*
         touchesbeginから呼ばれる
@@ -125,8 +229,8 @@ class GameScene: SKScene {
                 }else{ // 1.2 containerの容量が空いていなかったら(満タンだったら)
                     backToBeginPoint();
                 }
-                print("実行すスキルは?");
-                print(self.u.getexecutable(container: containers[interacted_pc_index])[0].name);
+//                print("実行すスキルは?");
+//                print(self.u.getexecutable(container: containers[interacted_pc_index])[0].name);
             }else{  // 2 containerに含まれない時
                 backToBeginPoint();
             }

@@ -18,18 +18,36 @@ class NormalSkill : Skill{
     var skillType : String = "";//スキルの種類(ノーマル、パッシブ)
     
     
-    init(requirePanels : Dictionary<String, Int>, ratio : Float, toSingle : Bool, skillType : String, name : String, description : String, type : String) {
-        super.init(name : name, description : description, type : type);
-        self.requirePanels = requirePanels;
-        self.ratio = ratio;
-        self.toSingle = toSingle;
-        self.executable = false;
-        self.skillType = skillType;
-    }
+//    init(requirePanels : Dictionary<String, Int>, ratio : Float, toSingle : Bool, skillType : String, name : String, description : String, type : String) {
+//        super.init(name : name, description : description, type : type);
+//        self.requirePanels = requirePanels;
+//        self.ratio = ratio;
+//        self.toSingle = toSingle;
+//        self.executable = false;
+//        self.skillType = skillType;
+//    }
     
-    required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
+    enum CodingKeys: String, CodingKey{
+        case requirePanels
+        case ratio
+        case toSingle
+        case executable
+        case skillType
     }
+        required init(from decoder: Decoder) throws {
+    //        fatalError("init(from:) has not been implemented")
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.requirePanels = try container.decode(Dictionary.self, forKey: .requirePanels)
+            self.ratio = try container.decode(Float.self, forKey: .ratio)
+            self.toSingle = try container.decode(Bool.self, forKey: .toSingle)
+            self.executable = try container.decode(Bool.self, forKey: .executable)
+            self.skillType = try container.decode(String.self, forKey: .skillType)
+            try super.init(from: decoder)
+        }
+    
+//    required init(from decoder: Decoder) throws {
+//        fatalError("init(from:) has not been implemented")
+//    }
     
     func judgeExecutable(panelInfo_ : [String:Int]) -> Bool{// containerの持つパネルの情報を見て、実行可能か判断する
 //        for container.
