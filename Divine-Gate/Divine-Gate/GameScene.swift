@@ -68,7 +68,7 @@ class GameScene: SKScene {
                         "ratio":1.2,
                         "toSingle": true,
                         "skillType": "attack",
-                        "name": "fire2",
+                        "name": "fire2skill",
                         "executable":false,
                         "description": "fuga",
                         "type": "fire"
@@ -84,7 +84,7 @@ class GameScene: SKScene {
                         "ratio":1.2,
                         "toSingle": true,
                         "skillType": "attack",
-                        "name": "fire1",
+                        "name": "fire1skill",
                         "executable":false,
                         "description": "fuga",
                         "type": "fire"
@@ -118,7 +118,7 @@ class GameScene: SKScene {
                     "ratio":1.2,
                     "toSingle": true,
                     "skillType": "attack",
-                    "name": "water1",
+                    "name": "water1skill",
                     "executable":false,
                     "description": "piyo",
                     "type": "fire"
