@@ -15,6 +15,11 @@
 		CF077E11238FA376003B6C47 /* PanelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF077E10238FA376003B6C47 /* PanelContainer.swift */; };
 		CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF96237672FB005E6E10 /* Panel.swift */; };
 		CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */; };
+		CFDE1815239FD6D2001EA9E9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE1814239FD6D2001EA9E9 /* User.swift */; };
+		CFDE1817239FE10D001EA9E9 /* SuperUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE1816239FE10D001EA9E9 /* SuperUser.swift */; };
+		CFDE181923A080A1001EA9E9 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = CFDE181823A080A1001EA9E9 /* user.json */; };
+		CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181A23A08700001EA9E9 /* ProgressBar.swift */; };
+		CFDE181D23A09AA4001EA9E9 /* NormalSkillQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */; };
 		EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8AB0237654B00013120E /* AppDelegate.swift */; };
 		EE5E8AB3237654B00013120E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8AB2237654B00013120E /* GameScene.sks */; };
 		EE5E8AB5237654B00013120E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8AB4237654B00013120E /* Actions.sks */; };
@@ -53,6 +58,11 @@
 		CF077E10238FA376003B6C47 /* PanelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelContainer.swift; sourceTree = "<group>"; };
 		CF4DBF96237672FB005E6E10 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGenerate.swift; sourceTree = "<group>"; };
+		CFDE1814239FD6D2001EA9E9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CFDE1816239FE10D001EA9E9 /* SuperUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperUser.swift; sourceTree = "<group>"; };
+		CFDE181823A080A1001EA9E9 /* user.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
+		CFDE181A23A08700001EA9E9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalSkillQueue.swift; sourceTree = "<group>"; };
 		EE5E8AAD237654B00013120E /* Divine-Gate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Divine-Gate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5E8AB0237654B00013120E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE5E8AB2237654B00013120E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -123,6 +133,9 @@
 				EE5E8AB2237654B00013120E /* GameScene.sks */,
 				EE5E8AB4237654B00013120E /* Actions.sks */,
 				EE5E8AB6237654B00013120E /* GameScene.swift */,
+				ACC10D56239DDB0400209DC3 /* Hpsum.swift */,
+				CFDE181A23A08700001EA9E9 /* ProgressBar.swift */,
+				ACC02F15239BC44D008B314E /* DVUnit.swift */,
 				EE5E8AB8237654B00013120E /* GameViewController.swift */,
 				EE5E8ABA237654B00013120E /* Main.storyboard */,
 				EE5E8ABD237654B20013120E /* Assets.xcassets */,
@@ -131,11 +144,13 @@
 				CF4DBF96237672FB005E6E10 /* Panel.swift */,
 				CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */,
 				CF077E10238FA376003B6C47 /* PanelContainer.swift */,
-				ACC02F15239BC44D008B314E /* DVUnit.swift */,
-				ACC10D56239DDB0400209DC3 /* Hpsum.swift */,
 				ACC10D54239DDAE200209DC3 /* NormalSkill.swift */,
 				ACC10D58239DDB2000209DC3 /* Enemy.swift */,
 				ACC10D52239DDAD300209DC3 /* Skill.swift */,
+				CFDE1814239FD6D2001EA9E9 /* User.swift */,
+				CFDE1816239FE10D001EA9E9 /* SuperUser.swift */,
+				CFDE181823A080A1001EA9E9 /* user.json */,
+				CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */,
 			);
 			path = "Divine-Gate";
 			sourceTree = "<group>";
@@ -262,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFDE181923A080A1001EA9E9 /* user.json in Resources */,
 				EE5E8ABC237654B00013120E /* Main.storyboard in Resources */,
 				EE5E8AB3237654B00013120E /* GameScene.sks in Resources */,
 				EE5E8ABE237654B20013120E /* Assets.xcassets in Resources */,
@@ -297,9 +313,13 @@
 				ACC10D59239DDB2000209DC3 /* Enemy.swift in Sources */,
 				EE5E8AB9237654B00013120E /* GameViewController.swift in Sources */,
 				ACC02F16239BC44D008B314E /* DVUnit.swift in Sources */,
+				CFDE181D23A09AA4001EA9E9 /* NormalSkillQueue.swift in Sources */,
+				CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */,
 				ACC10D57239DDB0400209DC3 /* Hpsum.swift in Sources */,
 				CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */,
+				CFDE1815239FD6D2001EA9E9 /* User.swift in Sources */,
 				ACC10D53239DDAD300209DC3 /* Skill.swift in Sources */,
+				CFDE1817239FE10D001EA9E9 /* SuperUser.swift in Sources */,
 				CF077E11238FA376003B6C47 /* PanelContainer.swift in Sources */,
 				EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */,
 			);
