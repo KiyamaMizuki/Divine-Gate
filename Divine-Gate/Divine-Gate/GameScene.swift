@@ -121,7 +121,7 @@ class GameScene: SKScene {
                     "name": "water1skill",
                     "executable":false,
                     "description": "piyo",
-                    "type": "fire"
+                    "type": "water"
                 }
             ],
             "isLeader":true,
@@ -137,11 +137,23 @@ class GameScene: SKScene {
         dvunits.append(dvunit2);
         
         // 体力表示
-//        initHPsum();
+        initHPsum();
         // normalSkillキュー初期化
         initQueues();
         
+//        var skillview = SkillView(viewWidth: 100, viewHeight: 10, normalSkill: dvunit1.normalSkills[0]);
+//        self.addChild(skillview);
+        for queue in queues{
+            print(queue);
+        }
+        self.queues[1].insert(inserted_skill_view: SkillView(viewWidth: queues[0].width, viewHeight: queues[0].height / 8, normalSkill: self.dvunits[0].normalSkills[0]));
         
+        print(self.queues[1].skillqueue);
+//        print(self.queues[1].skillqueue[0].position);
+//        var hoe = SkillView(viewWidth: queues[0].width, viewHeight: queues[0].height / 8, normalSkill: self.dvunits[0].normalSkills[0])
+//        hoe.setPosition(x: -125, y: 0)
+//        hoe.zPosition = 10
+//        self.addChild(hoe)
         print("name of this scene: " + self.name!);
     }
     
@@ -186,9 +198,17 @@ class GameScene: SKScene {
     }
     
     func initQueues(){
+//        for i in 0..<self.len{
+//            var queue : NormalSkillQueue = NormalSkillQueue();
+//            self.queues.append(queue);
+//            self.addChild(queue)
+//        }
         for i in 0..<self.len{
             var queue : NormalSkillQueue = NormalSkillQueue();
+            
+            queue.setpoint(x:-250 + i * 125 ,y : 0);//パネル生成の箱の位置
             self.queues.append(queue);
+            self.addChild(queue);
         }
     }
     
@@ -288,10 +308,12 @@ class GameScene: SKScene {
     func insertExecutableSkill(index : Int){
         
         self.queues[index].skillqueue = [];
+        self.queues[index].delete();
         for unit in self.dvunits{
             var normalskills : [NormalSkill] = unit.getexecutable(container: self.containers[index])
             for ns in normalskills{
-                self.queues[index].insert(inserted_skill: ns);
+                var nsview = SkillView(viewWidth: self.queues[index].width, viewHeight: self.queues[index].width / 8, normalSkill: ns)
+                self.queues[index].insert(inserted_skill_view: nsview);
             }
         }
     
@@ -299,8 +321,8 @@ class GameScene: SKScene {
     
     func displayExecutableSkill(index : Int){
         var displayStr : String = "container" + String(index) + ": ";
-        for skill in self.queues[index].skillqueue{
-            displayStr += skill.name;
+        for skillview in self.queues[index].skillqueue{
+            displayStr += skillview.normalSkill.name;
             displayStr += " ";
         }
         self.skillLabel.text = displayStr;
@@ -361,7 +383,7 @@ class GameScene: SKScene {
             var int: Int = Int(time)//intにキャスト
             var str: String = String(int)//strngにキャスト
             labeli.text = str;
-            if time > 8.0{
+            if time > 50.0{
                 countable = false;
             }
         }
