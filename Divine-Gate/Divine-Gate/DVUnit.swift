@@ -79,6 +79,12 @@ class DVUnit : Codable{
             
     }
     
+    func setSkilltoBelong(){
+        for ns in self.normalSkills{
+            ns.belong = self;
+        }
+    }
+    
 //    func skill(skillpal1 : [String:Int],existpal : [String:Int]) -> {
 //        for panel1 in existpal{
 //            if panel1.value  skillpal1.values{

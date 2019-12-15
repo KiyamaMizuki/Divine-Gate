@@ -33,16 +33,18 @@ class GameScene: SKScene {
     var dvunits : [DVUnit] = [];
     var units_hpsum : Hpsum!;
     var queues : [NormalSkillQueue] = []; // queue
+    var enemy : Enemy!;
     let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
     let screenheight = UIScreen.main.bounds.size.height//スマホの横幅
 //    var u : DVUnit = DVUnit();
+    var hpsum : Hpsum!;
     
     override func didMove(to view: SKView) {
         self.name = "battle";
         initPanelGenerate();
         initPanelContainer();
         initLabel();
-        initSkillLabel();
+//        initSkillLabel();
         var unitStr1 = """
             {
                 "name":"testunit",
@@ -65,7 +67,7 @@ class GameScene: SKScene {
                             "light":0,
                             "dark":0
                         },
-                        "ratio":1.2,
+                        "ratio":3.0,
                         "toSingle": true,
                         "skillType": "attack",
                         "name": "fire2skill",
@@ -81,7 +83,7 @@ class GameScene: SKScene {
                             "light":0,
                             "dark":0
                         },
-                        "ratio":1.2,
+                        "ratio":2.0,
                         "toSingle": true,
                         "skillType": "attack",
                         "name": "fire1skill",
@@ -133,27 +135,21 @@ class GameScene: SKScene {
         let dvunit2 = try! JSONDecoder().decode(DVUnit.self, from: unitData2!);
         print(dvunit1.name, dvunit1.level, dvunit1.plus, dvunit1.isLeader);
         print(dvunit2.name, dvunit2.level, dvunit2.plus, dvunit2.isLeader);
+        dvunit1.setSkilltoBelong();
+        dvunit2.setSkilltoBelong();
         dvunits.append(dvunit1);
         dvunits.append(dvunit2);
         
+        self.enemy = Enemy(type: "fire", enemywidth: 500, enemyheight: 500, image_path: "monster01");
+        enemy.setPosition(x: 0, y: 400);
+
         // 体力表示
         initHPsum();
+        initEnemyHPsum();
         // normalSkillキュー初期化
         initQueues();
         
-//        var skillview = SkillView(viewWidth: 100, viewHeight: 10, normalSkill: dvunit1.normalSkills[0]);
-//        self.addChild(skillview);
-        for queue in queues{
-            print(queue);
-        }
-        self.queues[1].insert(inserted_skill_view: SkillView(viewWidth: queues[0].width, viewHeight: queues[0].height / 8, normalSkill: self.dvunits[0].normalSkills[0]));
-        
-        print(self.queues[1].skillqueue);
-//        print(self.queues[1].skillqueue[0].position);
-//        var hoe = SkillView(viewWidth: queues[0].width, viewHeight: queues[0].height / 8, normalSkill: self.dvunits[0].normalSkills[0])
-//        hoe.setPosition(x: -125, y: 0)
-//        hoe.zPosition = 10
-//        self.addChild(hoe)
+        self.addChild(enemy);
         print("name of this scene: " + self.name!);
     }
     
@@ -185,15 +181,27 @@ class GameScene: SKScene {
     
     func initHPsum(){
         self.units_hpsum = Hpsum();
-        self.units_hpsum.inithp(units: dvunits, x: 0, y: 50); // 1. inithpメソッドをよび、setProgressを利用する
-        self.units_hpsum.wounded(damage: 50, type:"fire");
+        self.units_hpsum.inithp(units: dvunits, x: -260, y: -200); // 1. inithpメソッドをよび、setProgressを利用する
 
-        let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height));
+        let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height)); // 背景色の色
         backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
         backgroundBar.position = CGPoint(x: self.units_hpsum.position.x, y: self.units_hpsum.position.y);
         backgroundBar.size = CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height);
 
         self.addChild(self.units_hpsum);
+        self.addChild(backgroundBar)
+    }
+    
+    func initEnemyHPsum(){
+        var hpsum = Hpsum();
+        hpsum.inithp(units: dvunits, x: 0, y: 70); // 1. inithpメソッドをよび、setProgressを利用する
+
+        let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: hpsum.width, height: hpsum.height));
+        backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
+        backgroundBar.position = CGPoint(x: hpsum.position.x, y: hpsum.position.y);
+        backgroundBar.size = CGSize(width: hpsum.width, height: hpsum.height);
+        self.enemy.hpsum = hpsum;
+        self.addChild(self.enemy.hpsum);
         self.addChild(backgroundBar)
     }
     
@@ -341,6 +349,14 @@ class GameScene: SKScene {
         return i;
     }
     
+    func executeSkill(){ // queueに格納されているスキルを全て実行し、queueの中身を空っぽにする
+        for queue in self.queues{
+            for skillView in queue.skillqueue{
+                skillView.normalSkill.execute(hpsum: self.units_hpsum, enemies: [self.enemy], enemy_index: 0);
+            }
+        }
+    }
+    
     /*
         container外でactivePanelをタップする指が離されたときに、元の位置に戻す関数.
      */
@@ -383,8 +399,9 @@ class GameScene: SKScene {
             var int: Int = Int(time)//intにキャスト
             var str: String = String(int)//strngにキャスト
             labeli.text = str;
-            if time > 50.0{
+            if time > 8.0{
                 countable = false;
+                executeSkill();
             }
         }
      //   Called; before; each; frame is rendered
