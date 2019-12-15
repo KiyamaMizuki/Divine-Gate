@@ -358,8 +358,8 @@ class GameScene: SKScene {
             var time = NSDate().timeIntervalSince(self.startDate as Date);//NSDateは現在の時刻
             let targetDate = Date(timeIntervalSinceReferenceDate: time);
             labeli.text = dateFormatter.string(from: targetDate);
-            var int: Int = Int(time)//intにキャスト
-            var str: String = String(int)//strngにキャスト
+            var int: Int = Int(time)//Intにキャスト
+            var str: String = String(int)//Strngにキャスト
             labeli.text = str;
             if time > 8.0{
                 countable = false;

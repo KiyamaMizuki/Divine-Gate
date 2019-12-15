@@ -16,19 +16,18 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let view = self.view as! SKView? {
+        if let view = self.view as! SKView? {//SKView型のviewを変数viewへキャスト
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-
+                scene.scaleMode = .aspectFill//画像を使用する際アスペクト比を保つ
                 // Present the scene
                 view.presentScene(scene)
             }
 
             view.ignoresSiblingOrder = true
 
-            view.showsFPS = true
+            view.showsFPS = true//sceneのfpsを表示します（開発用）
             view.showsNodeCount = true
         }
     }
