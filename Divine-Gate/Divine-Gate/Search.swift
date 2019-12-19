@@ -62,4 +62,17 @@ class Search: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //ネットのコピペ
+    func transition(touches: Set<UITouch>, withEvent event: UIEvent?) {
+            if let _ = touches.first as UITouch? {
+    //タッチを検出したときにStepSceneを呼び出す
+                let scene = GameScene(size: self.scene!.size)
+                scene.scaleMode = SKSceneScaleMode.aspectFill
+                self.view.presentScene(scene)
+
+            }
+        }
+    
+    
 }
