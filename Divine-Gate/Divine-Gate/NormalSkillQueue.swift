@@ -26,6 +26,7 @@ class NormalSkillQueue:  SKSpriteNode{ // 灰色のnormalSkillQueueを表示す�
     
     func delete(){
         self.removeAllChildren();
+        self.skillqueue.removeAll();
     }
     
     func draw(){ // 自分の子要素に

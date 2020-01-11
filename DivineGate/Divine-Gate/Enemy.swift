@@ -11,14 +11,6 @@ import SpriteKit
 class Enemy: SKSpriteNode{
     
     
-    //    init(imageNamed: String){
-    //        super.init(imageNamed: imageNamed);
-    //
-    //    }
-    //
-    //    required init?(coder aDecoder: NSCoder) {
-    //        fatalError("init(coder:) has not been implemented")
-    //    }
         var gameScene: SKScene!
         var type: String!//enemyの属性
         var image_path: String!

@@ -34,7 +34,7 @@ class Hpsum : ProgressBar{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func inithp(units : [DVUnit], x : Int, y : Int ){ // 体力を初期化する。
+    func inithp(units : [DVUnit], x : Int, y : Int ){ // 体力を初期化する。プレイヤー専用
         var hp_sum : Int = 0;
         for unit in units{
             hp_sum += unit.hp;
@@ -44,7 +44,14 @@ class Hpsum : ProgressBar{
         self.setProgress(progress: 1.0);
         self.position = CGPoint(x: x,y: y)
         self.zPosition = 1 // 背景バーよりレイヤーを前に
-
+    }
+    
+    func inithp(num : Int, x: Int, y: Int){  // 体力を初期化する。エネミー専用
+        self.full_hp = num;
+        self.hp = num;
+        self.setProgress(progress: 1.0)
+        self.position = CGPoint(x: x, y: y);
+        self.zPosition = 1
     }
     
     func recovery(){

@@ -52,8 +52,8 @@ class DVUnit : Codable{
     func  getexecutable(container: PanelContainer) ->
         [NormalSkill] {
             var endFlag : Bool = false;
-            var panelInfo : [String:Int] = container.getType(panel : container.belong_panel)
-           var resultSkills: [NormalSkill] = [];
+            var panelInfo : [String:Int] = container.getPanelInfo()
+            var resultSkills: [NormalSkill] = [];
             while true{
                 for i in 0..<self.normalSkills.count{
                     if (self.normalSkills[i].judgeExecutable(panelInfo_: panelInfo)){ // 減算可能であったら

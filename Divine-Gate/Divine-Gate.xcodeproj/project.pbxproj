@@ -15,6 +15,7 @@
 		CF3E061423A200DA00E10C91 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3E061323A200DA00E10C91 /* Enemy.swift */; };
 		CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF96237672FB005E6E10 /* Panel.swift */; };
 		CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */; };
+		CFA38B2A23C8CA05000248CD /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA38B2923C8CA05000248CD /* TimerLabel.swift */; };
 		CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181A23A08700001EA9E9 /* ProgressBar.swift */; };
 		CFDE181D23A09AA4001EA9E9 /* NormalSkillQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */; };
 		CFDE2B1123A6353500FCC822 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE2B1023A6353500FCC822 /* SkillView.swift */; };
@@ -56,6 +57,7 @@
 		CF3E061323A200DA00E10C91 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enemy.swift; path = "../../DivineGate/Divine-Gate/Enemy.swift"; sourceTree = "<group>"; };
 		CF4DBF96237672FB005E6E10 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGenerate.swift; sourceTree = "<group>"; };
+		CFA38B2923C8CA05000248CD /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		CFDE181A23A08700001EA9E9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalSkillQueue.swift; sourceTree = "<group>"; };
 		CFDE2B1023A6353500FCC822 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				EE5E8AB4237654B00013120E /* Actions.sks */,
 				EE5E8AB6237654B00013120E /* GameScene.swift */,
 				ACC10D56239DDB0400209DC3 /* Hpsum.swift */,
+				CFA38B2923C8CA05000248CD /* TimerLabel.swift */,
 				CFDE181A23A08700001EA9E9 /* ProgressBar.swift */,
 				ACC02F15239BC44D008B314E /* DVUnit.swift */,
 				EE5E8AB8237654B00013120E /* GameViewController.swift */,
@@ -303,6 +306,7 @@
 				CF3E061423A200DA00E10C91 /* Enemy.swift in Sources */,
 				EE5E8AB7237654B00013120E /* GameScene.swift in Sources */,
 				ACC10D55239DDAE200209DC3 /* NormalSkill.swift in Sources */,
+				CFA38B2A23C8CA05000248CD /* TimerLabel.swift in Sources */,
 				CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */,
 				CFDE2B1123A6353500FCC822 /* SkillView.swift in Sources */,
 				EE5E8AB9237654B00013120E /* GameViewController.swift in Sources */,
