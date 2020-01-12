@@ -9,16 +9,17 @@
 import Foundation
 import SpriteKit
 import UIKit
+import RealmSwift
 
-class Skill : Codable{
-    let name : String
-    let description : String
-    let type : String
+class Skill : Object, Codable{
+    @objc dynamic var name : String
+    @objc dynamic var description_c : String
+    @objc dynamic var type : String
     var belong : DVUnit?
     
-//    init(name : String, description : String, type : String) {
+//    init(name : String, description_c : String, type : String) {
 //        self.name = name;
-//        self.description = description
+//        self.description_c = description_c
 //        self.type = type;
 //    }
     

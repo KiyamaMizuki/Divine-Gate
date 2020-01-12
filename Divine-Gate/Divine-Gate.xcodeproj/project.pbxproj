@@ -3,22 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45095792175F3E55CABE0BB2 /* Pods_Divine_Gate_Divine_GateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECA39E84CDE52CE3AB3E246 /* Pods_Divine_Gate_Divine_GateUITests.framework */; };
 		ACC02F16239BC44D008B314E /* DVUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC02F15239BC44D008B314E /* DVUnit.swift */; };
 		ACC10D53239DDAD300209DC3 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC10D52239DDAD300209DC3 /* Skill.swift */; };
 		ACC10D55239DDAE200209DC3 /* NormalSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC10D54239DDAE200209DC3 /* NormalSkill.swift */; };
 		ACC10D57239DDB0400209DC3 /* Hpsum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC10D56239DDB0400209DC3 /* Hpsum.swift */; };
+		C72005558031D2FD752AC4E3 /* Pods_Divine_GateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F183202383DA4C19B62E5C57 /* Pods_Divine_GateTests.framework */; };
 		CF077E11238FA376003B6C47 /* PanelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF077E10238FA376003B6C47 /* PanelContainer.swift */; };
 		CF3E061423A200DA00E10C91 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3E061323A200DA00E10C91 /* Enemy.swift */; };
 		CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF96237672FB005E6E10 /* Panel.swift */; };
 		CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */; };
 		CFA38B2A23C8CA05000248CD /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA38B2923C8CA05000248CD /* TimerLabel.swift */; };
+		CFB990F623CA331900562371 /* RequirePanelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB990F523CA331900562371 /* RequirePanelModel.swift */; };
 		CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181A23A08700001EA9E9 /* ProgressBar.swift */; };
 		CFDE181D23A09AA4001EA9E9 /* NormalSkillQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */; };
 		CFDE2B1123A6353500FCC822 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE2B1023A6353500FCC822 /* SkillView.swift */; };
+		E36B3DA2E9796026F580D28E /* Pods_Divine_Gate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04856B4124D0C9EAA2A309B /* Pods_Divine_Gate.framework */; };
 		EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8AB0237654B00013120E /* AppDelegate.swift */; };
 		EE5E8AB3237654B00013120E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8AB2237654B00013120E /* GameScene.sks */; };
 		EE5E8AB5237654B00013120E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8AB4237654B00013120E /* Actions.sks */; };
@@ -49,15 +53,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16B1BE8AE5AA46F5A317F489 /* Pods-Divine-GateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Divine-GateTests.release.xcconfig"; path = "Target Support Files/Pods-Divine-GateTests/Pods-Divine-GateTests.release.xcconfig"; sourceTree = "<group>"; };
+		2ECA39E84CDE52CE3AB3E246 /* Pods_Divine_Gate_Divine_GateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Divine_Gate_Divine_GateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F34C1B81C6B55406022D4BE /* Pods-Divine-Gate-Divine-GateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Divine-Gate-Divine-GateUITests.release.xcconfig"; path = "Target Support Files/Pods-Divine-Gate-Divine-GateUITests/Pods-Divine-Gate-Divine-GateUITests.release.xcconfig"; sourceTree = "<group>"; };
+		677E50A23FC6028A9C819C15 /* Pods-Divine-GateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Divine-GateTests.debug.xcconfig"; path = "Target Support Files/Pods-Divine-GateTests/Pods-Divine-GateTests.debug.xcconfig"; sourceTree = "<group>"; };
+		91401AD13989C0E60240C7BA /* Pods-Divine-Gate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Divine-Gate.release.xcconfig"; path = "Target Support Files/Pods-Divine-Gate/Pods-Divine-Gate.release.xcconfig"; sourceTree = "<group>"; };
+		94FEE3FC1905ABDAA8CE33DA /* Pods-Divine-Gate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Divine-Gate.debug.xcconfig"; path = "Target Support Files/Pods-Divine-Gate/Pods-Divine-Gate.debug.xcconfig"; sourceTree = "<group>"; };
+		A04856B4124D0C9EAA2A309B /* Pods_Divine_Gate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Divine_Gate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC02F15239BC44D008B314E /* DVUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVUnit.swift; sourceTree = "<group>"; };
 		ACC10D52239DDAD300209DC3 /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		ACC10D54239DDAE200209DC3 /* NormalSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalSkill.swift; sourceTree = "<group>"; };
 		ACC10D56239DDB0400209DC3 /* Hpsum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hpsum.swift; sourceTree = "<group>"; };
+		C955C599E6A52306F894568C /* Pods-Divine-Gate-Divine-GateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Divine-Gate-Divine-GateUITests.debug.xcconfig"; path = "Target Support Files/Pods-Divine-Gate-Divine-GateUITests/Pods-Divine-Gate-Divine-GateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF077E10238FA376003B6C47 /* PanelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelContainer.swift; sourceTree = "<group>"; };
 		CF3E061323A200DA00E10C91 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enemy.swift; path = "../../DivineGate/Divine-Gate/Enemy.swift"; sourceTree = "<group>"; };
 		CF4DBF96237672FB005E6E10 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGenerate.swift; sourceTree = "<group>"; };
 		CFA38B2923C8CA05000248CD /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
+		CFB990F523CA331900562371 /* RequirePanelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirePanelModel.swift; sourceTree = "<group>"; };
 		CFDE181A23A08700001EA9E9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalSkillQueue.swift; sourceTree = "<group>"; };
 		CFDE2B1023A6353500FCC822 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
@@ -77,6 +90,7 @@
 		EE5E8AD2237654B20013120E /* Divine-GateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Divine-GateUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5E8AD6237654B20013120E /* Divine_GateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divine_GateUITests.swift; sourceTree = "<group>"; };
 		EE5E8AD8237654B20013120E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F183202383DA4C19B62E5C57 /* Pods_Divine_GateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Divine_GateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E36B3DA2E9796026F580D28E /* Pods_Divine_Gate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72005558031D2FD752AC4E3 /* Pods_Divine_GateTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,12 +114,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45095792175F3E55CABE0BB2 /* Pods_Divine_Gate_Divine_GateUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2D203EFC44457241649CABB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94FEE3FC1905ABDAA8CE33DA /* Pods-Divine-Gate.debug.xcconfig */,
+				91401AD13989C0E60240C7BA /* Pods-Divine-Gate.release.xcconfig */,
+				C955C599E6A52306F894568C /* Pods-Divine-Gate-Divine-GateUITests.debug.xcconfig */,
+				4F34C1B81C6B55406022D4BE /* Pods-Divine-Gate-Divine-GateUITests.release.xcconfig */,
+				677E50A23FC6028A9C819C15 /* Pods-Divine-GateTests.debug.xcconfig */,
+				16B1BE8AE5AA46F5A317F489 /* Pods-Divine-GateTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CCF3A3508CCF4937D5C9D5FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A04856B4124D0C9EAA2A309B /* Pods_Divine_Gate.framework */,
+				2ECA39E84CDE52CE3AB3E246 /* Pods_Divine_Gate_Divine_GateUITests.framework */,
+				F183202383DA4C19B62E5C57 /* Pods_Divine_GateTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EE5E8AA4237654AF0013120E = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +151,8 @@
 				EE5E8ACA237654B20013120E /* Divine-GateTests */,
 				EE5E8AD5237654B20013120E /* Divine-GateUITests */,
 				EE5E8AAE237654B00013120E /* Products */,
+				A2D203EFC44457241649CABB /* Pods */,
+				CCF3A3508CCF4937D5C9D5FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,10 +173,13 @@
 				EE5E8AB2237654B00013120E /* GameScene.sks */,
 				EE5E8AB4237654B00013120E /* Actions.sks */,
 				EE5E8AB6237654B00013120E /* GameScene.swift */,
+				ACC10D54239DDAE200209DC3 /* NormalSkill.swift */,
+				ACC02F15239BC44D008B314E /* DVUnit.swift */,
+				ACC10D52239DDAD300209DC3 /* Skill.swift */,
+				CFB990F523CA331900562371 /* RequirePanelModel.swift */,
 				ACC10D56239DDB0400209DC3 /* Hpsum.swift */,
 				CFA38B2923C8CA05000248CD /* TimerLabel.swift */,
 				CFDE181A23A08700001EA9E9 /* ProgressBar.swift */,
-				ACC02F15239BC44D008B314E /* DVUnit.swift */,
 				EE5E8AB8237654B00013120E /* GameViewController.swift */,
 				EE5E8ABA237654B00013120E /* Main.storyboard */,
 				EE5E8ABD237654B20013120E /* Assets.xcassets */,
@@ -143,9 +188,7 @@
 				CF4DBF96237672FB005E6E10 /* Panel.swift */,
 				CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */,
 				CF077E10238FA376003B6C47 /* PanelContainer.swift */,
-				ACC10D54239DDAE200209DC3 /* NormalSkill.swift */,
 				CF3E061323A200DA00E10C91 /* Enemy.swift */,
-				ACC10D52239DDAD300209DC3 /* Skill.swift */,
 				CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */,
 				CFDE2B1023A6353500FCC822 /* SkillView.swift */,
 			);
@@ -177,9 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE5E8ADB237654B20013120E /* Build configuration list for PBXNativeTarget "Divine-Gate" */;
 			buildPhases = (
+				9793FE3A1428C8250C7F128D /* [CP] Check Pods Manifest.lock */,
 				EE5E8AA9237654AF0013120E /* Sources */,
 				EE5E8AAA237654AF0013120E /* Frameworks */,
 				EE5E8AAB237654AF0013120E /* Resources */,
+				550C20FC722234BF88CBB812 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,6 +239,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE5E8ADE237654B20013120E /* Build configuration list for PBXNativeTarget "Divine-GateTests" */;
 			buildPhases = (
+				0015B2A3EEBCF5098B83AE61 /* [CP] Check Pods Manifest.lock */,
 				EE5E8AC3237654B20013120E /* Sources */,
 				EE5E8AC4237654B20013120E /* Frameworks */,
 				EE5E8AC5237654B20013120E /* Resources */,
@@ -212,9 +258,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE5E8AE1237654B20013120E /* Build configuration list for PBXNativeTarget "Divine-GateUITests" */;
 			buildPhases = (
+				A9E9FC81B8DB635D371B9A26 /* [CP] Check Pods Manifest.lock */,
 				EE5E8ACE237654B20013120E /* Sources */,
 				EE5E8ACF237654B20013120E /* Frameworks */,
 				EE5E8AD0237654B20013120E /* Resources */,
+				30BEF892552D3DD66E4DB5E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -298,6 +346,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0015B2A3EEBCF5098B83AE61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Divine-GateTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30BEF892552D3DD66E4DB5E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Divine-Gate-Divine-GateUITests/Pods-Divine-Gate-Divine-GateUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Divine-Gate-Divine-GateUITests/Pods-Divine-Gate-Divine-GateUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Divine-Gate-Divine-GateUITests/Pods-Divine-Gate-Divine-GateUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		550C20FC722234BF88CBB812 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Divine-Gate/Pods-Divine-Gate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Divine-Gate/Pods-Divine-Gate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Divine-Gate/Pods-Divine-Gate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9793FE3A1428C8250C7F128D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Divine-Gate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9E9FC81B8DB635D371B9A26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Divine-Gate-Divine-GateUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EE5E8AA9237654AF0013120E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -317,6 +468,7 @@
 				CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */,
 				ACC10D53239DDAD300209DC3 /* Skill.swift in Sources */,
 				CF077E11238FA376003B6C47 /* PanelContainer.swift in Sources */,
+				CFB990F623CA331900562371 /* RequirePanelModel.swift in Sources */,
 				EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +640,7 @@
 		};
 		EE5E8ADC237654B20013120E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94FEE3FC1905ABDAA8CE33DA /* Pods-Divine-Gate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -505,6 +658,7 @@
 		};
 		EE5E8ADD237654B20013120E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91401AD13989C0E60240C7BA /* Pods-Divine-Gate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -522,6 +676,7 @@
 		};
 		EE5E8ADF237654B20013120E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 677E50A23FC6028A9C819C15 /* Pods-Divine-GateTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -543,6 +698,7 @@
 		};
 		EE5E8AE0237654B20013120E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16B1BE8AE5AA46F5A317F489 /* Pods-Divine-GateTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -564,6 +720,7 @@
 		};
 		EE5E8AE2237654B20013120E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C955C599E6A52306F894568C /* Pods-Divine-Gate-Divine-GateUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -583,6 +740,7 @@
 		};
 		EE5E8AE3237654B20013120E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F34C1B81C6B55406022D4BE /* Pods-Divine-Gate-Divine-GateUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

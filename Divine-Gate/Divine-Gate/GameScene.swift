@@ -8,7 +8,7 @@
 
 import SpriteKit
 import GameplayKit
-
+import RealmSwift
 
 class GameScene: SKScene {
 
@@ -44,7 +44,7 @@ class GameScene: SKScene {
                 "name":"testunit",
                 "type":"fire",
                 "tribe":"human",
-                "description":"this is test unit",
+                "description_c":"this is test unit",
                 "image_path":"hoge",
                 "id":"1",
                 "rarelity":0,
@@ -66,7 +66,7 @@ class GameScene: SKScene {
                         "skillType": "attack",
                         "name": "fire2skill",
                         "executable":false,
-                        "description": "fuga",
+                        "description_c": "fuga",
                         "type": "fire"
                     },
                     {
@@ -82,7 +82,7 @@ class GameScene: SKScene {
                         "skillType": "attack",
                         "name": "fire1skill",
                         "executable":false,
-                        "description": "fuga",
+                        "description_c": "fuga",
                         "type": "fire"
                     }
                 ],
@@ -94,7 +94,7 @@ class GameScene: SKScene {
             "name":"testunit2",
             "type":"water",
             "tribe":"human",
-            "description":"this is test unit",
+            "description_c":"this is test unit",
             "image_path":"hoge",
             "id":"2",
             "rarelity":0,
@@ -116,13 +116,21 @@ class GameScene: SKScene {
                     "skillType": "attack",
                     "name": "water1skill",
                     "executable":false,
-                    "description": "piyo",
+                    "description_c": "piyo",
                     "type": "water"
                 }
             ],
             "isLeader":true,
         }
         """;
+        
+//        let unitd = unitStr1.data(using: .utf8)
+//        do{
+//            let dmo = try JSONDecoder().decode(DVUnitModel.self, from: unitd!);
+//        }catch let error{
+//            print(error)
+//        }
+        
         let unitData1 = unitStr1.data(using: .utf8)
         let unitData2 = unitStr2.data(using: .utf8)
         let dvunit1 = try! JSONDecoder().decode(DVUnit.self, from: unitData1!);
@@ -133,6 +141,16 @@ class GameScene: SKScene {
         dvunit2.setSkilltoBelong();
         dvunits.append(dvunit1);
         dvunits.append(dvunit2);
+//        var config = Realm.Configuration()
+//        config.deleteRealmIfMigrationNeeded = true
+        let realm = try! Realm();
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        try! realm.write {
+            realm.add(dvunit1)
+            realm.add(dvunit2)
+        }
+
         
         self.enemy = Enemy(type: "fire", enemywidth: 500, enemyheight: 500, image_path: "monster01");
         enemy.setPosition(x: 0, y: 400);

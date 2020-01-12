@@ -9,17 +9,19 @@
 import Foundation
 import SpriteKit
 import UIKit
+import RealmSwift
 
 class NormalSkill : Skill{
-    var requirePanels : Dictionary<String, Int> = [:];//スキル発動に必要なパネルを格納する
-    var ratio : Float = 0.0;//コンボ倍率
-    var toSingle : Bool = false;
-    var executable : Bool = false;//実行可能
-    var skillType : String = "";//スキルの種類(ノーマル、パッシブ)
+    @objc dynamic var  ratio : Float = 0.0;//コンボ倍率
+    @objc dynamic var toSingle : Bool = false;
+    @objc dynamic var executable : Bool = false;//実行可能
+    @objc dynamic var skillType : String = "";//スキルの種類(ノーマル、パッシブ)
+    @objc dynamic var requirePanels : RequirePanelModel?;//スキル発動に必要なパネルを格納する
+
     
     
-//    init(requirePanels : Dictionary<String, Int>, ratio : Float, toSingle : Bool, skillType : String, name : String, description : String, type : String) {
-//        super.init(name : name, description : description, type : type);
+//    init(requirePanels : Dictionary<String, Int>, ratio : Float, toSingle : Bool, skillType : String, name : String, description_c : String, type : String) {
+//        super.init(name : name, description_c : description_c, type : type);
 //        self.requirePanels = requirePanels;
 //        self.ratio = ratio;
 //        self.toSingle = toSingle;
@@ -34,16 +36,21 @@ class NormalSkill : Skill{
         case executable
         case skillType
     }
-        required init(from decoder: Decoder) throws {
-    //        fatalError("init(from:) has not been implemented")
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            self.requirePanels = try container.decode(Dictionary.self, forKey: .requirePanels)
-            self.ratio = try container.decode(Float.self, forKey: .ratio)
-            self.toSingle = try container.decode(Bool.self, forKey: .toSingle)
-            self.executable = try container.decode(Bool.self, forKey: .executable)
-            self.skillType = try container.decode(String.self, forKey: .skillType)
-            try super.init(from: decoder)
-        }
+    required init(from decoder: Decoder) throws {
+//        fatalError("init(from:) has not been implemented")
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let requirePanelsDict = try container.decode(RequirePanelModel.self, forKey: .requirePanels)
+//        self.requirePanels.fire = requirePanelsDict["fire"]!
+//        self.requirePanels.water = requirePanelsDict["water"]!
+//        self.requirePanels.wind = requirePanelsDict["wind"]!
+//        self.requirePanels.light = requirePanelsDict["light"]!
+//        self.requirePanels.dark = requirePanelsDict["dark"]!
+        self.ratio = try container.decode(Float.self, forKey: .ratio)
+        self.toSingle = try container.decode(Bool.self, forKey: .toSingle)
+        self.executable = try container.decode(Bool.self, forKey: .executable)
+        self.skillType = try container.decode(String.self, forKey: .skillType)
+        try super.init(from: decoder)
+    }
     
 //    required init(from decoder: Decoder) throws {
 //        fatalError("init(from:) has not been implemented")
@@ -54,7 +61,7 @@ class NormalSkill : Skill{
         var panelInfo : [String:Int] = panelInfo_//container.getType(panel : container.belong_panel);
         var fill_count = 0;
         for key in panelInfo.keys{
-            if panelInfo[key]! >= self.requirePanels[key]!{
+            if panelInfo[key]! >= self.requirePanels!.getNumType(type: key){
                 fill_count += 1;
                 if (fill_count == panelInfo.keys.count){
                     return true;

@@ -9,27 +9,28 @@
 import Foundation
 import SpriteKit
 import UIKit
+import RealmSwift
 
-class DVUnit : Codable{
-    let name: String; // 名前
-    let type: String; // 属性
-    let tribe: String; // 種族
-    let description: String; // 説明文
-    let image_path: String; // 画像のパス
-    let id: String; // 図鑑番号
-    let rerelity: Int = 0; // レア度
-    var hp: Int = 0; // 体力
-    var attack : Int = 0;//攻撃力
-    var level: Int = 0; // レベル
-    var plus: Int = 0; // statusの値に振ることで、上昇させることができる
-    let normalSkills : [NormalSkill]; // ノーマルスキル
-//    let LinkSkill linkSkill; // リンクスキル
-//    let LeaderSkill LeaderSKill; // リーダースキル
-//    let PassiveSkill passiveSkill; // パッシブスキル
-//    let ActiveSkill activeSkill: // アクティブスキル
-//    let Skill boostSkill; // ブーストスキル
-    let isLeader: Bool; // リーダーかどうか
-    let isNormalSkillInclude: Bool = false; // ノーマルスキルの必要とするパネルの枚数に包含関係があるかどうか
+
+class DVUnit : Object, Codable{
+    @objc dynamic var name: String = ""; // 名前
+    @objc dynamic var  type: String = ""; // 属性
+    @objc dynamic var  tribe: String = ""; // 種族
+    @objc dynamic var  description_c: String = ""; // 説明文
+    @objc dynamic var  image_path: String = ""; // 画像のパス
+    @objc dynamic var  id: String = ""; // 図鑑番号
+    @objc dynamic var  rarelity: Int = 0; // レア度
+    @objc dynamic var  hp: Int = 0; // 体力
+    @objc dynamic var  attack : Int = 0;//攻撃力
+    @objc dynamic var  level: Int = 0; // レベル
+    @objc dynamic var  plus: Int = 0; // statusの値に振ることで、上昇させることができる
+    let normalSkills = List<NormalSkill>(); // ノーマルスキル
+//    @objc dynamic var  LinkSkill linkSkill; // リンクスキル
+//    @objc dynamic var  LeaderSkill LeaderSKill; // リーダースキル
+//    @objc dynamic var  PassiveSkill passiveSkill; // パッシブスキル
+//    @objc dynamic var  ActiveSkill activeSkill: // アクティブスキル
+//    @objc dynamic var  Skill boostSkill; // ブーストスキル
+    @objc dynamic var  isLeader: Bool = false; // リーダーかどうか
     
 //    init(attack : Int) {
 //        self.attack = attack;
@@ -45,9 +46,32 @@ class DVUnit : Codable{
 //    }
 //    init() {
 //        self.normalSkills = [NormalSkill(requirePanels: ["fire":2,
-//                                                         "water":0, "wind":0, "light":0, "dark":0], ratio:1.2, toSingle: true, skillType: "attack", name: "skill1", description: "fuga", type: "fire"), NormalSkill(requirePanels: ["fire":1, "water":0, "wind":0, "light":0, "dark":0], ratio:1.2, toSingle: true, skillType: "attack", name: "skill2", description: "fuga", type: "fire")];
+//                                                         "water":0, "wind":0, "light":0, "dark":0], ratio:1.2, toSingle: true, skillType: "attack", name: "skill1", description_c: "fuga", type: "fire"), NormalSkill(requirePanels: ["fire":1, "water":0, "wind":0, "light":0, "dark":0], ratio:1.2, toSingle: true, skillType: "attack", name: "skill2", description_c: "fuga", type: "fire")];
 //        self.normalSkills[0].belong = self
 //    }
+    required init(){
+        
+    }
+    required convenience init(from decoder: Decoder) throws {
+        self.init()
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        type = try container.decode(String.self, forKey: .type)
+        tribe = try container.decode(String.self, forKey: .tribe)
+        description_c = try container.decode(String.self, forKey: .description_c)
+        image_path = try container.decode(String.self, forKey: .image_path)
+        id = try container.decode(String.self, forKey: .id)
+        rarelity = try container.decode(Int.self, forKey: .rarelity)
+        hp = try container.decode(Int.self, forKey: .hp)
+        attack = try container.decode(Int.self, forKey: .attack)
+        level = try container.decode(Int.self, forKey: .level)
+        plus = try container.decode(Int.self, forKey: .plus)
+        let normalSkillsArray = try container.decode([NormalSkill].self, forKey: .normalSkills)
+        normalSkills.append(objectsIn: normalSkillsArray)
+        isLeader = try container.decode(Bool.self, forKey: .isLeader)
+    }
+    
+    
     
     func  getexecutable(container: PanelContainer) ->
         [NormalSkill] {
@@ -57,7 +81,7 @@ class DVUnit : Codable{
             while true{
                 for i in 0..<self.normalSkills.count{
                     if (self.normalSkills[i].judgeExecutable(panelInfo_: panelInfo)){ // 減算可能であったら
-                        panelInfo = subtract(dict1 : panelInfo,dict2 : self.normalSkills[i].requirePanels); // ひく
+                        panelInfo = subtract(dict1 : panelInfo,dict2 : self.normalSkills[i].requirePanels!.getAsDict()); // ひく
                         resultSkills.append(self.normalSkills[i]); // 追加して
                         // 最初のスキルの検証に戻る。つまりここのforでbreak
                         break;
