@@ -30,7 +30,8 @@ class DVUnit : Object, Codable{
 //    @objc dynamic var  PassiveSkill passiveSkill; // パッシブスキル
 //    @objc dynamic var  ActiveSkill activeSkill: // アクティブスキル
 //    @objc dynamic var  Skill boostSkill; // ブーストスキル
-    @objc dynamic var  isLeader: Bool = false; // リーダーかどうか
+    @objc dynamic var isLeader: Bool = false; // リーダーかどうか
+    @objc dynamic var isSelected : Bool = false;
     
 //    init(attack : Int) {
 //        self.attack = attack;
@@ -69,6 +70,7 @@ class DVUnit : Object, Codable{
         let normalSkillsArray = try container.decode([NormalSkill].self, forKey: .normalSkills)
         normalSkills.append(objectsIn: normalSkillsArray)
         isLeader = try container.decode(Bool.self, forKey: .isLeader)
+        isSelected = try container.decode(Bool.self, forKey: .isSelected)
     }
     
     

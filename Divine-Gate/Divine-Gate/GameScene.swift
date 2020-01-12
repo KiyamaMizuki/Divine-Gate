@@ -39,6 +39,51 @@ class GameScene: SKScene {
         initPanelGenerate();
         initPanelContainer();
         
+        
+
+//
+        var config = Realm.Configuration()
+        config.deleteRealmIfMigrationNeeded = true
+        let realm = try! Realm(configuration: config);
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+
+        // dataReset(realm: realm) // 全てのレコードを削除
+        // dataInsert(realm: Realm) // データをinsertする
+        
+
+        
+        let dvunits_d = realm.objects(DVUnit.self)
+        
+        for dvunit_d in dvunits_d{
+            let data = try! JSONEncoder().encode(dvunit_d)
+            let jsonStr = String(data: data, encoding: .utf8);
+            print(jsonStr!)
+            let unitData = jsonStr!.data(using: .utf8)
+            let dvunit = try! JSONDecoder().decode(DVUnit.self, from: unitData!);
+            dvunit.setSkilltoBelong();
+            self.dvunits.append(dvunit)
+        }
+        
+        
+        
+        
+
+        
+        self.enemy = Enemy(type: "fire", enemywidth: 500, enemyheight: 500, image_path: "monster01");
+        enemy.setPosition(x: 0, y: 400);
+
+        // 体力表示
+        initHPsum();
+        initEnemyHPsum();
+        // normalSkillキュー初期化
+        initQueues();
+        
+        self.addChild(enemy);
+        self.addChild(timerLabel);
+        print("name of this scene: " + self.name!);
+    }
+    
+    func dataInsert(realm : Realm){
         var unitStr1 = """
             {
                 "name":"testunit",
@@ -55,12 +100,14 @@ class GameScene: SKScene {
                 "normalSkills":[
                     {
                         "requirePanels":{
+                            "id":1,
                             "fire":2,
                             "water":0,
                             "wind":0,
                             "light":0,
                             "dark":0
                         },
+                        "id" : 1,
                         "ratio":3.0,
                         "toSingle": true,
                         "skillType": "attack",
@@ -71,12 +118,14 @@ class GameScene: SKScene {
                     },
                     {
                         "requirePanels":{
+                            "id":2,
                             "fire":1,
                             "water":0,
                             "wind":0,
                             "light":0,
                             "dark":0
                         },
+                        "id":2,
                         "ratio":2.0,
                         "toSingle": true,
                         "skillType": "attack",
@@ -87,6 +136,7 @@ class GameScene: SKScene {
                     }
                 ],
                 "isLeader":true,
+                "isSelected": true,
             }
             """;
         var unitStr2 = """
@@ -105,12 +155,14 @@ class GameScene: SKScene {
             "normalSkills":[
                 {
                     "requirePanels":{
+                        "id":3,
                         "fire":0,
                         "water":1,
                         "wind":0,
                         "light":0,
                         "dark":0
                     },
+                    "id":3,
                     "ratio":1.2,
                     "toSingle": true,
                     "skillType": "attack",
@@ -121,52 +173,49 @@ class GameScene: SKScene {
                 }
             ],
             "isLeader":true,
+            "isSelected":true,
         }
         """;
         
-//        let unitd = unitStr1.data(using: .utf8)
-//        do{
-//            let dmo = try JSONDecoder().decode(DVUnitModel.self, from: unitd!);
-//        }catch let error{
-//            print(error)
-//        }
         
         let unitData1 = unitStr1.data(using: .utf8)
         let unitData2 = unitStr2.data(using: .utf8)
         let dvunit1 = try! JSONDecoder().decode(DVUnit.self, from: unitData1!);
         let dvunit2 = try! JSONDecoder().decode(DVUnit.self, from: unitData2!);
-        print(dvunit1.name, dvunit1.level, dvunit1.plus, dvunit1.isLeader);
-        print(dvunit2.name, dvunit2.level, dvunit2.plus, dvunit2.isLeader);
-        dvunit1.setSkilltoBelong();
-        dvunit2.setSkilltoBelong();
-        dvunits.append(dvunit1);
-        dvunits.append(dvunit2);
-//        var config = Realm.Configuration()
-//        config.deleteRealmIfMigrationNeeded = true
-        let realm = try! Realm();
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         try! realm.write {
             realm.add(dvunit1)
             realm.add(dvunit2)
         }
-
         
-        self.enemy = Enemy(type: "fire", enemywidth: 500, enemyheight: 500, image_path: "monster01");
-        enemy.setPosition(x: 0, y: 400);
-
-        // 体力表示
-        initHPsum();
-        initEnemyHPsum();
-        // normalSkillキュー初期化
-        initQueues();
-        
-        self.addChild(enemy);
-        self.addChild(timerLabel);
-        print("name of this scene: " + self.name!);
     }
     
-    
+    func dataReset(realm: Realm){
+        let dvunits_d = realm.objects(DVUnit.self)
+        dvunits_d.forEach{ i in
+            try! realm.write(){
+                realm.delete(i)
+            }
+        }
+        
+        let rpm = realm.objects(RequirePanelModel.self)
+        rpm.forEach{ i in
+            try! realm.write(){
+                realm.delete(i)
+            }
+        }
+        
+        let normalSkill_d = realm.objects(NormalSkill.self)
+        normalSkill_d.forEach{ i in
+            try! realm.write(){
+                realm.delete(i)
+            }
+        }
+        
+        
+
+        
+    }
     
     func initHPsum(){
         self.units_hpsum = Hpsum();

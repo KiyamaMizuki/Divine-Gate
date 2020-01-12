@@ -17,7 +17,8 @@ class RequirePanelModel : Object, Codable{
     @objc dynamic var wind : Int = 0;
     @objc dynamic var dark : Int = 0;
     @objc dynamic var light : Int = 0;
-    
+//    let normalSkills = LinkingObjects(fromType: NormalSkill.self, property: "normalSkills")
+
     func getNumType(type:String) -> Int{
         switch type {
         case "fire":
