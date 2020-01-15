@@ -22,11 +22,13 @@ class GameScene: SKScene {
     var first_insert = true;
     var generators:[PanelGenerate] = []; //パネル生成ボックスのリスト
     var containers:[PanelContainer] = []; //パネル収容ボックスのリスト
-    var dvunits : [DVUnit] = [];
+    var dvunits : [BattleUnit] = [];
     var units_hpsum : Hpsum!;
     var queues : [NormalSkillQueue] = [];
     var enemy : Enemy!;
     var hpsum : Hpsum!;
+    var userInformationNode : BattleUserInformationNode!
+    var enemyDivNode : EnemyDivNode!;
     
     var attack_span = 3;
     var attack_num = 0;
@@ -39,17 +41,13 @@ class GameScene: SKScene {
         initPanelGenerate();
         initPanelContainer();
         
+        self.userInformationNode = self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode
         
-
 //
         var config = Realm.Configuration()
         config.deleteRealmIfMigrationNeeded = true
         let realm = try! Realm(configuration: config);
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-
-        // dataReset(realm: realm) // 全てのレコードを削除
-        // dataInsert(realm: Realm) // データをinsertする
-        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)        
 
         
         let dvunits_d = realm.objects(DVUnit.self)
@@ -59,11 +57,14 @@ class GameScene: SKScene {
             let jsonStr = String(data: data, encoding: .utf8);
             print(jsonStr!)
             let unitData = jsonStr!.data(using: .utf8)
-            let dvunit = try! JSONDecoder().decode(DVUnit.self, from: unitData!);
+            let dvunit = try! JSONDecoder().decode(BattleUnit.self, from: unitData!);
             dvunit.setSkilltoBelong();
             self.dvunits.append(dvunit)
         }
         
+        userInformationNode.setImageToChildren(node_lis: self.dvunits);
+        
+        self.enemyDivNode = childNode(withName: "EnemyDivNode") as! EnemyDivNode;
         
         
         
@@ -72,10 +73,8 @@ class GameScene: SKScene {
         self.enemy = Enemy(type: "fire", enemywidth: 500, enemyheight: 500, image_path: "monster01");
         enemy.setPosition(x: 0, y: 400);
 
-        // 体力表示
         initHPsum();
         initEnemyHPsum();
-        // normalSkillキュー初期化
         initQueues();
         
         self.addChild(enemy);
@@ -83,173 +82,42 @@ class GameScene: SKScene {
         print("name of this scene: " + self.name!);
     }
     
-    func dataInsert(realm : Realm){
-        var unitStr1 = """
-            {
-                "name":"testunit",
-                "type":"fire",
-                "tribe":"human",
-                "description_c":"this is test unit",
-                "image_path":"hoge",
-                "id":"1",
-                "rarelity":0,
-                "hp":100,
-                "attack":10,
-                "level":5,
-                "plus":10,
-                "normalSkills":[
-                    {
-                        "requirePanels":{
-                            "id":1,
-                            "fire":2,
-                            "water":0,
-                            "wind":0,
-                            "light":0,
-                            "dark":0
-                        },
-                        "id" : 1,
-                        "ratio":3.0,
-                        "toSingle": true,
-                        "skillType": "attack",
-                        "name": "fire2skill",
-                        "executable":false,
-                        "description_c": "fuga",
-                        "type": "fire"
-                    },
-                    {
-                        "requirePanels":{
-                            "id":2,
-                            "fire":1,
-                            "water":0,
-                            "wind":0,
-                            "light":0,
-                            "dark":0
-                        },
-                        "id":2,
-                        "ratio":2.0,
-                        "toSingle": true,
-                        "skillType": "attack",
-                        "name": "fire1skill",
-                        "executable":false,
-                        "description_c": "fuga",
-                        "type": "fire"
-                    }
-                ],
-                "isLeader":true,
-                "isSelected": true,
-            }
-            """;
-        var unitStr2 = """
-        {
-            "name":"testunit2",
-            "type":"water",
-            "tribe":"human",
-            "description_c":"this is test unit",
-            "image_path":"hoge",
-            "id":"2",
-            "rarelity":0,
-            "hp":100,
-            "attack":10,
-            "level":5,
-            "plus":10,
-            "normalSkills":[
-                {
-                    "requirePanels":{
-                        "id":3,
-                        "fire":0,
-                        "water":1,
-                        "wind":0,
-                        "light":0,
-                        "dark":0
-                    },
-                    "id":3,
-                    "ratio":1.2,
-                    "toSingle": true,
-                    "skillType": "attack",
-                    "name": "water1skill",
-                    "executable":false,
-                    "description_c": "piyo",
-                    "type": "water"
-                }
-            ],
-            "isLeader":true,
-            "isSelected":true,
-        }
-        """;
-        
-        
-        let unitData1 = unitStr1.data(using: .utf8)
-        let unitData2 = unitStr2.data(using: .utf8)
-        let dvunit1 = try! JSONDecoder().decode(DVUnit.self, from: unitData1!);
-        let dvunit2 = try! JSONDecoder().decode(DVUnit.self, from: unitData2!);
-        
-        try! realm.write {
-            realm.add(dvunit1)
-            realm.add(dvunit2)
-        }
-        
+    func setBackGroundImage(){
+        let background = SKSpriteNode(imageNamed: "dungeon")
+        background.size = self.size
+        background.zPosition = -1
+        self.addChild(background)
     }
     
-    func dataReset(realm: Realm){
-        let dvunits_d = realm.objects(DVUnit.self)
-        dvunits_d.forEach{ i in
-            try! realm.write(){
-                realm.delete(i)
-            }
-        }
-        
-        let rpm = realm.objects(RequirePanelModel.self)
-        rpm.forEach{ i in
-            try! realm.write(){
-                realm.delete(i)
-            }
-        }
-        
-        let normalSkill_d = realm.objects(NormalSkill.self)
-        normalSkill_d.forEach{ i in
-            try! realm.write(){
-                realm.delete(i)
-            }
-        }
-        
-        
-
-        
-    }
     
     func initHPsum(){
         self.units_hpsum = Hpsum();
-        self.units_hpsum.inithp(units: dvunits, x: -260, y: -200); // 1. inithpメソッドをよび、setProgressを利用する
-
-        let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height)); // 背景色の色
+        self.units_hpsum.inithp(units: dvunits, x: -290, y: 68);
+        let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: units_hpsum.width, height: units_hpsum.height));
         backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
         backgroundBar.position = CGPoint(x: self.units_hpsum.position.x, y: self.units_hpsum.position.y);
         backgroundBar.size = CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height);
 
-        self.addChild(self.units_hpsum);
-        self.addChild(backgroundBar)
+        self.userInformationNode.addChild(self.units_hpsum);
+        self.userInformationNode.addChild(backgroundBar)
     }
     
     func initEnemyHPsum(){
         var hpsum = Hpsum();
-        hpsum.inithp(num: 100, x: 0, y: 70); // 1. inithpメソッドをよび、setProgressを利用する
-
+        hpsum.inithp(num: 100, x: -20, y: -195);
         let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: hpsum.width, height: hpsum.height));
         backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
         backgroundBar.position = CGPoint(x: hpsum.position.x, y: hpsum.position.y);
         backgroundBar.size = CGSize(width: hpsum.width, height: hpsum.height);
         self.enemy.hpsum = hpsum;
-        self.addChild(self.enemy.hpsum);
-        self.addChild(backgroundBar)
+        self.enemyDivNode.addChild(self.enemy.hpsum);
+        self.enemyDivNode.addChild(backgroundBar)
     }
     
     func initQueues(){
         for i in 0..<self.len{
-            var queue : NormalSkillQueue = NormalSkillQueue();
-            
-            queue.setpoint(x:-250 + i * 125 ,y : 0);//パネル生成の箱の位置
+            let queue : NormalSkillQueue = (self.childNode(withName: "skillQueue"+String(i+1)) as? NormalSkillQueue?)!!;
             self.queues.append(queue);
-            self.addChild(queue);
         }
     }
     
@@ -259,14 +127,10 @@ class GameScene: SKScene {
     func initPanelGenerate(){
         //パネル生成のクラス
         for i in 0..<self.len{
-            let pg : PanelGenerate = PanelGenerate();
-
-            
-            pg.setpoint(x:-250 + i * 125 ,y : -450);//パネル生成の箱の位置
+            let pg : PanelGenerate = (self.childNode(withName: "PanelGenerate"+String(i+1)) as? PanelGenerate?)!!;
             self.generators.append(pg);
             pg.generate();
             self.addChild(pg.pal!);
-            self.addChild(pg);
         }
     }
     
@@ -275,10 +139,8 @@ class GameScene: SKScene {
      */
     func initPanelContainer(){
         for i in 0..<self.len{
-            var pc: PanelContainer = PanelContainer();
-            pc.position = CGPoint(x: -250 + i * 125 , y : -300);//パネルコンテナボックスの位置
+            let pc: PanelContainer = (self.childNode(withName: "PanelContainer"+String(i+1)) as? PanelContainer?)!!;
             self.containers.append(pc);
-            self.addChild(pc);
         }
     }
     
@@ -289,13 +151,28 @@ class GameScene: SKScene {
     func touchDown(atPoint pos : CGPoint) {
         let location = pos;
         for i in 0..<self.generators.count{
-            if (generators[i].contain(touchX: Int(location.x), touchY: Int(location.y))){
-//                            print(generators[i].x, generators[i].y);
+            if (generators[i].contain(touchX: Float(location.x), touchY: Float(location.y))){
                 self.activePanel = generators[i].pal;
                 self.began_location_x  = Int(self.activePanel.position.x);
                 self.began_location_y  = Int(self.activePanel.position.y);
             }
         }
+    }
+    
+    func getUnderNode(pos: CGPoint) -> [SKNode]{ // 下のノードの配列を取得する
+        let under_nodes = nodes(at: pos);
+        return under_nodes
+    }
+    
+    func isOnNode(pos : CGPoint, nodename : String) -> Bool{ //
+        let under_nodes = getUnderNode(pos: pos);
+        for under_node in under_nodes{
+            let name = String(describing: Swift.type(of: under_node))
+            if nodename == name{
+                return true;
+            }
+        }
+        return false;
     }
             
     func touchMoved(toPoint pos : CGPoint) {
@@ -308,8 +185,8 @@ class GameScene: SKScene {
     func touchUp(atPoint pos : CGPoint) {
         if (activePanel != nil){ // 選択中のpanelが存在する場合
             var interacted_pc_index = getInteractedContainerIndex(pos: pos);
-            
-            
+
+
             if (interacted_pc_index != -1){ // 1 タップを離した部分の座標がcontainerに含まれる時
                 if first_insert{
                     timerLabel.start();
@@ -338,9 +215,9 @@ class GameScene: SKScene {
     func insertExecutableSkill(index : Int){  // indexに指定したコンテイナーの情報をもとに、
         self.queues[index].delete();
         for unit in self.dvunits{
-            var normalskills : [NormalSkill] = unit.getexecutable(container: self.containers[index])
+            var normalskills : [BattleNormalSkill] = unit.getexecutable(container: self.containers[index])
             for ns in normalskills{
-                var nsview = SkillView(viewWidth: self.queues[index].width, viewHeight: self.queues[index].width / 8, normalSkill: ns)
+                var nsview = SkillView(viewWidth: Int(self.queues[index].size.width), viewHeight: Int(self.queues[index].size.width / 8), normalSkill: ns)
                 self.queues[index].insert(inserted_skill_view: nsview);
             }
         }
@@ -403,6 +280,12 @@ class GameScene: SKScene {
     
     func updateState(){
         executeSkill();
+        if enemy.hpsum.hp < 0{
+            let scene = EmptyScene(size: self.scene!.size)
+            //呼び出すSceneをJumpScene classにしただけ
+            scene.scaleMode = SKSceneScaleMode.aspectFill
+            self.view!.presentScene(scene)
+        }
         attack_num += 1;
         if (attack_num == attack_span){
             attackFromEnemy();
@@ -414,11 +297,12 @@ class GameScene: SKScene {
     
 
     
-    func attackFromEnemy(){  // enemyからの攻撃を受ける
+    func attackFromEnemy(){
         self.units_hpsum.wounded(damage:10, type:"fire");
     }
     
-    func initState(){ // stateを初期化して、サイクルを繰り返す、
+    
+    func initState(){
         for container in containers{
             self.removeChildren(in: container.panels);
             container.removeAll();

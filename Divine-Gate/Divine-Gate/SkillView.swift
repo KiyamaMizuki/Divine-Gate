@@ -10,13 +10,13 @@ import Foundation
 import SpriteKit
 
 class SkillView : SKSpriteNode{ // skillの表示を担う
-    var normalSkill: NormalSkill; // 保持しているノーマルスキル
+    var normalSkill: BattleNormalSkill; // 保持しているノーマルスキル
     var x,y : Int!;
     var width, height : Int!;
     var image_path : String = "";
     
     
-    init(viewWidth : Int,viewHeight : Int, normalSkill : NormalSkill){
+    init(viewWidth : Int,viewHeight : Int, normalSkill : BattleNormalSkill){
         self.normalSkill = normalSkill;
         super.init(texture: SKTexture(imageNamed: "blue_panel"), color: UIColor.clear, size: CGSize(width: viewWidth, height: viewHeight)); // viewのサイズとともに描画
         self.position = CGPoint(x: 15, y: 15)//生成した後座標を設定
@@ -55,6 +55,7 @@ class SkillView : SKSpriteNode{ // skillの表示を担う
     func setSize(width:Int, height:Int){
         self.width = width;
         self.height = height;
+        self.size = CGSize(width: width, height: height)
     }
     
     func setPosition(x : Int, y : Int){

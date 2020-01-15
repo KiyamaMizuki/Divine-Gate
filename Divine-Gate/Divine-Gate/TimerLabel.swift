@@ -52,7 +52,7 @@ class TimerLabel : SKLabelNode{
         
         self.color = UIColor(named: "white");//表示される文字の色?
         self.fontSize = 100;//文字のサイズ
-        self.zPosition = 100;//文字のZ座標
+        self.zPosition = 10;//文字のZ座標
         self.fontColor = UIColor.white;//表示される文字の色
         self.position = CGPoint(x: 0, y: 150)//文字の位置を指定
         self.text = String(max)

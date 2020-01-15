@@ -22,10 +22,10 @@ class PanelContainer: SKSpriteNode {
     
 
 //    Panel belong_panel;
-    init(){
-        super.init(texture: SKTexture(imageNamed: "Box"), color: UIColor.clear, size: CGSize(width: 100, height: 100));
-        self.position = CGPoint(x: 10, y: 10);
-    }
+//    init(){
+//        super.init(texture: SKTexture(imageNamed: "Box"), color: UIColor.clear, size: CGSize(width: 125, height: 125));
+//        self.position = CGPoint(x: 10, y: 10);
+//    }
     
     func addPanel(panel : Panel) -> Bool{
 //        let reSize = CGSize(width: self.width * 0.5, height: self.size.height * scaleSize)
@@ -115,7 +115,4 @@ class PanelContainer: SKSpriteNode {
     }
     
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

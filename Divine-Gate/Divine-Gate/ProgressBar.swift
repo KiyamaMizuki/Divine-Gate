@@ -15,6 +15,7 @@ class ProgressBar: SKCropNode {
         super.init()
         let sprite = SKSpriteNode(imageNamed: "progressbar")
         sprite.anchorPoint = CGPoint(x: 0, y: 0)
+        sprite.size = CGSize(width: 207, height: 9);
         self.width = Int(sprite.size.width)
         self.height = Int(sprite.size.height);
         let maskSprite = SKSpriteNode(color: SKColor.black, size: sprite.size)
