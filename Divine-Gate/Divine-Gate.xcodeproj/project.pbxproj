@@ -17,6 +17,7 @@
 		CF1A6A6423CE6A3600834D1C /* EnemyDivNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A6A6323CE6A3600834D1C /* EnemyDivNode.swift */; };
 		CF1A6A6623CEB7D800834D1C /* SkillDescriptionPopupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A6A6523CEB7D800834D1C /* SkillDescriptionPopupNode.swift */; };
 		CF1A6A6823CF1FC900834D1C /* EmptyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A6A6723CF1FC900834D1C /* EmptyScene.swift */; };
+		CF1A6A6A23CF351500834D1C /* EmptyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF1A6A6923CF351500834D1C /* EmptyScene.sks */; };
 		CF2EDA3E23CB5BB400F99702 /* BattleUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2EDA3D23CB5BB400F99702 /* BattleUnit.swift */; };
 		CF2EDA4023CB5D3500F99702 /* BattleNormalSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2EDA3F23CB5D3500F99702 /* BattleNormalSkill.swift */; };
 		CF2EDA4223CB5F6E00F99702 /* BattleRequirePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2EDA4123CB5F6E00F99702 /* BattleRequirePanel.swift */; };
@@ -77,6 +78,7 @@
 		CF1A6A6323CE6A3600834D1C /* EnemyDivNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyDivNode.swift; sourceTree = "<group>"; };
 		CF1A6A6523CEB7D800834D1C /* SkillDescriptionPopupNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDescriptionPopupNode.swift; sourceTree = "<group>"; };
 		CF1A6A6723CF1FC900834D1C /* EmptyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScene.swift; sourceTree = "<group>"; };
+		CF1A6A6923CF351500834D1C /* EmptyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EmptyScene.sks; sourceTree = "<group>"; };
 		CF2EDA3D23CB5BB400F99702 /* BattleUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleUnit.swift; sourceTree = "<group>"; };
 		CF2EDA3F23CB5D3500F99702 /* BattleNormalSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleNormalSkill.swift; sourceTree = "<group>"; };
 		CF2EDA4123CB5F6E00F99702 /* BattleRequirePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRequirePanel.swift; sourceTree = "<group>"; };
@@ -186,9 +188,11 @@
 			isa = PBXGroup;
 			children = (
 				EE5E8AB0237654B00013120E /* AppDelegate.swift */,
-				EE5E8AB2237654B00013120E /* GameScene.sks */,
 				EE5E8AB4237654B00013120E /* Actions.sks */,
+				CF1A6A6723CF1FC900834D1C /* EmptyScene.swift */,
+				CF1A6A6923CF351500834D1C /* EmptyScene.sks */,
 				EE5E8AB6237654B00013120E /* GameScene.swift */,
+				EE5E8AB2237654B00013120E /* GameScene.sks */,
 				ACC10D54239DDAE200209DC3 /* NormalSkill.swift */,
 				ACC02F15239BC44D008B314E /* DVUnit.swift */,
 				CFB990F523CA331900562371 /* RequirePanelModel.swift */,
@@ -214,7 +218,6 @@
 				CF2EDA4523CB6A2000F99702 /* BattleEffectPopup.swift */,
 				CF1A6A6323CE6A3600834D1C /* EnemyDivNode.swift */,
 				CF1A6A6523CEB7D800834D1C /* SkillDescriptionPopupNode.swift */,
-				CF1A6A6723CF1FC900834D1C /* EmptyScene.swift */,
 			);
 			path = "Divine-Gate";
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			files = (
 				EE5E8ABC237654B00013120E /* Main.storyboard in Resources */,
 				EE5E8AB3237654B00013120E /* GameScene.sks in Resources */,
+				CF1A6A6A23CF351500834D1C /* EmptyScene.sks in Resources */,
 				EE5E8ABE237654B20013120E /* Assets.xcassets in Resources */,
 				EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */,
 				EE5E8AB5237654B00013120E /* Actions.sks in Resources */,

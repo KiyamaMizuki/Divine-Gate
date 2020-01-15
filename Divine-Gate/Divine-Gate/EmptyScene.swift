@@ -14,6 +14,9 @@ class EmptyScene : SKScene{
     
     override func didMove(to view: SKView) {
         print("this is new scene");
+        let hoge = SKLabelNode()
+        hoge.text = "WIN"
+        self.addChild(hoge);
     }
 }
 

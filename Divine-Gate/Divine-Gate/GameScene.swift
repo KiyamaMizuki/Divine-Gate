@@ -281,10 +281,9 @@ class GameScene: SKScene {
     func updateState(){
         executeSkill();
         if enemy.hpsum.hp < 0{
-            let scene = EmptyScene(size: self.scene!.size)
-            //呼び出すSceneをJumpScene classにしただけ
-            scene.scaleMode = SKSceneScaleMode.aspectFill
-            self.view!.presentScene(scene)
+             let scene = EmptyScene(fileNamed: "EmptyScene");
+             scene?.scaleMode = .aspectFill
+             self.view!.presentScene(scene)
         }
         attack_num += 1;
         if (attack_num == attack_span){
