@@ -17,9 +17,11 @@ class NormalSkillQueue:  SKSpriteNode{ // 灰色のnormalSkillQueueを表示す�
     var height: Int = 0;
     
     func insert(inserted_skill_view : SkillView){ // skillviewのinsertを担う
-        var skill_y = (self.y - (self.height / 2)) + inserted_skill_view.height * self.skillqueue.count;
+        var hoge = self.y - Int(Float((self.size.height / 2 ))) + inserted_skill_view.height
+        var skill_y = hoge + inserted_skill_view.height * self.skillqueue.count;
         self.skillqueue.append(inserted_skill_view)
         inserted_skill_view.setPosition(x: 0, y: skill_y);
+        inserted_skill_view.size.width = self.size.width - 20
         inserted_skill_view.zPosition = self.zPosition + 1;
         self.addChild(inserted_skill_view);
     }
