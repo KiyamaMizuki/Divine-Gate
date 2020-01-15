@@ -31,24 +31,7 @@ class NormalSkillQueue:  SKSpriteNode{ // 灰色のnormalSkillQueueを表示す�
         self.skillqueue.removeAll();
     }
     
-    func draw(){ // 自分の子要素に
-        
-    }
-    
-//    init(){
-//        var size :Int = Int(screenwidth)
-//           self.x = 15;
-//           self.y = 15;
-//           self.width = size/5;//パネルの横タップ判定
-//           self.height = size/5;//パネルの縦タップ判定
-//
-//           super.init(texture: SKTexture(imageNamed: "frame_panel"), color: UIColor.clear, size: CGSize(width: 124, height: 124));//ジェネレータの情報
-//           self.position = CGPoint(x: 15, y: 15);
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+
     
     func pop() -> SkillView?{
         var ns : SkillView? = nil;

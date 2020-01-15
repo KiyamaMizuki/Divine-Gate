@@ -23,6 +23,14 @@ class TimerLabel : SKLabelNode{
         initLabel()
     }
     
+    func hide(){
+        self.isHidden = true;
+    }
+    
+    func show(){
+        self.isHidden = false;
+    }
+    
     func start(){
         isStop = false;
         self.begin = NSDate()

@@ -29,7 +29,7 @@ class GameScene: SKScene {
     var hpsum : Hpsum!;
     var userInformationNode : BattleUserInformationNode!
     var enemyDivNode : EnemyDivNode!;
-    
+    var nextTurnLabel : SKLabelNode!
     var attack_span = 3;
     var attack_num = 0;
     
@@ -65,9 +65,8 @@ class GameScene: SKScene {
         userInformationNode.setImageToChildren(node_lis: self.dvunits);
         
         self.enemyDivNode = childNode(withName: "EnemyDivNode") as! EnemyDivNode;
-        
-        
-        
+        self.nextTurnLabel = enemyDivNode.childNode(withName: "TurnSpan") as! SKLabelNode
+        self.nextTurnLabel.text = String(self.attack_span)
 
         
         self.enemy = Enemy(type: "fire", enemywidth: 500, enemyheight: 500, image_path: "monster01");
@@ -104,7 +103,7 @@ class GameScene: SKScene {
     
     func initEnemyHPsum(){
         var hpsum = Hpsum();
-        hpsum.inithp(num: 100, x: -20, y: -195);
+        hpsum.inithp(num: 500, x: -20, y: -195);
         let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: hpsum.width, height: hpsum.height));
         backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
         backgroundBar.position = CGPoint(x: hpsum.position.x, y: hpsum.position.y);
@@ -189,6 +188,7 @@ class GameScene: SKScene {
 
             if (interacted_pc_index != -1){ // 1 タップを離した部分の座標がcontainerに含まれる時
                 if first_insert{
+                    timerLabel.show();
                     timerLabel.start();
                 }
                 first_insert = false;
@@ -275,6 +275,7 @@ class GameScene: SKScene {
         if timerLabel.count <= 0{
             updateState();
             initState();
+            self.timerLabel.hide()
         }
     }
     
@@ -290,6 +291,7 @@ class GameScene: SKScene {
             attackFromEnemy();
             attack_num = 0;
         }
+        self.nextTurnLabel.text = String(attack_span - attack_num);
         timerLabel.reset();
         first_insert = true;
     }
@@ -297,7 +299,7 @@ class GameScene: SKScene {
 
     
     func attackFromEnemy(){
-        self.units_hpsum.wounded(damage:10, type:"fire");
+        self.units_hpsum.wounded(damage:50, type:"fire");
     }
     
     
