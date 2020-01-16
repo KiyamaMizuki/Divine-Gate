@@ -28,6 +28,8 @@
 		CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */; };
 		CFA38B2A23C8CA05000248CD /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA38B2923C8CA05000248CD /* TimerLabel.swift */; };
 		CFB990F623CA331900562371 /* RequirePanelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB990F523CA331900562371 /* RequirePanelModel.swift */; };
+		CFD33D0523CFF648009BAD70 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD33D0423CFF647009BAD70 /* SearchScene.swift */; };
+		CFD33D0723CFF6A1009BAD70 /* SearchScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CFD33D0623CFF6A1009BAD70 /* SearchScene.sks */; };
 		CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181A23A08700001EA9E9 /* ProgressBar.swift */; };
 		CFDE181D23A09AA4001EA9E9 /* NormalSkillQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */; };
 		CFDE2B1123A6353500FCC822 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE2B1023A6353500FCC822 /* SkillView.swift */; };
@@ -89,6 +91,8 @@
 		CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGenerate.swift; sourceTree = "<group>"; };
 		CFA38B2923C8CA05000248CD /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		CFB990F523CA331900562371 /* RequirePanelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirePanelModel.swift; sourceTree = "<group>"; };
+		CFD33D0423CFF647009BAD70 /* SearchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScene.swift; sourceTree = "<group>"; };
+		CFD33D0623CFF6A1009BAD70 /* SearchScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SearchScene.sks; sourceTree = "<group>"; };
 		CFDE181A23A08700001EA9E9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalSkillQueue.swift; sourceTree = "<group>"; };
 		CFDE2B1023A6353500FCC822 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 				CF2EDA4523CB6A2000F99702 /* BattleEffectPopup.swift */,
 				CF1A6A6323CE6A3600834D1C /* EnemyDivNode.swift */,
 				CF1A6A6523CEB7D800834D1C /* SkillDescriptionPopupNode.swift */,
+				CFD33D0423CFF647009BAD70 /* SearchScene.swift */,
+				CFD33D0623CFF6A1009BAD70 /* SearchScene.sks */,
 			);
 			path = "Divine-Gate";
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 				CF1A6A6A23CF351500834D1C /* EmptyScene.sks in Resources */,
 				EE5E8ABE237654B20013120E /* Assets.xcassets in Resources */,
 				EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */,
+				CFD33D0723CFF6A1009BAD70 /* SearchScene.sks in Resources */,
 				EE5E8AB5237654B00013120E /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +512,7 @@
 				CFB990F623CA331900562371 /* RequirePanelModel.swift in Sources */,
 				CF2EDA3E23CB5BB400F99702 /* BattleUnit.swift in Sources */,
 				EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */,
+				CFD33D0523CFF648009BAD70 /* SearchScene.swift in Sources */,
 				CF2EDA4623CB6A2000F99702 /* BattleEffectPopup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

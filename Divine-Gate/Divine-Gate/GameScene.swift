@@ -37,6 +37,7 @@ class GameScene: SKScene {
         self.name = "battle";
         
         self.timerLabel = TimerLabel();
+        self.timerLabel.hide();
             
         initPanelGenerate();
         initPanelContainer();
