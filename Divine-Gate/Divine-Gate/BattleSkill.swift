@@ -10,15 +10,15 @@ import Foundation
 import SpriteKit
 import UIKit
 
-class Skill : Codable{
-    let name : String
-    let description : String
-    let type : String
-    var belong : DVUnit?
+class BattleSkill : Codable{
+    var name : String
+    var description_c : String
+    var type : String
+    var belong : BattleUnit?
     
-//    init(name : String, description : String, type : String) {
+//    init(name : String, description_c : String, type : String) {
 //        self.name = name;
-//        self.description = description
+//        self.description_c = description_c
 //        self.type = type;
 //    }
     

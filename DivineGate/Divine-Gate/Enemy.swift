@@ -10,22 +10,21 @@ import Foundation
 import SpriteKit
 class Enemy: SKSpriteNode{
     
-    func wounded(damage : Int, type : String){
-//        被ダメージ処理
-    }
-    //    init(imageNamed: String){
-    //        super.init(imageNamed: imageNamed);
-    //
-    //    }
-    //
-    //    required init?(coder aDecoder: NSCoder) {
-    //        fatalError("init(coder:) has not been implemented")
-    //    }
+    
         var gameScene: SKScene!
         var type: String!//enemyの属性
         var image_path: String!
+        var hpsum: Hpsum!;
         var x : Int;
         var y : Int;
+    
+        func wounded(damage : Int, type : String){
+        //        被ダメージ処理
+            self.hpsum.wounded(damage: damage, type: type);
+            print("wounded");
+        }
+        
+    
         func setScene(scene: SKScene){
             self.gameScene = scene
         }

@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {//SKView型のviewを変数viewへキャスト
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
+            if let scene = SearchScene(fileNamed: "SearchScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill//画像を使用する際アスペクト比を保つ
                 // Present the scene

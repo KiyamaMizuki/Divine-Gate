@@ -1,0 +1,6 @@
+name,type,tribe,description_c,image_path,id,rarelity,hp,attack,level,plus,normalSkills,isLeader,isSelected
+testunit,fire,human,"this is test unit",fire_unit,1,0,100,10,5,10,<NormalSkill>{0 1},false,true
+testunit2,water,human,"this is test unit",water_unit,2,0,100,10,5,10,<NormalSkill>{2},false,true
+testunit3,wind,human,"this is test unit ",wind_unit,3,0,100,10,5,10,<NormalSkill>{3},false,true
+testunit4,dark,human,"this is test unit",dark_unit,4,0,100,10,5,10,<NormalSkill>{4},false,true
+testunit5,light,human,"this is test unit hgesf;",light_unit,5,0,100,10,5,10,<NormalSkill>{5},false,true
