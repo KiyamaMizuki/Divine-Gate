@@ -38,7 +38,7 @@ class Search: SKScene {
         
         if former_screen != "battle"{
             initPanelGenerate();
-            self.userInformationNode = self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode
+            self.userInformationNode = (self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode)
             var config = Realm.Configuration()
             config.deleteRealmIfMigrationNeeded = true
             let realm = try! Realm(configuration: config);
