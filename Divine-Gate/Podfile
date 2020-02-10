@@ -6,7 +6,7 @@ target 'Divine-Gate' do
   use_frameworks!
 
   # Pods for Divine-Gate
-　pod 'RealmSwift'
+　import RealmSwift
 
   target 'Divine-GateTests' do
     inherit! :search_paths
