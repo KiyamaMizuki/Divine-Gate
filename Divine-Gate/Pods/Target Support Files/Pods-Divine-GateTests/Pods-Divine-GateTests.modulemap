@@ -1,0 +1,6 @@
+framework module Pods_Divine_GateTests {
+  umbrella header "Pods-Divine-GateTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
