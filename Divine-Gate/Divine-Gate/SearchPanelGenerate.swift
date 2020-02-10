@@ -21,8 +21,6 @@ class SearchPanelGenerate: SKSpriteNode {
     //lazy var pal = Panel?(width: Int(panelwidth), height: Int(panelwidth))//lazyプロパティにすることで遅延して初期化する　またオプショナル型にしたい
     init(panel_type:String){
         var size :Int = Int(screenwidth)+200
-        print("ここで使っているスマホサイズ")
-        print(size)
         self.x = 15;
         self.y = 15;
         self.width = size/5;//パネルの横タップ判定

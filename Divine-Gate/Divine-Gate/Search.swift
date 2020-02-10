@@ -153,11 +153,13 @@ class Search: SKScene {
             let location = pos;
             for i in 0..<self.generators.count{
                 if (generators[i].contain(touchX: Int(location.x), touchY: Int(location.y))){
-    //                            print(generators[i].x, generators[i].y);
+    //              print(generators[i].x, generators[i].y);
                     self.activePanel = generators[i].pal;
                     self.activeBorn = born.pal;
                     self.began_location_x  = Int(self.activePanel.position.x);
                     self.began_location_y  = Int(self.activePanel.position.y);
+                    print("hogegegegegegegeg")
+                    
                 }
             }
         //print("ここでタッチ判定してるんだなぁみつを"); ここでタッチ判定
