@@ -9,13 +9,14 @@
 import UIKit
 import SpriteKit
 import GameplayKit
-
+import RealmSwift
 
 class Search: SKScene {
     
     var activePanel:SearchPanel!;
     var began_location_x :Int = 1;
     var began_location_y :Int = 1;
+    var former_screen = "";
     
     var userInformationNode : BattleUserInformationNode!
     var units_hpsum : Hpsum!;
@@ -24,6 +25,7 @@ class Search: SKScene {
     //生成する探索パネルのタイプをリストにしてます
     //現時点では「battle=赤色のパネル」「none=青色のパネル」にしてます
     var type_list = ["battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none",];
+    var generator_flag = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     
     var born : SearchBornGenerate!;
     var activeBorn : SearchBorn!;
@@ -32,37 +34,54 @@ class Search: SKScene {
     
     override func didMove(to view: SKView) {
         self.name = "battle";
-        initPanelGenerate();
         
-        self.userInformationNode = self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode
-        var config = Realm.Configuration()
-        config.deleteRealmIfMigrationNeeded = true
-        let realm = try! Realm(configuration: config);
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-        let dvunits_d = realm.objects(DVUnit.self)
-        for dvunit_d in dvunits_d{
-            let data = try! JSONEncoder().encode(dvunit_d)
-            let jsonStr = String(data: data, encoding: .utf8);
-            print(jsonStr!)
-            let unitData = jsonStr!.data(using: .utf8)
-            let dvunit = try! JSONDecoder().decode(BattleUnit.self, from: unitData!);
-            dvunit.setSkilltoBelong();
-            self.dvunits.append(dvunit)
+        
+        if former_screen != "battle"{
+            initPanelGenerate();
+            self.userInformationNode = self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode
+            var config = Realm.Configuration()
+            config.deleteRealmIfMigrationNeeded = true
+            let realm = try! Realm(configuration: config);
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
+            let dvunits_d = realm.objects(DVUnit.self)
+            for dvunit_d in dvunits_d{
+                let data = try! JSONEncoder().encode(dvunit_d)
+                let jsonStr = String(data: data, encoding: .utf8);
+                print(jsonStr!)
+                let unitData = jsonStr!.data(using: .utf8)
+                let dvunit = try! JSONDecoder().decode(BattleUnit.self, from: unitData!);
+                dvunit.setSkilltoBelong();
+                self.dvunits.append(dvunit)
+            }
+            userInformationNode.setImageToChildren(node_lis: self.dvunits);
+            initHPsum();
+        }else{
+//            self.generators = UserDefaults.standard.array(forKey: "panel_generater") as! [SearchPanelGenerate];
+//            self.generator_flag = UserDefaults.standard.array(forKey: "panel_flag") as! [Int];
+//            self.born = UserDefaults.standard.data(forKey: "born");
+//            self.addChild(generators)
+            for g in generators{
+                self.addChild(g);
+                g.pal?.zPosition = g.zPosition + 1;
+                self.addChild(g.pal!);
+            }
+            self.addChild(born.pal!);
+            self.addChild(born);
+            self.addChild(userInformationNode);
         }
-        userInformationNode.setImageToChildren(node_lis: self.dvunits);
-        initHPsum();
 
         
     }
     
     func initHPsum(){
-        self.units_hpsum = Hpsum();
-        self.units_hpsum.inithp(units: dvunits, x: -290, y: 68);
+        var units_hpsum = Hpsum();
+        units_hpsum.inithp(units: dvunits, x: -290, y: 68);
         let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: units_hpsum.width, height: units_hpsum.height));
         backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
-        backgroundBar.position = CGPoint(x: self.units_hpsum.position.x, y: self.units_hpsum.position.y);
-        backgroundBar.size = CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height);
-        self.userInformationNode.addChild(self.units_hpsum);
+        backgroundBar.position = CGPoint(x: units_hpsum.position.x, y: units_hpsum.position.y);
+        backgroundBar.size = CGSize(width: units_hpsum.width, height: units_hpsum.height);
+        self.userInformationNode.units_hpsum = units_hpsum
+        self.userInformationNode.addChild(units_hpsum);
         self.userInformationNode.addChild(backgroundBar)
     }
     
@@ -114,6 +133,7 @@ class Search: SKScene {
             if x_point==5{
                 x_point=0
             }
+            
             self.generators.append(pg);
             pg.generate();
             self.addChild(pg.pal!);
@@ -142,6 +162,8 @@ class Search: SKScene {
         
         
         if activePanel != nil { // 選択中のpanelが存在する場合
+            var userDefaults = UserDefaults.standard
+            
             var interacted_born_index = getInteractedContainerBorn(pos: pos);
             var interacted_pc_index = getInteractedContainerIndex(pos: pos);
             var flag = false;
@@ -169,6 +191,8 @@ class Search: SKScene {
                     pg.zPosition=5;
                     self.generators.insert(pg, at: interacted_pc_index);
                     pg.re_generate();
+                    self.generator_flag.remove(at: interacted_pc_index);
+                    self.generator_flag.insert(1, at: interacted_pc_index);
                     self.addChild(pg.pal!);
                     self.addChild(pg);
                     
@@ -183,11 +207,14 @@ class Search: SKScene {
                     //現在いるパネルが何をするかの確認
                     print(pg.type);
                     //この関数にシーン遷移の処理を書いたらおそらくいけます
+                    self.born_panel = interacted_pc_index;
                     self.panelJudge(panel_type: pg.type);
                     
+//                    userDefaults.set(self.generators,forKey: "panel_generater");
+//                    userDefaults.set(self.generator_flag,forKey: "panel_flag");
+//                    userDefaults.set(br,forKey: "born");
                     
                     
-                    self.born_panel = interacted_pc_index;
                 }
             }
         }
@@ -198,6 +225,15 @@ class Search: SKScene {
     func panelJudge(panel_type:String){
         if panel_type=="battle"{
             print("戦闘開始");
+            let scene = GameScene(fileNamed: "GameScene");
+            scene?.scaleMode = .aspectFill;
+            self.userInformationNode.removeFromParent();
+            scene?.userInformationNode = self.userInformationNode;
+            scene?.searchPanelGenerators = self.generators;
+            scene?.searchGeneratorFlag = self.generator_flag;
+            scene?.searchBorn = self.born
+            scene?.born_panel = self.born_panel;
+            self.view!.presentScene(scene);
         }else if panel_type=="none"{
             print("何もないところ");
         }
