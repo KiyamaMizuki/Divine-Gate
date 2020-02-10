@@ -22,20 +22,20 @@
             </objects>
             <point key="canvasLocation" x="-430" y="50"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="UU9-Sy-zPH">
+        <!--Search Panel View Controller-->
+        <scene sceneID="Yvb-P3-j1q">
             <objects>
-                <viewController id="Tys-5G-PaS" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ne6-Ne-aDM">
+                <viewController id="Elw-hE-edg" customClass="SearchPanelViewController" customModule="Divine_Gate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="dQl-YQ-Zpb" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="9X6-Ei-ovb"/>
+                        <viewLayoutGuide key="safeArea" id="OaW-cU-1QK"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hvr-sJ-m19" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CBm-rq-HDg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="50"/>
+            <point key="canvasLocation" x="329" y="50"/>
         </scene>
     </scenes>
 </document>
