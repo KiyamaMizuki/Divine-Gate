@@ -26,9 +26,25 @@
 		CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF96237672FB005E6E10 /* Panel.swift */; };
 		CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */; };
 		CFA38B2A23C8CA05000248CD /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA38B2923C8CA05000248CD /* TimerLabel.swift */; };
+<<<<<<< Updated upstream
 		CFB990F623CA331900562371 /* RequirePanelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB990F523CA331900562371 /* RequirePanelModel.swift */; };
 		CFD33D0523CFF648009BAD70 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD33D0423CFF647009BAD70 /* SearchScene.swift */; };
 		CFD33D0723CFF6A1009BAD70 /* SearchScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CFD33D0623CFF6A1009BAD70 /* SearchScene.sks */; };
+=======
+		CFA596D423F132060069EC17 /* SearchBorn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596C723F132050069EC17 /* SearchBorn.swift */; };
+		CFA596D523F132060069EC17 /* SearchPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596C823F132050069EC17 /* SearchPanel.swift */; };
+		CFA596D623F132060069EC17 /* SearchPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596C923F132050069EC17 /* SearchPartViewController.swift */; };
+		CFA596D723F132060069EC17 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596CA23F132050069EC17 /* Container.swift */; };
+		CFA596DA23F132060069EC17 /* BattleCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596CD23F132060069EC17 /* BattleCalculation.swift */; };
+		CFA596DB23F132060069EC17 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = CFA596CE23F132060069EC17 /* user.json */; };
+		CFA596DC23F132060069EC17 /* SearchBornGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596CF23F132060069EC17 /* SearchBornGenerate.swift */; };
+		CFA596DD23F132060069EC17 /* SearchPanelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596D023F132060069EC17 /* SearchPanelContainer.swift */; };
+		CFA596DE23F132060069EC17 /* SearchPanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596D123F132060069EC17 /* SearchPanelGenerate.swift */; };
+		CFA596DF23F132060069EC17 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596D223F132060069EC17 /* Search.swift */; };
+		CFB990F623CA331900562371 /* RequirePanelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB990F523CA331900562371 /* RequirePanelModel.swift */; };
+		CFD33D0523CFF648009BAD70 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD33D0423CFF647009BAD70 /* SearchScene.swift */; };
+		CFD33D0723CFF6A1009BAD70 /* Search.sks in Resources */ = {isa = PBXBuildFile; fileRef = CFD33D0623CFF6A1009BAD70 /* Search.sks */; };
+>>>>>>> Stashed changes
 		CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181A23A08700001EA9E9 /* ProgressBar.swift */; };
 		CFDE181D23A09AA4001EA9E9 /* NormalSkillQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */; };
 		CFDE2B1123A6353500FCC822 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE2B1023A6353500FCC822 /* SkillView.swift */; };
@@ -88,9 +104,25 @@
 		CF4DBF96237672FB005E6E10 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGenerate.swift; sourceTree = "<group>"; };
 		CFA38B2923C8CA05000248CD /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		CFB990F523CA331900562371 /* RequirePanelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirePanelModel.swift; sourceTree = "<group>"; };
 		CFD33D0423CFF647009BAD70 /* SearchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScene.swift; sourceTree = "<group>"; };
 		CFD33D0623CFF6A1009BAD70 /* SearchScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SearchScene.sks; sourceTree = "<group>"; };
+=======
+		CFA596C723F132050069EC17 /* SearchBorn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBorn.swift; sourceTree = "<group>"; };
+		CFA596C823F132050069EC17 /* SearchPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPanel.swift; sourceTree = "<group>"; };
+		CFA596C923F132050069EC17 /* SearchPartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPartViewController.swift; sourceTree = "<group>"; };
+		CFA596CA23F132050069EC17 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		CFA596CD23F132060069EC17 /* BattleCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleCalculation.swift; sourceTree = "<group>"; };
+		CFA596CE23F132060069EC17 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
+		CFA596CF23F132060069EC17 /* SearchBornGenerate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBornGenerate.swift; sourceTree = "<group>"; };
+		CFA596D023F132060069EC17 /* SearchPanelContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPanelContainer.swift; sourceTree = "<group>"; };
+		CFA596D123F132060069EC17 /* SearchPanelGenerate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPanelGenerate.swift; sourceTree = "<group>"; };
+		CFA596D223F132060069EC17 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		CFB990F523CA331900562371 /* RequirePanelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirePanelModel.swift; sourceTree = "<group>"; };
+		CFD33D0423CFF647009BAD70 /* SearchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScene.swift; sourceTree = "<group>"; };
+		CFD33D0623CFF6A1009BAD70 /* Search.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Search.sks; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		CFDE181A23A08700001EA9E9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalSkillQueue.swift; sourceTree = "<group>"; };
 		CFDE2B1023A6353500FCC822 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
@@ -189,9 +221,22 @@
 		EE5E8AAF237654B00013120E /* Divine-Gate */ = {
 			isa = PBXGroup;
 			children = (
+				CFA596CD23F132060069EC17 /* BattleCalculation.swift */,
+				CFA596CA23F132050069EC17 /* Container.swift */,
+				CFA596C723F132050069EC17 /* SearchBorn.swift */,
+				CFA596CF23F132060069EC17 /* SearchBornGenerate.swift */,
+				CFA596C823F132050069EC17 /* SearchPanel.swift */,
+				CFA596D023F132060069EC17 /* SearchPanelContainer.swift */,
+				CFA596D123F132060069EC17 /* SearchPanelGenerate.swift */,
+				CFA596C923F132050069EC17 /* SearchPartViewController.swift */,
+				CFA596CE23F132060069EC17 /* user.json */,
 				EE5E8AB0237654B00013120E /* AppDelegate.swift */,
 				EE5E8AB4237654B00013120E /* Actions.sks */,
 				CF1A6A6723CF1FC900834D1C /* EmptyScene.swift */,
+<<<<<<< Updated upstream
+=======
+				CFA596D223F132060069EC17 /* Search.swift */,
+>>>>>>> Stashed changes
 				CF1A6A6923CF351500834D1C /* EmptyScene.sks */,
 				EE5E8AB6237654B00013120E /* GameScene.swift */,
 				EE5E8AB2237654B00013120E /* GameScene.sks */,
@@ -220,7 +265,11 @@
 				CF1A6A6323CE6A3600834D1C /* EnemyDivNode.swift */,
 				CF1A6A6523CEB7D800834D1C /* SkillDescriptionPopupNode.swift */,
 				CFD33D0423CFF647009BAD70 /* SearchScene.swift */,
+<<<<<<< Updated upstream
 				CFD33D0623CFF6A1009BAD70 /* SearchScene.sks */,
+=======
+				CFD33D0623CFF6A1009BAD70 /* Search.sks */,
+>>>>>>> Stashed changes
 			);
 			path = "Divine-Gate";
 			sourceTree = "<group>";
@@ -357,7 +406,12 @@
 				CF1A6A6A23CF351500834D1C /* EmptyScene.sks in Resources */,
 				EE5E8ABE237654B20013120E /* Assets.xcassets in Resources */,
 				EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */,
+<<<<<<< Updated upstream
 				CFD33D0723CFF6A1009BAD70 /* SearchScene.sks in Resources */,
+=======
+				CFD33D0723CFF6A1009BAD70 /* Search.sks in Resources */,
+				CFA596DB23F132060069EC17 /* user.json in Resources */,
+>>>>>>> Stashed changes
 				EE5E8AB5237654B00013120E /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,10 +541,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF3E061423A200DA00E10C91 /* Enemy.swift in Sources */,
+<<<<<<< Updated upstream
 				EE5E8AB7237654B00013120E /* GameScene.swift in Sources */,
 				ACC10D55239DDAE200209DC3 /* NormalSkill.swift in Sources */,
 				CF1A6A6623CEB7D800834D1C /* SkillDescriptionPopupNode.swift in Sources */,
 				CFA38B2A23C8CA05000248CD /* TimerLabel.swift in Sources */,
+=======
+				CFA596DA23F132060069EC17 /* BattleCalculation.swift in Sources */,
+				EE5E8AB7237654B00013120E /* GameScene.swift in Sources */,
+				ACC10D55239DDAE200209DC3 /* NormalSkill.swift in Sources */,
+				CFA596DE23F132060069EC17 /* SearchPanelGenerate.swift in Sources */,
+				CF1A6A6623CEB7D800834D1C /* SkillDescriptionPopupNode.swift in Sources */,
+				CFA596D623F132060069EC17 /* SearchPartViewController.swift in Sources */,
+				CFA38B2A23C8CA05000248CD /* TimerLabel.swift in Sources */,
+				CFA596D423F132060069EC17 /* SearchBorn.swift in Sources */,
+>>>>>>> Stashed changes
 				CF2EDA4023CB5D3500F99702 /* BattleNormalSkill.swift in Sources */,
 				CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */,
 				CFDE2B1123A6353500FCC822 /* SkillView.swift in Sources */,
@@ -502,13 +567,26 @@
 				CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */,
 				ACC10D57239DDB0400209DC3 /* Hpsum.swift in Sources */,
 				CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */,
+<<<<<<< Updated upstream
+=======
+				CFA596DF23F132060069EC17 /* Search.swift in Sources */,
+>>>>>>> Stashed changes
 				CF1A6A6423CE6A3600834D1C /* EnemyDivNode.swift in Sources */,
 				ACC10D53239DDAD300209DC3 /* BattleSkill.swift in Sources */,
 				CF077E11238FA376003B6C47 /* PanelContainer.swift in Sources */,
 				CF2EDA4223CB5F6E00F99702 /* BattleRequirePanel.swift in Sources */,
 				CFB990F623CA331900562371 /* RequirePanelModel.swift in Sources */,
+<<<<<<< Updated upstream
 				CF2EDA3E23CB5BB400F99702 /* BattleUnit.swift in Sources */,
 				EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */,
+=======
+				CFA596DC23F132060069EC17 /* SearchBornGenerate.swift in Sources */,
+				CFA596D523F132060069EC17 /* SearchPanel.swift in Sources */,
+				CF2EDA3E23CB5BB400F99702 /* BattleUnit.swift in Sources */,
+				CFA596D723F132060069EC17 /* Container.swift in Sources */,
+				EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */,
+				CFA596DD23F132060069EC17 /* SearchPanelContainer.swift in Sources */,
+>>>>>>> Stashed changes
 				CFD33D0523CFF648009BAD70 /* SearchScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

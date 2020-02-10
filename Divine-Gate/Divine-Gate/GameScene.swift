@@ -21,6 +21,16 @@ class GameScene: SKScene {
     var startDate : NSDate = NSDate();//開始時間
     var first_insert = true;
     var generators:[PanelGenerate] = []; //パネル生成ボックスのリスト
+<<<<<<< Updated upstream
+=======
+    
+    
+    var searchPanelGenerators : [SearchPanelGenerate] = [];
+    var searchGeneratorFlag : [Int] = [];
+    var searchBorn : SearchBornGenerate!;
+    var born_panel : Int!;
+    
+>>>>>>> Stashed changes
     var containers:[PanelContainer] = []; //パネル収容ボックスのリスト
     var dvunits : [BattleUnit] = [];
     var units_hpsum : Hpsum!;
@@ -42,14 +52,23 @@ class GameScene: SKScene {
         initPanelGenerate();
         initPanelContainer();
         
+<<<<<<< Updated upstream
         self.userInformationNode = self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode
         
+=======
+//        self.userInformationNode = self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode
+        self.addChild(userInformationNode)
+>>>>>>> Stashed changes
 //
         var config = Realm.Configuration()
         config.deleteRealmIfMigrationNeeded = true
         let realm = try! Realm(configuration: config);
         print(Realm.Configuration.defaultConfiguration.fileURL!)        
+<<<<<<< Updated upstream
 
+=======
+        
+>>>>>>> Stashed changes
         
         let dvunits_d = realm.objects(DVUnit.self)
         
@@ -62,6 +81,16 @@ class GameScene: SKScene {
             dvunit.setSkilltoBelong();
             self.dvunits.append(dvunit)
         }
+<<<<<<< Updated upstream
+        
+        userInformationNode.setImageToChildren(node_lis: self.dvunits);
+        
+        self.enemyDivNode = childNode(withName: "EnemyDivNode") as! EnemyDivNode;
+        self.nextTurnLabel = enemyDivNode.childNode(withName: "TurnSpan") as! SKLabelNode
+        self.nextTurnLabel.text = String(self.attack_span)
+
+=======
+>>>>>>> Stashed changes
         
         userInformationNode.setImageToChildren(node_lis: self.dvunits);
         
@@ -70,10 +99,14 @@ class GameScene: SKScene {
         self.nextTurnLabel.text = String(self.attack_span)
 
         
-        self.enemy = Enemy(type: "fire", enemywidth: 500, enemyheight: 500, image_path: "monster01");
-        enemy.setPosition(x: 0, y: 400);
+        self.enemy = Enemy(type: "fire", enemywidth: 400, enemyheight: 400, image_path: "monster01");
+        enemy.setPosition(x: 0, y: 300);
 
+<<<<<<< Updated upstream
         initHPsum();
+=======
+//        initHPsum();
+>>>>>>> Stashed changes
         initEnemyHPsum();
         initQueues();
         
@@ -97,7 +130,11 @@ class GameScene: SKScene {
         backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
         backgroundBar.position = CGPoint(x: self.units_hpsum.position.x, y: self.units_hpsum.position.y);
         backgroundBar.size = CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height);
+<<<<<<< Updated upstream
 
+=======
+        
+>>>>>>> Stashed changes
         self.userInformationNode.addChild(self.units_hpsum);
         self.userInformationNode.addChild(backgroundBar)
     }
@@ -241,7 +278,7 @@ class GameScene: SKScene {
     func executeSkill(){ // queueに格納されているスキルを全て実行し、queueの中身を空っぽにする
         for queue in self.queues{
             for skillView in queue.skillqueue{
-                skillView.normalSkill.execute(hpsum: self.units_hpsum, enemies: [self.enemy], enemy_index: 0);
+                skillView.normalSkill.execute(hpsum: self.userInformationNode.units_hpsum, enemies: [self.enemy], enemy_index: 0);
             }
             queue.delete()
         }
@@ -277,6 +314,7 @@ class GameScene: SKScene {
             updateState();
             initState();
             self.timerLabel.hide()
+<<<<<<< Updated upstream
         }
     }
     
@@ -287,6 +325,25 @@ class GameScene: SKScene {
              scene?.scaleMode = .aspectFill
              self.view!.presentScene(scene)
         }
+=======
+        }
+    }
+    
+    func updateState(){
+        executeSkill();
+        if enemy.hpsum.hp < 0{
+             let scene = Search(fileNamed: "Search");
+             scene?.scaleMode = .aspectFill
+            scene!.former_screen = self.name!
+            self.userInformationNode.removeFromParent();
+            scene?.userInformationNode = self.userInformationNode;
+            scene?.born = self.searchBorn;
+            scene?.generators = self.searchPanelGenerators;
+            scene?.generator_flag = self.searchGeneratorFlag;
+            scene?.born_panel = self.born_panel;
+             self.view!.presentScene(scene)
+        }
+>>>>>>> Stashed changes
         attack_num += 1;
         if (attack_num == attack_span){
             attackFromEnemy();
@@ -300,7 +357,11 @@ class GameScene: SKScene {
 
     
     func attackFromEnemy(){
+<<<<<<< Updated upstream
         self.units_hpsum.wounded(damage:50, type:"fire");
+=======
+        self.userInformationNode.units_hpsum.wounded(damage:50, type:"fire");
+>>>>>>> Stashed changes
     }
     
     

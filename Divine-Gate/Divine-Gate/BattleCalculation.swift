@@ -15,13 +15,13 @@ class BattleCalculation{
     var attack : [double_t];
     var characterType : [String];
     
-    var characterName : [String];
+    var characterName : [String] = [];
     
-    var firepanel : Int;
-    var waterpanel : Int;
-    var windpanel : Int;
-    var lightpanel : Int;
-    var darkpanel : Int;
+    var firepanel : Int = 0;
+    var waterpanel : Int = 0;
+    var windpanel : Int = 0;
+    var lightpanel : Int = 0;
+    var darkpanel : Int = 0;
     
     //キャラクタの攻撃力と属性は、多分作ると勝手に思っているcharacterクラスから配列にして持ってくる
     //ことを想定してinit()しています。
@@ -95,3 +95,4 @@ class BattleCalculation{
 //        return power;
 //    }
 //}
+}
