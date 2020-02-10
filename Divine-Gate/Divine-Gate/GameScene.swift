@@ -58,6 +58,9 @@ class GameScene: SKScene {
         let realm = try! Realm(configuration: config);
         print(Realm.Configuration.defaultConfiguration.fileURL!)        
 
+        let backgroundSound = SKAudioNode(fileNamed: "n36.mp3")
+        self.addChild(backgroundSound)
+        
         
         let dvunits_d = realm.objects(DVUnit.self)
         

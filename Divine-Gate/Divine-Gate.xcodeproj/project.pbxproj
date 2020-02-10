@@ -53,6 +53,8 @@
 		EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8ABF237654B20013120E /* LaunchScreen.storyboard */; };
 		EE5E8ACC237654B20013120E /* Divine_GateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8ACB237654B20013120E /* Divine_GateTests.swift */; };
 		EE5E8AD7237654B20013120E /* Divine_GateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8AD6237654B20013120E /* Divine_GateUITests.swift */; };
+		EE9AE19323F215B9006188D5 /* n36.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE9AE19223F215B9006188D5 /* n36.mp3 */; };
+		EE9AE19523F215C8006188D5 /* n74.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE9AE19423F215C7006188D5 /* n74.mp3 */; };
 		EEB0F00E23F19357006370DE /* FireEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = EEB0F00D23F19357006370DE /* FireEf.sks */; };
 		EEB0F01023F19BA7006370DE /* LightEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = EEB0F00F23F19BA6006370DE /* LightEf.sks */; };
 		EEB0F01423F19E88006370DE /* DarkEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = EEB0F01323F19E88006370DE /* DarkEf.sks */; };
@@ -135,6 +137,8 @@
 		EE5E8AD2237654B20013120E /* Divine-GateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Divine-GateUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5E8AD6237654B20013120E /* Divine_GateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divine_GateUITests.swift; sourceTree = "<group>"; };
 		EE5E8AD8237654B20013120E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE9AE19223F215B9006188D5 /* n36.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = n36.mp3; path = ../../../../../../Downloads/n36.mp3; sourceTree = "<group>"; };
+		EE9AE19423F215C7006188D5 /* n74.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = n74.mp3; path = ../../../../../../Downloads/n74.mp3; sourceTree = "<group>"; };
 		EEB0F00D23F19357006370DE /* FireEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireEf.sks; sourceTree = "<group>"; };
 		EEB0F00F23F19BA6006370DE /* LightEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LightEf.sks; sourceTree = SOURCE_ROOT; };
 		EEB0F01323F19E88006370DE /* DarkEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DarkEf.sks; sourceTree = SOURCE_ROOT; };
@@ -234,6 +238,8 @@
 				EE5E8AB4237654B00013120E /* Actions.sks */,
 				CF1A6A6723CF1FC900834D1C /* EmptyScene.swift */,
 				CFA596D223F132060069EC17 /* Search.swift */,
+				EE9AE19223F215B9006188D5 /* n36.mp3 */,
+				EE9AE19423F215C7006188D5 /* n74.mp3 */,
 				CF1A6A6923CF351500834D1C /* EmptyScene.sks */,
 				EE5E8AB6237654B00013120E /* GameScene.swift */,
 				EEB0F00D23F19357006370DE /* FireEf.sks */,
@@ -397,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9AE19323F215B9006188D5 /* n36.mp3 in Resources */,
 				EE5E8ABC237654B00013120E /* Main.storyboard in Resources */,
 				EE5E8AB3237654B00013120E /* GameScene.sks in Resources */,
 				EEB0F01A23F1A2F7006370DE /* WindEf.sks in Resources */,
@@ -405,6 +412,7 @@
 				EEB0F01823F1A27B006370DE /* WaterEf.sks in Resources */,
 				EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */,
 				CFD33D0723CFF6A1009BAD70 /* Search.sks in Resources */,
+				EE9AE19523F215C8006188D5 /* n74.mp3 in Resources */,
 				CFA596DB23F132060069EC17 /* user.json in Resources */,
 				EE5E8AB5237654B00013120E /* Actions.sks in Resources */,
 				EEB0F01423F19E88006370DE /* DarkEf.sks in Resources */,
