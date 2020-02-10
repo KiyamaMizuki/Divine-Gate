@@ -15,7 +15,6 @@ class SearchBornGenerate: SKSpriteNode {
     var y: Int;
     var width: Int;
     var height: Int;
-    
     var pal: SearchBorn?;//パネルクラスのインスタンス生成
     let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
     //lazy var pal = Panel?(width: Int(panelwidth), height: Int(panelwidth))//lazyプロパティにすることで遅延して初期化する　またオプショナル型にしたい

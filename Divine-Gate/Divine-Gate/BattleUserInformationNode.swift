@@ -17,7 +17,6 @@ class BattleUserInformationNode : SKNode{
     var height : Int = 0;
     var corner_x : Int = 0;
     var corner_y : Int = 0;
-    var units_hpsum : Hpsum!
     var dvunits : [BattleUnit] = [];
     
 //    override init(){

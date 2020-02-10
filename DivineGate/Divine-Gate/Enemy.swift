@@ -32,7 +32,7 @@ class Enemy: SKSpriteNode{
             self.x = 100;
             self.y = 150;
             self.image_path = image_path;
-            super.init(texture: SKTexture(imageNamed: "blue_panel"), color: UIColor.clear, size: CGSize(width: enemywidth, height: enemyheight));
+            super.init(texture: SKTexture(imageNamed: "blue_panel"), color: UIColor.clear, size: CGSize(width: enemywidth/2, height: enemyheight/2));
             self.position = CGPoint(x: self.x, y: self.y)
             self.type = type;
             self.texture = SKTexture(imageNamed: self.image_path)
