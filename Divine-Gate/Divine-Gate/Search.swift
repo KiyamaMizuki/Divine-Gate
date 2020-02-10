@@ -17,6 +17,10 @@ class Search: SKScene {
     var began_location_x :Int = 1;
     var began_location_y :Int = 1;
     
+    var userInformationNode : BattleUserInformationNode!
+    var units_hpsum : Hpsum!;
+    var dvunits : [BattleUnit] = [];
+    
     //生成する探索パネルのタイプをリストにしてます
     //現時点では「battle=赤色のパネル」「none=青色のパネル」にしてます
     var type_list = ["battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none",];
@@ -29,7 +33,41 @@ class Search: SKScene {
     override func didMove(to view: SKView) {
         self.name = "battle";
         initPanelGenerate();
+        
+        self.userInformationNode = self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode
+        var config = Realm.Configuration()
+        config.deleteRealmIfMigrationNeeded = true
+        let realm = try! Realm(configuration: config);
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        let dvunits_d = realm.objects(DVUnit.self)
+        for dvunit_d in dvunits_d{
+            let data = try! JSONEncoder().encode(dvunit_d)
+            let jsonStr = String(data: data, encoding: .utf8);
+            print(jsonStr!)
+            let unitData = jsonStr!.data(using: .utf8)
+            let dvunit = try! JSONDecoder().decode(BattleUnit.self, from: unitData!);
+            dvunit.setSkilltoBelong();
+            self.dvunits.append(dvunit)
+        }
+        userInformationNode.setImageToChildren(node_lis: self.dvunits);
+        initHPsum();
+
+        
     }
+    
+    func initHPsum(){
+        self.units_hpsum = Hpsum();
+        self.units_hpsum.inithp(units: dvunits, x: -290, y: 68);
+        let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: units_hpsum.width, height: units_hpsum.height));
+        backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
+        backgroundBar.position = CGPoint(x: self.units_hpsum.position.x, y: self.units_hpsum.position.y);
+        backgroundBar.size = CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height);
+        self.userInformationNode.addChild(self.units_hpsum);
+        self.userInformationNode.addChild(backgroundBar)
+    }
+    
+    
+    
     
     let len : Int = 25; // 表示するcontainerとgeneratorの数
     var generators:[SearchPanelGenerate] = [];//パネル生成ボックスのリスト

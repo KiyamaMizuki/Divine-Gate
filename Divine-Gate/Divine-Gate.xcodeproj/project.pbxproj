@@ -15,14 +15,20 @@
 		CF3E061423A200DA00E10C91 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3E061323A200DA00E10C91 /* Enemy.swift */; };
 		CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF96237672FB005E6E10 /* Panel.swift */; };
 		CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */; };
+		CFBE0EB423F117AD00A226CF /* SearchPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBE0EB323F117AD00A226CF /* SearchPanel.swift */; };
+		CFBE0EB623F117D400A226CF /* SearchPanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBE0EB523F117D400A226CF /* SearchPanelGenerate.swift */; };
+		CFBE0EB823F11B8600A226CF /* Search.sks in Resources */ = {isa = PBXBuildFile; fileRef = CFBE0EB723F11B8600A226CF /* Search.sks */; };
+		CFBE0EBA23F11BF700A226CF /* BattleUserInformationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBE0EB923F11BF700A226CF /* BattleUserInformationNode.swift */; };
+		CFBE0EBC23F11C5000A226CF /* BattleUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBE0EBB23F11C5000A226CF /* BattleUnit.swift */; };
+		CFBE0EBE23F1212500A226CF /* BattleNormalSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBE0EBD23F1212500A226CF /* BattleNormalSkill.swift */; };
+		CFBE0EC023F121D800A226CF /* BattleSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBE0EBF23F121D800A226CF /* BattleSkill.swift */; };
+		CFBE0EC223F123A300A226CF /* SkillDescriptionPopupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBE0EC123F123A200A226CF /* SkillDescriptionPopupNode.swift */; };
+		CFBE0EC423F123F800A226CF /* RequirePanelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBE0EC323F123F800A226CF /* RequirePanelModel.swift */; };
 		CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181A23A08700001EA9E9 /* ProgressBar.swift */; };
 		CFDE181D23A09AA4001EA9E9 /* NormalSkillQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */; };
 		CFDE2B1123A6353500FCC822 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE2B1023A6353500FCC822 /* SkillView.swift */; };
-		EE5C744123D08CA20058919E /* SearchPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C743F23D08CA20058919E /* SearchPanel.swift */; };
-		EE5C744223D08CA20058919E /* SearchPanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C744023D08CA20058919E /* SearchPanelGenerate.swift */; };
 		EE5C744823D132480058919E /* SearchPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C744723D132480058919E /* SearchPartViewController.swift */; };
 		EE5C745023D18C780058919E /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C744F23D18C780058919E /* Search.swift */; };
-		EE5C745223D193930058919E /* Search.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE5C745123D193930058919E /* Search.sks */; };
 		EE5C745423D872C60058919E /* SearchBorn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C745323D872C60058919E /* SearchBorn.swift */; };
 		EE5C745623D87D710058919E /* SearchBornGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5C745523D87D710058919E /* SearchBornGenerate.swift */; };
 		EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8AB0237654B00013120E /* AppDelegate.swift */; };
@@ -63,14 +69,20 @@
 		CF3E061323A200DA00E10C91 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enemy.swift; path = "../../DivineGate/Divine-Gate/Enemy.swift"; sourceTree = "<group>"; };
 		CF4DBF96237672FB005E6E10 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGenerate.swift; sourceTree = "<group>"; };
+		CFBE0EB323F117AD00A226CF /* SearchPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPanel.swift; sourceTree = "<group>"; };
+		CFBE0EB523F117D400A226CF /* SearchPanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPanelGenerate.swift; sourceTree = "<group>"; };
+		CFBE0EB723F11B8600A226CF /* Search.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Search.sks; sourceTree = "<group>"; };
+		CFBE0EB923F11BF700A226CF /* BattleUserInformationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleUserInformationNode.swift; sourceTree = "<group>"; };
+		CFBE0EBB23F11C5000A226CF /* BattleUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleUnit.swift; sourceTree = "<group>"; };
+		CFBE0EBD23F1212500A226CF /* BattleNormalSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleNormalSkill.swift; sourceTree = "<group>"; };
+		CFBE0EBF23F121D800A226CF /* BattleSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleSkill.swift; sourceTree = "<group>"; };
+		CFBE0EC123F123A200A226CF /* SkillDescriptionPopupNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillDescriptionPopupNode.swift; sourceTree = "<group>"; };
+		CFBE0EC323F123F800A226CF /* RequirePanelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequirePanelModel.swift; sourceTree = "<group>"; };
 		CFDE181A23A08700001EA9E9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalSkillQueue.swift; sourceTree = "<group>"; };
 		CFDE2B1023A6353500FCC822 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
-		EE5C743F23D08CA20058919E /* SearchPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPanel.swift; path = ../../../../SearchPanel.swift; sourceTree = "<group>"; };
-		EE5C744023D08CA20058919E /* SearchPanelGenerate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPanelGenerate.swift; path = ../../../../SearchPanelGenerate.swift; sourceTree = "<group>"; };
 		EE5C744723D132480058919E /* SearchPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPartViewController.swift; sourceTree = "<group>"; };
 		EE5C744F23D18C780058919E /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
-		EE5C745123D193930058919E /* Search.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Search.sks; sourceTree = "<group>"; };
 		EE5C745323D872C60058919E /* SearchBorn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBorn.swift; sourceTree = "<group>"; };
 		EE5C745523D87D710058919E /* SearchBornGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBornGenerate.swift; sourceTree = "<group>"; };
 		EE5E8AAD237654B00013120E /* Divine-Gate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Divine-Gate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,21 +163,27 @@
 				EE5E8ABD237654B20013120E /* Assets.xcassets */,
 				EE5E8ABF237654B20013120E /* LaunchScreen.storyboard */,
 				EE5E8AC2237654B20013120E /* Info.plist */,
+				CFBE0EC123F123A200A226CF /* SkillDescriptionPopupNode.swift */,
+				CFBE0EC323F123F800A226CF /* RequirePanelModel.swift */,
 				CF4DBF96237672FB005E6E10 /* Panel.swift */,
 				CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */,
 				CF077E10238FA376003B6C47 /* PanelContainer.swift */,
 				ACC10D54239DDAE200209DC3 /* NormalSkill.swift */,
 				CF3E061323A200DA00E10C91 /* Enemy.swift */,
-				EE5C743F23D08CA20058919E /* SearchPanel.swift */,
-				EE5C744023D08CA20058919E /* SearchPanelGenerate.swift */,
 				ACC10D52239DDAD300209DC3 /* Skill.swift */,
 				CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */,
 				CFDE2B1023A6353500FCC822 /* SkillView.swift */,
 				EE5C744723D132480058919E /* SearchPartViewController.swift */,
 				EE5C744F23D18C780058919E /* Search.swift */,
-				EE5C745123D193930058919E /* Search.sks */,
+				CFBE0EB723F11B8600A226CF /* Search.sks */,
 				EE5C745323D872C60058919E /* SearchBorn.swift */,
 				EE5C745523D87D710058919E /* SearchBornGenerate.swift */,
+				CFBE0EB323F117AD00A226CF /* SearchPanel.swift */,
+				CFBE0EB523F117D400A226CF /* SearchPanelGenerate.swift */,
+				CFBE0EB923F11BF700A226CF /* BattleUserInformationNode.swift */,
+				CFBE0EBB23F11C5000A226CF /* BattleUnit.swift */,
+				CFBE0EBD23F1212500A226CF /* BattleNormalSkill.swift */,
+				CFBE0EBF23F121D800A226CF /* BattleSkill.swift */,
 			);
 			path = "Divine-Gate";
 			sourceTree = "<group>";
@@ -293,10 +311,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE5E8ABC237654B00013120E /* Main.storyboard in Resources */,
-				EE5C745223D193930058919E /* Search.sks in Resources */,
 				EE5E8AB3237654B00013120E /* GameScene.sks in Resources */,
 				EE5E8ABE237654B20013120E /* Assets.xcassets in Resources */,
 				EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */,
+				CFBE0EB823F11B8600A226CF /* Search.sks in Resources */,
 				EE5E8AB5237654B00013120E /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,13 +340,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFBE0EC423F123F800A226CF /* RequirePanelModel.swift in Sources */,
 				CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */,
+				CFBE0EBE23F1212500A226CF /* BattleNormalSkill.swift in Sources */,
 				EE5C744823D132480058919E /* SearchPartViewController.swift in Sources */,
 				CF3E061423A200DA00E10C91 /* Enemy.swift in Sources */,
-				EE5C744223D08CA20058919E /* SearchPanelGenerate.swift in Sources */,
+				CFBE0EC223F123A300A226CF /* SkillDescriptionPopupNode.swift in Sources */,
+				CFBE0EB623F117D400A226CF /* SearchPanelGenerate.swift in Sources */,
 				EE5E8AB7237654B00013120E /* GameScene.swift in Sources */,
-				EE5C744123D08CA20058919E /* SearchPanel.swift in Sources */,
 				ACC10D55239DDAE200209DC3 /* NormalSkill.swift in Sources */,
+				CFBE0EC023F121D800A226CF /* BattleSkill.swift in Sources */,
+				CFBE0EB423F117AD00A226CF /* SearchPanel.swift in Sources */,
 				CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */,
 				CFDE2B1123A6353500FCC822 /* SkillView.swift in Sources */,
 				EE5C745423D872C60058919E /* SearchBorn.swift in Sources */,
@@ -337,9 +359,11 @@
 				EE5C745023D18C780058919E /* Search.swift in Sources */,
 				CFDE181D23A09AA4001EA9E9 /* NormalSkillQueue.swift in Sources */,
 				CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */,
+				CFBE0EBC23F11C5000A226CF /* BattleUnit.swift in Sources */,
 				ACC10D57239DDB0400209DC3 /* Hpsum.swift in Sources */,
 				ACC10D53239DDAD300209DC3 /* Skill.swift in Sources */,
 				EE5C745623D87D710058919E /* SearchBornGenerate.swift in Sources */,
+				CFBE0EBA23F11BF700A226CF /* BattleUserInformationNode.swift in Sources */,
 				CF077E11238FA376003B6C47 /* PanelContainer.swift in Sources */,
 				EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */,
 			);
