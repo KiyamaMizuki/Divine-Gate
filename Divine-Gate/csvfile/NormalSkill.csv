@@ -1,0 +1,7 @@
+id,ratio,toSingle,executable,skillType,requirePanels,name,description_c,type
+1,3,true,false,attack,<RequirePanelModel>{0},fireAttack1,fuga,fire
+2,2,true,false,attack,<RequirePanelModel>{1},fireAttack2,fuga,fire
+3,1.2,true,false,attack,<RequirePanelModel>{2},waterAttack,piyo,water
+4,2,true,false,attack,<RequirePanelModel>{3},windAttack,foah,wind
+5,2,true,false,attack,<RequirePanelModel>{4},darkAttack,"dark skill",dark
+6,2,true,false,attack,<RequirePanelModel>{5},lightAttack,"light skill",light
