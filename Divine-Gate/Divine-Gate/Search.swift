@@ -17,11 +17,11 @@ class Search: SKScene {
     var began_location_x :Int = 1;
     var began_location_y :Int = 1;
     var former_screen = "";
+    var sp : String!;
     
     var userInformationNode : BattleUserInformationNode!
     var units_hpsum : Hpsum!;
     var dvunits : [BattleUnit] = [];
-    
     var dungeon_id : Int = 0;
     
     //生成する探索パネルのタイプをリストにしてます
@@ -33,6 +33,9 @@ class Search: SKScene {
     var activeBorn : SearchBorn!;
     var click_panel : Int = 0;
     var born_panel : Int = 0;
+    var sppanel_num = 20;
+    
+    
     
     override func didMove(to view: SKView) {
         self.name = "battle";
@@ -57,6 +60,7 @@ class Search: SKScene {
             }
             userInformationNode.setImageToChildren(node_lis: self.dvunits);
             initHPsum();
+            initSpPanels();
         }else{
 //            self.generators = UserDefaults.standard.array(forKey: "panel_generater") as! [SearchPanelGenerate];
 //            self.generator_flag = UserDefaults.standard.array(forKey: "panel_flag") as! [Int];
@@ -70,10 +74,26 @@ class Search: SKScene {
             self.addChild(born.pal!);
             self.addChild(born);
             self.addChild(userInformationNode);
+            
+            self.sppanel_num = UserDefaults.standard.integer(forKey: "sppanel_num");
         }
 
         
     }
+    
+    func initSpPanels(){
+        for i in 0..<userInformationNode.spcount{
+            var spframe = userInformationNode.childNode(withName: "spframe" + String(Int(i / 4))) as! SKSpriteNode
+            var children_sps = spframe.children
+            for children_sp in children_sps{
+                print(children_sp.name!);
+                userInformationNode.spPanels[Int(children_sp.name!)!] = children_sp as! SKSpriteNode;
+            }
+            
+//            childNode(withName: "sp" + String(i)) as! SKSpriteNode
+        }
+    }
+    
     
     func initHPsum(){
         var units_hpsum = Hpsum();
@@ -207,6 +227,9 @@ class Search: SKScene {
                     self.born=br;
                     br.generate();
                     
+                    self.sppanel_num -= 1;
+                    updateSpPanels()
+                    
                     self.addChild(br.pal!);
                     self.addChild(br);
                     
@@ -228,9 +251,20 @@ class Search: SKScene {
         
         }
     
+    
+    func updateSpPanels(){
+        for sppanel in self.userInformationNode.spPanels{
+            sppanel.isHidden = true;
+        }
+        for i in 0..<self.sppanel_num{
+            self.userInformationNode.spPanels[i].isHidden = false;
+        }
+    }
+    
     func panelJudge(panel_type:String){
         if panel_type=="battle"{
             print("戦闘開始");
+            UserDefaults.standard.set(self.sppanel_num, forKey: "sppanel_num");
             let scene = GameScene(fileNamed: "GameScene");
             scene?.scaleMode = .aspectFill;
             self.userInformationNode.removeFromParent();
