@@ -56,7 +56,7 @@ class GameScene: SKScene {
         config.deleteRealmIfMigrationNeeded = true
         let realm = try! Realm(configuration: config);
         print(Realm.Configuration.defaultConfiguration.fileURL!)        
-
+        
         
         let dvunits_d = realm.objects(DVUnit.self)
         
@@ -77,8 +77,8 @@ class GameScene: SKScene {
         self.nextTurnLabel.text = String(self.attack_span)
 
         
-        self.enemy = Enemy(type: "fire", enemywidth: 500, enemyheight: 500, image_path: "monster01");
-        enemy.setPosition(x: 0, y: 400);
+        self.enemy = Enemy(type: "fire", enemywidth: 400, enemyheight: 400, image_path: "monster01");
+        enemy.setPosition(x: 0, y: 300);
 
 //        initHPsum();
         initEnemyHPsum();

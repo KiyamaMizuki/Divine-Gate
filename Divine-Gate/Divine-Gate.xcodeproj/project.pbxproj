@@ -36,7 +36,6 @@
 		CFA596DD23F132060069EC17 /* SearchPanelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596D023F132060069EC17 /* SearchPanelContainer.swift */; };
 		CFA596DE23F132060069EC17 /* SearchPanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596D123F132060069EC17 /* SearchPanelGenerate.swift */; };
 		CFA596DF23F132060069EC17 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596D223F132060069EC17 /* Search.swift */; };
-		CFA596E023F132060069EC17 /* BattleSkill.swift~future_search_part in Resources */ = {isa = PBXBuildFile; fileRef = CFA596D323F132060069EC17 /* BattleSkill.swift~future_search_part */; };
 		CFB990F623CA331900562371 /* RequirePanelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB990F523CA331900562371 /* RequirePanelModel.swift */; };
 		CFD33D0523CFF648009BAD70 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD33D0423CFF647009BAD70 /* SearchScene.swift */; };
 		CFD33D0723CFF6A1009BAD70 /* Search.sks in Resources */ = {isa = PBXBuildFile; fileRef = CFD33D0623CFF6A1009BAD70 /* Search.sks */; };
@@ -109,7 +108,6 @@
 		CFA596D023F132060069EC17 /* SearchPanelContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPanelContainer.swift; sourceTree = "<group>"; };
 		CFA596D123F132060069EC17 /* SearchPanelGenerate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPanelGenerate.swift; sourceTree = "<group>"; };
 		CFA596D223F132060069EC17 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
-		CFA596D323F132060069EC17 /* BattleSkill.swift~future_search_part */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "BattleSkill.swift~future_search_part"; sourceTree = "<group>"; };
 		CFB990F523CA331900562371 /* RequirePanelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirePanelModel.swift; sourceTree = "<group>"; };
 		CFD33D0423CFF647009BAD70 /* SearchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScene.swift; sourceTree = "<group>"; };
 		CFD33D0623CFF6A1009BAD70 /* Search.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Search.sks; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				CFA596CD23F132060069EC17 /* BattleCalculation.swift */,
-				CFA596D323F132060069EC17 /* BattleSkill.swift~future_search_part */,
 				CFA596CA23F132050069EC17 /* Container.swift */,
 				CFA596C723F132050069EC17 /* SearchBorn.swift */,
 				CFA596CF23F132060069EC17 /* SearchBornGenerate.swift */,
@@ -391,7 +388,6 @@
 				EE5E8ABE237654B20013120E /* Assets.xcassets in Resources */,
 				EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */,
 				CFD33D0723CFF6A1009BAD70 /* Search.sks in Resources */,
-				CFA596E023F132060069EC17 /* BattleSkill.swift~future_search_part in Resources */,
 				CFA596DB23F132060069EC17 /* user.json in Resources */,
 				EE5E8AB5237654B00013120E /* Actions.sks in Resources */,
 			);
@@ -727,14 +723,17 @@
 			baseConfigurationReference = 94FEE3FC1905ABDAA8CE33DA /* Pods-Divine-Gate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Divine-Gate/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kanon.Divine-Gate";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -745,14 +744,17 @@
 			baseConfigurationReference = 91401AD13989C0E60240C7BA /* Pods-Divine-Gate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Divine-Gate/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kanon.Divine-Gate";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

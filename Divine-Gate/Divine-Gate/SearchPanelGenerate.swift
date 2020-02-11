@@ -16,7 +16,8 @@ class SearchPanelGenerate: SKSpriteNode {
     
     var type: String!;
     var pal: SearchPanel?;//パネルクラスのインスタンス生成
-    let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
+    //let screenwidth = UIScreen.main.bounds.size.width//スマホの横幅
+    let screenwidth = 550
     //lazy var pal = Panel?(width: Int(panelwidth), height: Int(panelwidth))//lazyプロパティにすることで遅延して初期化する　またオプショナル型にしたい
     init(panel_type:String){
         var size :Int = Int(screenwidth)+200

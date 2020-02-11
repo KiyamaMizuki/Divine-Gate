@@ -109,16 +109,18 @@ class Search: SKScene {
             
             //
             if num >= 0 && 4>=num {
-                y_point = 250;
+                y_point = 285;
             }else if num >= 5 && 9>=num{
-                y_point = 125;
+                y_point = 135;
             }else if num >= 10 && 14>=num{
-                y_point = 0;
+                y_point = -15;
             }else if num >= 15 && 19>=num{
-                y_point = -125;
+                y_point = -165;
             }else{
-                y_point = -250;
+                y_point = -315;
             }
+            
+            
             
             if i == 22{
                 br.setpoint(x: -250 + x_point * 125, y: y_point);
@@ -128,7 +130,7 @@ class Search: SKScene {
                 br.generate();
             }
             
-            pg.setpoint(x:-250 + x_point * 125 ,y : y_point);//パネル生成の箱の位置
+            pg.setpoint(x:-300 + x_point * 151 ,y : y_point);//パネル生成の箱の位置
             x_point+=1
             if x_point==5{
                 x_point=0
@@ -151,11 +153,13 @@ class Search: SKScene {
             let location = pos;
             for i in 0..<self.generators.count{
                 if (generators[i].contain(touchX: Int(location.x), touchY: Int(location.y))){
-    //                            print(generators[i].x, generators[i].y);
+    //              print(generators[i].x, generators[i].y);
                     self.activePanel = generators[i].pal;
                     self.activeBorn = born.pal;
                     self.began_location_x  = Int(self.activePanel.position.x);
                     self.began_location_y  = Int(self.activePanel.position.y);
+                    print("hogegegegegegegeg")
+                    
                 }
             }
         //print("ここでタッチ判定してるんだなぁみつを"); ここでタッチ判定
