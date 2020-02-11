@@ -260,11 +260,41 @@ class GameScene: SKScene {
     
     func executeSkill(){ // queueに格納されているスキルを全て実行し、queueの中身を空っぽにする
         for queue in self.queues{
-            for skillView in queue.skillqueue{
-                skillView.normalSkill.execute(hpsum: self.userInformationNode.units_hpsum, enemies: [self.enemy], enemy_index: 0);
+//            for skillView in queue.skillqueue{
+//                skillView.normalSkill.execute(hpsum: self.userInformationNode.units_hpsum, enemies: [self.enemy], enemy_index: 0);
+//
+//            }
+            
+            while !(queue.skillqueue.isEmpty){
+                queue.skillqueue[0].normalSkill.execute(hpsum: self.userInformationNode.units_hpsum, enemies: [self.enemy], enemy_index: 0);
+                queue.pop();
             }
+            
             queue.delete()
         }
+    }
+    
+    func generateAnimation(type : String) -> SKAction{
+        var effect = type;
+        
+        let particle = SKEmitterNode(fileNamed: effect)
+        //エネミーの位置にパーティクルが再生されるようにする。
+        particle!.position = CGPoint(x: 0, y: 260)
+        //1.5秒後にシーンから消すアクションを作成する。
+        //let action1 = SKAction.wait(forDuration:1.5)
+        //let action2 = SKAction.removeFromParent()
+        //let actionAll = SKAction.sequence([action1, action2])
+        
+        var biggerParticleAction = SKAction.scale(to: 2, duration: 1.0);
+        var waitParticleAction = SKAction.wait(forDuration:1.5);
+        var hideAction = SKAction.fadeAlpha(to: 0, duration: 1.0);
+        var actionAll = SKAction.sequence([biggerParticleAction, waitParticleAction, hideAction]);
+//        let act = SKAction.sequence([actionAll, actionAll, actionAll]);
+        //パーティクルをシーンに追加する。
+        self.addChild(particle!)
+        //アクションを実行する。
+        return actionAll;
+
     }
     
     /*
@@ -318,6 +348,11 @@ class GameScene: SKScene {
         attack_num += 1;
         if (attack_num == attack_span){
             attackFromEnemy();
+            if self.userInformationNode.units_hpsum.hp < 0{
+                let scene = DungeonSelectScene(fileNamed: "DungeonSelectScene");
+                scene?.scaleMode = .aspectFill;
+                self.view!.presentScene(scene);
+            }
             attack_num = 0;
         }
         self.nextTurnLabel.text = String(attack_span - attack_num);
@@ -328,7 +363,7 @@ class GameScene: SKScene {
 
     
     func attackFromEnemy(){
-        self.userInformationNode.units_hpsum.wounded(damage:enemy.attack, type:"fire");
+        self.userInformationNode.units_hpsum.wounded(damage:enemy.attack, type:enemy.type);
     }
     
     

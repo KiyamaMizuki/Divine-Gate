@@ -262,8 +262,16 @@ class Search: SKScene {
                     self.born=br;
                     br.generate();
                     
+                    
                     self.sppanel_num -= 1;
+                    if self.sppanel_num == 0{
+                        let scene = DungeonSelectScene(fileNamed: "DungeonSelectScene");
+                        scene?.scaleMode = .aspectFill;
+                        
+                        self.view!.presentScene(scene);
+                    }
                     updateSpPanels()
+                    
                     
                     self.addChild(br.pal!);
                     self.addChild(br);

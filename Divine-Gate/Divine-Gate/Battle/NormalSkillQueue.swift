@@ -37,6 +37,7 @@ class NormalSkillQueue:  SKSpriteNode{ // 灰色のnormalSkillQueueを表示す�
         var ns : SkillView? = nil;
         if self.skillqueue.count >= 1 {
             ns = self.skillqueue[0];
+            ns?.removeFromParent();
             self.skillqueue.removeFirst();
         }
         return ns;

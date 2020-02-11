@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "Divine-Gate_Assets.xcassets_Particle Sprite Atlas.spriteatlas_bokeh.imageset_bokeh_Before_895ef3226cc5dcce660bd6b3f1b1b81e12b6c200.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
