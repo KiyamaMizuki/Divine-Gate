@@ -10,12 +10,13 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import RealmSwift
 
 class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initDatabase();
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = DungeonSelectScene(fileNamed: "DungeonSelectScene") {
@@ -35,6 +36,29 @@ class GameViewController: UIViewController {
 
     override var shouldAutorotate: Bool {
         return true
+    }
+    
+    func initDatabase(){
+        var config = Realm.Configuration()
+        config.deleteRealmIfMigrationNeeded = true
+        let realm = try! Realm(configuration: config);
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        let dungeon = Dungeon()
+//        let dungeon_enemy = DungeonEnemy()
+//        let enemy_model = EnemyModel()
+        
+        try! realm.write{
+//            dungeon_enemy.id = 1
+//            dungeon_enemy.dungeon_id = 1
+//            dungeon_enemy.enemy_id = 1
+//            realm.add(dungeon)
+//            realm.add(dungeon_enemy)
+//            realm.add(enemy_model)
+//            dungeon.id = 1
+//            dungeon.name = "dungeon1"
+//            realm.add(dungeon)
+        }
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

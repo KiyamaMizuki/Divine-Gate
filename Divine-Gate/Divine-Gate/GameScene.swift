@@ -22,8 +22,8 @@ class GameScene: SKScene {
     var first_insert = true;
     var generators:[PanelGenerate] = []; //パネル生成ボックスのリスト
     
-    var dungeon_id : Int = 0;
-    
+    var dungeon : Dungeon!;
+    var enemy_model : EnemyModel!;
     
     var searchPanelGenerators : [SearchPanelGenerate] = [];
     var searchGeneratorFlag : [Int] = [];
@@ -50,6 +50,8 @@ class GameScene: SKScene {
             
         initPanelGenerate();
         initPanelContainer();
+        
+        print(dungeon);
         
 //        self.userInformationNode = self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode
         self.addChild(userInformationNode)
@@ -79,7 +81,12 @@ class GameScene: SKScene {
         self.nextTurnLabel.text = String(self.attack_span)
 
         
-        self.enemy = Enemy(type: "fire", enemywidth: 400, enemyheight: 400, image_path: "monster01");
+        self.enemy = Enemy(type: self.enemy_model!.type, enemywidth: 400, enemyheight: 400, image_path: enemy_model.image_path);
+        self.enemy.name = enemy_model.name;
+        self.enemy.attack = enemy_model.attack;
+        self.enemy.hp = enemy_model.hp;
+        
+        
         enemy.setPosition(x: 0, y: 300);
 
 //        initHPsum();
@@ -113,7 +120,7 @@ class GameScene: SKScene {
     
     func initEnemyHPsum(){
         var hpsum = Hpsum();
-        hpsum.inithp(num: 500, x: -20, y: -195);
+        hpsum.inithp(num: self.enemy.hp, x: -20, y: -195);
         let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: hpsum.width, height: hpsum.height));
         backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
         backgroundBar.position = CGPoint(x: hpsum.position.x, y: hpsum.position.y);
@@ -301,6 +308,7 @@ class GameScene: SKScene {
             scene?.generators = self.searchPanelGenerators;
             scene?.generator_flag = self.searchGeneratorFlag;
             scene?.born_panel = self.born_panel;
+            scene?.dungeon = self.dungeon;
              self.view!.presentScene(scene)
         }
         attack_num += 1;
@@ -316,7 +324,7 @@ class GameScene: SKScene {
 
     
     func attackFromEnemy(){
-        self.userInformationNode.units_hpsum.wounded(damage:50, type:"fire");
+        self.userInformationNode.units_hpsum.wounded(damage:enemy.attack, type:"fire");
     }
     
     

@@ -17,6 +17,11 @@ class Enemy: SKSpriteNode{
         var hpsum: Hpsum!;
         var x : Int;
         var y : Int;
+    var attack : Int = 0;
+    var name_c : String = "";
+    var hp : Int = 0;
+    
+    
     
         func wounded(damage : Int, type : String){
         //        被ダメージ処理

@@ -21,6 +21,9 @@ class Search: SKScene {
     var userInformationNode : BattleUserInformationNode!
     var units_hpsum : Hpsum!;
     var dvunits : [BattleUnit] = [];
+    var dungeon : Dungeon!;
+    
+    var realm : Realm!;
     
     var dungeon_id : Int = 0;
     
@@ -36,14 +39,15 @@ class Search: SKScene {
     
     override func didMove(to view: SKView) {
         self.name = "battle";
-        
+        print(dungeon)
+        var config = Realm.Configuration()
+        config.deleteRealmIfMigrationNeeded = true
+        self.realm = try! Realm(configuration: config);
         
         if former_screen != "battle"{
             initPanelGenerate();
             self.userInformationNode = (self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode)
-            var config = Realm.Configuration()
-            config.deleteRealmIfMigrationNeeded = true
-            let realm = try! Realm(configuration: config);
+            
             print(Realm.Configuration.defaultConfiguration.fileURL!)
             let dvunits_d = realm.objects(DVUnit.self)
             for dvunit_d in dvunits_d{
@@ -58,10 +62,6 @@ class Search: SKScene {
             userInformationNode.setImageToChildren(node_lis: self.dvunits);
             initHPsum();
         }else{
-//            self.generators = UserDefaults.standard.array(forKey: "panel_generater") as! [SearchPanelGenerate];
-//            self.generator_flag = UserDefaults.standard.array(forKey: "panel_flag") as! [Int];
-//            self.born = UserDefaults.standard.data(forKey: "born");
-//            self.addChild(generators)
             for g in generators{
                 self.addChild(g);
                 g.pal?.zPosition = g.zPosition + 1;
@@ -241,10 +241,25 @@ class Search: SKScene {
             scene?.searchGeneratorFlag = self.generator_flag;
             scene?.searchBorn = self.born
             scene?.born_panel = self.born_panel;
+            scene?.dungeon = self.dungeon;
+            scene?.enemy_model = selectEnemyFromDungeon();
             self.view!.presentScene(scene);
         }else if panel_type=="none"{
             print("何もないところ");
         }
+    }
+    
+    func selectEnemyFromDungeon() -> EnemyModel{
+        var dungeon_enemies = self.realm.objects(DungeonEnemy.self).filter("dungeon_id==%@", self.dungeon!.id)
+        var enemy_ids : [Int] = [];
+        for dungeon_enemy in dungeon_enemies{
+            enemy_ids.append(dungeon_enemy.enemy_id)
+        }
+        let enemy_id = enemy_ids[Int.random(in: 0..<enemy_ids.count)];
+        let enemy = self.realm.objects(EnemyModel.self).filter("id==%@",enemy_id).first;
+        return enemy!;
+        
+        
     }
                 
     func touchMoved(toPoint pos : CGPoint) {

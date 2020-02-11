@@ -47,6 +47,9 @@
 		CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181A23A08700001EA9E9 /* ProgressBar.swift */; };
 		CFDE181D23A09AA4001EA9E9 /* NormalSkillQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */; };
 		CFDE2B1123A6353500FCC822 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE2B1023A6353500FCC822 /* SkillView.swift */; };
+		CFFDE07723F25C110092027C /* Dungeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDE07623F25C110092027C /* Dungeon.swift */; };
+		CFFDE07923F25C2A0092027C /* DungeonEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDE07823F25C2A0092027C /* DungeonEnemy.swift */; };
+		CFFDE07B23F25C3A0092027C /* EnemyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDE07A23F25C3A0092027C /* EnemyModel.swift */; };
 		E36B3DA2E9796026F580D28E /* Pods_Divine_Gate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04856B4124D0C9EAA2A309B /* Pods_Divine_Gate.framework */; };
 		EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8AB0237654B00013120E /* AppDelegate.swift */; };
 		EE5E8AB3237654B00013120E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE5E8AB2237654B00013120E /* GameScene.sks */; };
@@ -124,6 +127,9 @@
 		CFDE181A23A08700001EA9E9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalSkillQueue.swift; sourceTree = "<group>"; };
 		CFDE2B1023A6353500FCC822 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
+		CFFDE07623F25C110092027C /* Dungeon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dungeon.swift; sourceTree = "<group>"; };
+		CFFDE07823F25C2A0092027C /* DungeonEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DungeonEnemy.swift; sourceTree = "<group>"; };
+		CFFDE07A23F25C3A0092027C /* EnemyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyModel.swift; sourceTree = "<group>"; };
 		EE5E8AAD237654B00013120E /* Divine-Gate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Divine-Gate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5E8AB0237654B00013120E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE5E8AB2237654B00013120E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -231,10 +237,9 @@
 				EE5E8AB0237654B00013120E /* AppDelegate.swift */,
 				EE5E8AB4237654B00013120E /* Actions.sks */,
 				CF1A6A6723CF1FC900834D1C /* EmptyScene.swift */,
-				CFA596D223F132060069EC17 /* Search.swift */,
 				CFD33D0623CFF6A1009BAD70 /* Search.sks */,
 				CF1A6A6923CF351500834D1C /* EmptyScene.sks */,
-				EE5E8AB6237654B00013120E /* GameScene.swift */,
+				CF3E061323A200DA00E10C91 /* Enemy.swift */,
 				EE5E8AB2237654B00013120E /* GameScene.sks */,
 				ACC10D54239DDAE200209DC3 /* NormalSkill.swift */,
 				ACC02F15239BC44D008B314E /* DVUnit.swift */,
@@ -242,7 +247,6 @@
 				ACC10D56239DDB0400209DC3 /* Hpsum.swift */,
 				CFA38B2923C8CA05000248CD /* TimerLabel.swift */,
 				CFDE181A23A08700001EA9E9 /* ProgressBar.swift */,
-				EE5E8AB8237654B00013120E /* GameViewController.swift */,
 				EE5E8ABA237654B00013120E /* Main.storyboard */,
 				EE5E8ABD237654B20013120E /* Assets.xcassets */,
 				EE5E8ABF237654B20013120E /* LaunchScreen.storyboard */,
@@ -250,7 +254,6 @@
 				CF4DBF96237672FB005E6E10 /* Panel.swift */,
 				CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */,
 				CF077E10238FA376003B6C47 /* PanelContainer.swift */,
-				CF3E061323A200DA00E10C91 /* Enemy.swift */,
 				CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */,
 				CFDE2B1023A6353500FCC822 /* SkillView.swift */,
 				CF2EDA3D23CB5BB400F99702 /* BattleUnit.swift */,
@@ -264,8 +267,14 @@
 				CF21772723F218A400B0017E /* ClickableSpriteNode.swift */,
 				CF21772923F21EA200B0017E /* TestSprite.swift */,
 				CF21772B23F222DB00B0017E /* Button.swift */,
-				CF21772D23F223FF00B0017E /* DungeonSelectScene.sks */,
+				CFA596D223F132060069EC17 /* Search.swift */,
+				EE5E8AB6237654B00013120E /* GameScene.swift */,
 				CF21772F23F2242400B0017E /* DungeonSelectScene.swift */,
+				CF21772D23F223FF00B0017E /* DungeonSelectScene.sks */,
+				EE5E8AB8237654B00013120E /* GameViewController.swift */,
+				CFFDE07623F25C110092027C /* Dungeon.swift */,
+				CFFDE07823F25C2A0092027C /* DungeonEnemy.swift */,
+				CFFDE07A23F25C3A0092027C /* EnemyModel.swift */,
 			);
 			path = "Divine-Gate";
 			sourceTree = "<group>";
@@ -539,8 +548,10 @@
 				ACC10D55239DDAE200209DC3 /* NormalSkill.swift in Sources */,
 				CFA596DE23F132060069EC17 /* SearchPanelGenerate.swift in Sources */,
 				CF1A6A6623CEB7D800834D1C /* SkillDescriptionPopupNode.swift in Sources */,
+				CFFDE07723F25C110092027C /* Dungeon.swift in Sources */,
 				CFA596D623F132060069EC17 /* SearchPartViewController.swift in Sources */,
 				CF21772C23F222DB00B0017E /* Button.swift in Sources */,
+				CFFDE07923F25C2A0092027C /* DungeonEnemy.swift in Sources */,
 				CFA38B2A23C8CA05000248CD /* TimerLabel.swift in Sources */,
 				CFA596D423F132060069EC17 /* SearchBorn.swift in Sources */,
 				CF2EDA4023CB5D3500F99702 /* BattleNormalSkill.swift in Sources */,
@@ -557,6 +568,7 @@
 				CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */,
 				CFA596DF23F132060069EC17 /* Search.swift in Sources */,
 				CF1A6A6423CE6A3600834D1C /* EnemyDivNode.swift in Sources */,
+				CFFDE07B23F25C3A0092027C /* EnemyModel.swift in Sources */,
 				ACC10D53239DDAD300209DC3 /* BattleSkill.swift in Sources */,
 				CF21773023F2242400B0017E /* DungeonSelectScene.swift in Sources */,
 				CF077E11238FA376003B6C47 /* PanelContainer.swift in Sources */,
