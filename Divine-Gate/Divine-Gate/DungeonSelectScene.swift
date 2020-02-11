@@ -22,7 +22,7 @@ class DungeonSelectScene : SKScene{
             var name = "button";
             name += String(i);
             print(name)
-            var button = self.childNode(withName: name) as! Button;
+            let button = self.childNode(withName: name) as! Button;
             button.isUserInteractionEnabled = true;
             button.setTouchUp {
                 let scene = Search(fileNamed: "Search");
