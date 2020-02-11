@@ -158,8 +158,6 @@ class Search: SKScene {
                     self.activeBorn = born.pal;
                     self.began_location_x  = Int(self.activePanel.position.x);
                     self.began_location_y  = Int(self.activePanel.position.y);
-                    print("hogegegegegegegeg")
-                    
                 }
             }
         //print("ここでタッチ判定してるんだなぁみつを"); ここでタッチ判定
