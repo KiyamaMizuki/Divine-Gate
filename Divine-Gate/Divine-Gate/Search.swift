@@ -34,6 +34,7 @@ class Search: SKScene {
     var click_panel : Int = 0;
     var born_panel : Int = 0;
     var sppanel_num = 20;
+    var counter = 0;
     
     
     
@@ -62,6 +63,14 @@ class Search: SKScene {
             initHPsum();
             initSpPanels();
         }else{
+            counter = UserDefaults.standard.integer(forKey: "counter");
+            counter+=1
+            if counter == 3{
+                UserDefaults.standard.set(self.sppanel_num, forKey: "sppanel_num");
+                let scene = DungeonSelectScene(fileNamed: "DungeonSelectScene");
+                scene?.scaleMode = .aspectFill;
+                self.view!.presentScene(scene);
+            }
 //            self.generators = UserDefaults.standard.array(forKey: "panel_generater") as! [SearchPanelGenerate];
 //            self.generator_flag = UserDefaults.standard.array(forKey: "panel_flag") as! [Int];
 //            self.born = UserDefaults.standard.data(forKey: "born");
@@ -265,6 +274,7 @@ class Search: SKScene {
         if panel_type=="battle"{
             print("戦闘開始");
             UserDefaults.standard.set(self.sppanel_num, forKey: "sppanel_num");
+            UserDefaults.standard.set(self.counter,forKey: "counter")
             let scene = GameScene(fileNamed: "GameScene");
             scene?.scaleMode = .aspectFill;
             self.userInformationNode.removeFromParent();
