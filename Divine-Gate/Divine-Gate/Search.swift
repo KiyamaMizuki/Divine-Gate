@@ -24,6 +24,11 @@ class Search: SKScene {
     var dvunits : [BattleUnit] = [];
     var dungeon_id : Int = 0;
     
+    var dungeon : Dungeon!;
+    
+    var realm : Realm!;
+    
+    
     //生成する探索パネルのタイプをリストにしてます
     //現時点では「battle=赤色のパネル」「none=青色のパネル」にしてます
     var type_list = ["battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none",];
@@ -39,14 +44,14 @@ class Search: SKScene {
     
     override func didMove(to view: SKView) {
         self.name = "battle";
-        
+        var config = Realm.Configuration()
+        config.deleteRealmIfMigrationNeeded = true
+        self.realm = try! Realm(configuration: config);
         
         if former_screen != "battle"{
             initPanelGenerate();
             self.userInformationNode = (self.childNode(withName: "UserInformationNode") as! BattleUserInformationNode)
-            var config = Realm.Configuration()
-            config.deleteRealmIfMigrationNeeded = true
-            let realm = try! Realm(configuration: config);
+            
             print(Realm.Configuration.defaultConfiguration.fileURL!)
             let dvunits_d = realm.objects(DVUnit.self)
             for dvunit_d in dvunits_d{
@@ -76,6 +81,23 @@ class Search: SKScene {
             self.addChild(userInformationNode);
             
             self.sppanel_num = UserDefaults.standard.integer(forKey: "sppanel_num");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
         
@@ -273,11 +295,28 @@ class Search: SKScene {
             scene?.searchGeneratorFlag = self.generator_flag;
             scene?.searchBorn = self.born
             scene?.born_panel = self.born_panel;
+            scene?.dungeon = self.dungeon;
+            scene?.enemy_model = selectEnemyFromDungeon();
             self.view!.presentScene(scene);
         }else if panel_type=="none"{
             print("何もないところ");
         }
     }
+    
+    
+    func selectEnemyFromDungeon() -> EnemyModel{
+        var dungeon_enemies = self.realm.objects(DungeonEnemy.self).filter("dungeon_id==%@", self.dungeon!.id)
+        var enemy_ids : [Int] = [];
+        for dungeon_enemy in dungeon_enemies{
+            enemy_ids.append(dungeon_enemy.enemy_id)
+        }
+        let enemy_id = enemy_ids[Int.random(in: 0..<enemy_ids.count)];
+        let enemy = self.realm.objects(EnemyModel.self).filter("id==%@",enemy_id).first;
+        return enemy!;
+        
+        
+    }
+
                 
     func touchMoved(toPoint pos : CGPoint) {
     //ここがパネル動くやつ
