@@ -22,6 +22,8 @@ class GameScene: SKScene {
     var first_insert = true;
     var generators:[PanelGenerate] = []; //パネル生成ボックスのリスト
     
+    var dungeon_id : Int = 0;
+    
     
     var searchPanelGenerators : [SearchPanelGenerate] = [];
     var searchGeneratorFlag : [Int] = [];

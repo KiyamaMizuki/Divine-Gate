@@ -22,6 +22,8 @@ class Search: SKScene {
     var units_hpsum : Hpsum!;
     var dvunits : [BattleUnit] = [];
     
+    var dungeon_id : Int = 0;
+    
     //生成する探索パネルのタイプをリストにしてます
     //現時点では「battle=赤色のパネル」「none=青色のパネル」にしてます
     var type_list = ["battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none",];
