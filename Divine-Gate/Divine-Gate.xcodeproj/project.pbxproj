@@ -23,6 +23,11 @@
 		CF21772C23F222DB00B0017E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF21772B23F222DB00B0017E /* Button.swift */; };
 		CF21772E23F223FF00B0017E /* DungeonSelectScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF21772D23F223FF00B0017E /* DungeonSelectScene.sks */; };
 		CF21773023F2242400B0017E /* DungeonSelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF21772F23F2242400B0017E /* DungeonSelectScene.swift */; };
+		CF27F18D23F30611005CD666 /* FireEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF27F18823F30610005CD666 /* FireEf.sks */; };
+		CF27F18E23F30611005CD666 /* LightEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF27F18923F30610005CD666 /* LightEf.sks */; };
+		CF27F18F23F30611005CD666 /* DarkEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF27F18A23F30611005CD666 /* DarkEf.sks */; };
+		CF27F19023F30611005CD666 /* WaterEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF27F18B23F30611005CD666 /* WaterEf.sks */; };
+		CF27F19123F30611005CD666 /* WindEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF27F18C23F30611005CD666 /* WindEf.sks */; };
 		CF2EDA3E23CB5BB400F99702 /* BattleUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2EDA3D23CB5BB400F99702 /* BattleUnit.swift */; };
 		CF2EDA4023CB5D3500F99702 /* BattleNormalSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2EDA3F23CB5D3500F99702 /* BattleNormalSkill.swift */; };
 		CF2EDA4223CB5F6E00F99702 /* BattleRequirePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2EDA4123CB5F6E00F99702 /* BattleRequirePanel.swift */; };
@@ -108,6 +113,11 @@
 		CF21772B23F222DB00B0017E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		CF21772D23F223FF00B0017E /* DungeonSelectScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DungeonSelectScene.sks; sourceTree = "<group>"; };
 		CF21772F23F2242400B0017E /* DungeonSelectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DungeonSelectScene.swift; sourceTree = "<group>"; };
+		CF27F18823F30610005CD666 /* FireEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireEf.sks; sourceTree = "<group>"; };
+		CF27F18923F30610005CD666 /* LightEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LightEf.sks; sourceTree = "<group>"; };
+		CF27F18A23F30611005CD666 /* DarkEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DarkEf.sks; sourceTree = "<group>"; };
+		CF27F18B23F30611005CD666 /* WaterEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WaterEf.sks; sourceTree = "<group>"; };
+		CF27F18C23F30611005CD666 /* WindEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WindEf.sks; sourceTree = "<group>"; };
 		CF2EDA3D23CB5BB400F99702 /* BattleUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleUnit.swift; sourceTree = "<group>"; };
 		CF2EDA3F23CB5D3500F99702 /* BattleNormalSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleNormalSkill.swift; sourceTree = "<group>"; };
 		CF2EDA4123CB5F6E00F99702 /* BattleRequirePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRequirePanel.swift; sourceTree = "<group>"; };
@@ -210,10 +220,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CF27F18723F305F1005CD666 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				CF27F18A23F30611005CD666 /* DarkEf.sks */,
+				CF27F18823F30610005CD666 /* FireEf.sks */,
+				CF27F18923F30610005CD666 /* LightEf.sks */,
+				CF27F18B23F30611005CD666 /* WaterEf.sks */,
+				CF27F18C23F30611005CD666 /* WindEf.sks */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
 		CF54F24823F2FC98006CEE25 /* Battle */ = {
 			isa = PBXGroup;
 			children = (
 				EE5E8AB2237654B00013120E /* GameScene.sks */,
+				EE5E8AB6237654B00013120E /* GameScene.swift */,
 				CF3E061323A200DA00E10C91 /* Enemy.swift */,
 				CFA596CA23F132050069EC17 /* Container.swift */,
 				ACC02F15239BC44D008B314E /* DVUnit.swift */,
@@ -227,7 +250,6 @@
 				ACC10D52239DDAD300209DC3 /* BattleSkill.swift */,
 				CF2EDA3F23CB5D3500F99702 /* BattleNormalSkill.swift */,
 				CF2EDA4123CB5F6E00F99702 /* BattleRequirePanel.swift */,
-				EE5E8AB6237654B00013120E /* GameScene.swift */,
 			);
 			path = Battle;
 			sourceTree = "<group>";
@@ -336,6 +358,7 @@
 		EE5E8AAF237654B00013120E /* Divine-Gate */ = {
 			isa = PBXGroup;
 			children = (
+				CF27F18723F305F1005CD666 /* Effects */,
 				CF54F24F23F2FF26006CEE25 /* Music */,
 				CF54F24E23F2FEF6006CEE25 /* ViewController */,
 				CF54F24D23F2FE2E006CEE25 /* Select */,
@@ -488,11 +511,16 @@
 				EE5E8ABC237654B00013120E /* Main.storyboard in Resources */,
 				EE5E8AB3237654B00013120E /* GameScene.sks in Resources */,
 				CF54F24723F2F851006CEE25 /* n36.mp3 in Resources */,
+				CF27F18E23F30611005CD666 /* LightEf.sks in Resources */,
 				CF1A6A6A23CF351500834D1C /* EmptyScene.sks in Resources */,
+				CF27F18D23F30611005CD666 /* FireEf.sks in Resources */,
+				CF27F18F23F30611005CD666 /* DarkEf.sks in Resources */,
 				CF704A5A23F2DB5B007DFC89 /* TitleScene.sks in Resources */,
 				CF21772E23F223FF00B0017E /* DungeonSelectScene.sks in Resources */,
 				EE5E8ABE237654B20013120E /* Assets.xcassets in Resources */,
+				CF27F19023F30611005CD666 /* WaterEf.sks in Resources */,
 				CF54F24523F2F84A006CEE25 /* n74.mp3 in Resources */,
+				CF27F19123F30611005CD666 /* WindEf.sks in Resources */,
 				EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */,
 				CFD33D0723CFF6A1009BAD70 /* Search.sks in Resources */,
 				CFA596DB23F132060069EC17 /* user.json in Resources */,
