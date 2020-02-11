@@ -20,6 +20,7 @@ class BattleUserInformationNode : SKNode{
     var units_hpsum : Hpsum!
     var dvunits : [BattleUnit] = [];
     var spcount : Int = 20;
+    var spPanels = [SKSpriteNode](repeating: SKSpriteNode(), count: 20);
     
 //    override init(){
 //        super.init()
@@ -37,6 +38,7 @@ class BattleUserInformationNode : SKNode{
         self.width = width;
         self.height = height;
     }
+    
     
     func setImageToChildren(node_lis : [BattleUnit]){
         for i in 0..<node_lis.count{
