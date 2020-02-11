@@ -22,6 +22,8 @@ class Search: SKScene {
     var units_hpsum : Hpsum!;
     var dvunits : [BattleUnit] = [];
     
+    var dungeon_id : Int = 0;
+    
     //生成する探索パネルのタイプをリストにしてます
     //現時点では「battle=赤色のパネル」「none=青色のパネル」にしてます
     var type_list = ["battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none","battle","battle","none","none","none",];
@@ -75,7 +77,9 @@ class Search: SKScene {
     
     func initHPsum(){
         var units_hpsum = Hpsum();
-        units_hpsum.inithp(units: dvunits, x: -290, y: 68);
+        var backgroundView = userInformationNode.childNode(withName: "backgroundbar") as! SKSpriteNode;
+        units_hpsum.inithp(units: dvunits, x: Int(Float(backgroundView.position.x) - (Float(backgroundView.size.width) / 2)), y: Int(Float(backgroundView.position.y)  - (Float(backgroundView.size.height) / 2)));
+
         let backgroundBar = SKSpriteNode(color: UIColor.gray, size: CGSize(width: units_hpsum.width, height: units_hpsum.height));
         backgroundBar.anchorPoint = CGPoint(x: 0, y: 0)
         backgroundBar.position = CGPoint(x: units_hpsum.position.x, y: units_hpsum.position.y);
