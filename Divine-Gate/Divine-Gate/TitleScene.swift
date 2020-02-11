@@ -11,19 +11,16 @@ import SpriteKit
 
 
 class TitleScene: SKScene{
-    var strat = SKLabelNode();
-    var hoge = SKLabelNode();
+    var start = SKLabelNode();
     override func didMove(to view: SKView) {
-        strat.text = "GameStart"
-        strat.position = CGPoint(x:200,y:500)
-        self.addChild(strat)
+        self.start = self.childNode(withName: "Start") as! SKLabelNode
     }
     
-    func touchDown(movescene : String, atPoint pos : CGPoint) {
+    func touchDown( atPoint pos : CGPoint) {
         if let node = atPoint(pos) as? SKLabelNode {
-            if(node == strat){
+            if(node == start){
                 if let view = self.view {
-                    if let scene = StageSelect(fileNamed: movescene) {
+                    if let scene = DungeonSelectScene(fileNamed: "DungeonSelectScene") {
                         scene.scaleMode = .aspectFill
                         view.presentScene(scene)
                     }
@@ -32,11 +29,12 @@ class TitleScene: SKScene{
                     view.showsNodeCount = true
                 }
             }
+            
         }
     }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchDown(movescene: "StageSelect", atPoint: t.location(in: self)) }
+        for t in touches { self.touchDown( atPoint: t.location(in: self)) }
     }
 }

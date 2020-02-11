@@ -30,6 +30,8 @@
 		CF3E061423A200DA00E10C91 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3E061323A200DA00E10C91 /* Enemy.swift */; };
 		CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF96237672FB005E6E10 /* Panel.swift */; };
 		CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */; };
+		CF704A5823F2DA5B007DFC89 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF704A5723F2DA5B007DFC89 /* TitleScene.swift */; };
+		CF704A5A23F2DB5B007DFC89 /* TitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF704A5923F2DB5B007DFC89 /* TitleScene.sks */; };
 		CFA38B2A23C8CA05000248CD /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA38B2923C8CA05000248CD /* TimerLabel.swift */; };
 		CFA596D423F132060069EC17 /* SearchBorn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596C723F132050069EC17 /* SearchBorn.swift */; };
 		CFA596D523F132060069EC17 /* SearchPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596C823F132050069EC17 /* SearchPanel.swift */; };
@@ -110,6 +112,8 @@
 		CF3E061323A200DA00E10C91 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enemy.swift; path = "../../DivineGate/Divine-Gate/Enemy.swift"; sourceTree = "<group>"; };
 		CF4DBF96237672FB005E6E10 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGenerate.swift; sourceTree = "<group>"; };
+		CF704A5723F2DA5B007DFC89 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
+		CF704A5923F2DB5B007DFC89 /* TitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitleScene.sks; sourceTree = "<group>"; };
 		CFA38B2923C8CA05000248CD /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		CFA596C723F132050069EC17 /* SearchBorn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBorn.swift; sourceTree = "<group>"; };
 		CFA596C823F132050069EC17 /* SearchPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPanel.swift; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 		EE5E8AAF237654B00013120E /* Divine-Gate */ = {
 			isa = PBXGroup;
 			children = (
+				CF704A5723F2DA5B007DFC89 /* TitleScene.swift */,
 				CFA596CD23F132060069EC17 /* BattleCalculation.swift */,
 				CFA596CA23F132050069EC17 /* Container.swift */,
 				CFA596C723F132050069EC17 /* SearchBorn.swift */,
@@ -259,6 +264,7 @@
 				CF2EDA3D23CB5BB400F99702 /* BattleUnit.swift */,
 				ACC10D52239DDAD300209DC3 /* BattleSkill.swift */,
 				CF2EDA3F23CB5D3500F99702 /* BattleNormalSkill.swift */,
+				CF704A5923F2DB5B007DFC89 /* TitleScene.sks */,
 				CF2EDA4123CB5F6E00F99702 /* BattleRequirePanel.swift */,
 				CF2EDA4323CB683F00F99702 /* BattleUserInformationNode.swift */,
 				CF1A6A6323CE6A3600834D1C /* EnemyDivNode.swift */,
@@ -409,6 +415,7 @@
 				EE5E8ABC237654B00013120E /* Main.storyboard in Resources */,
 				EE5E8AB3237654B00013120E /* GameScene.sks in Resources */,
 				CF1A6A6A23CF351500834D1C /* EmptyScene.sks in Resources */,
+				CF704A5A23F2DB5B007DFC89 /* TitleScene.sks in Resources */,
 				CF21772E23F223FF00B0017E /* DungeonSelectScene.sks in Resources */,
 				EE5E8ABE237654B20013120E /* Assets.xcassets in Resources */,
 				EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */,
@@ -547,6 +554,7 @@
 				EE5E8AB7237654B00013120E /* GameScene.swift in Sources */,
 				ACC10D55239DDAE200209DC3 /* NormalSkill.swift in Sources */,
 				CFA596DE23F132060069EC17 /* SearchPanelGenerate.swift in Sources */,
+				CF704A5823F2DA5B007DFC89 /* TitleScene.swift in Sources */,
 				CF1A6A6623CEB7D800834D1C /* SkillDescriptionPopupNode.swift in Sources */,
 				CFFDE07723F25C110092027C /* Dungeon.swift in Sources */,
 				CFA596D623F132060069EC17 /* SearchPartViewController.swift in Sources */,

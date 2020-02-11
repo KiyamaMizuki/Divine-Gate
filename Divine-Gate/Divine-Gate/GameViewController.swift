@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
         initDatabase();
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = DungeonSelectScene(fileNamed: "DungeonSelectScene") {
+            if let scene = TitleScene(fileNamed: "TitleScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
 
