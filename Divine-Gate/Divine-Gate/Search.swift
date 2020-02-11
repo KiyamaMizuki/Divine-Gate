@@ -35,6 +35,8 @@ class Search: SKScene {
     override func didMove(to view: SKView) {
         self.name = "battle";
         
+        let backgroundSound = SKAudioNode(fileNamed: "n74.mp3")
+        self.addChild(backgroundSound)
         
         if former_screen != "battle"{
             initPanelGenerate();

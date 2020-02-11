@@ -37,7 +37,6 @@
 		CFA596DE23F132060069EC17 /* SearchPanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596D123F132060069EC17 /* SearchPanelGenerate.swift */; };
 		CFA596DF23F132060069EC17 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA596D223F132060069EC17 /* Search.swift */; };
 		CFB990F623CA331900562371 /* RequirePanelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB990F523CA331900562371 /* RequirePanelModel.swift */; };
-		CFD33D0523CFF648009BAD70 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD33D0423CFF647009BAD70 /* SearchScene.swift */; };
 		CFD33D0723CFF6A1009BAD70 /* Search.sks in Resources */ = {isa = PBXBuildFile; fileRef = CFD33D0623CFF6A1009BAD70 /* Search.sks */; };
 		CFDE181B23A08700001EA9E9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181A23A08700001EA9E9 /* ProgressBar.swift */; };
 		CFDE181D23A09AA4001EA9E9 /* NormalSkillQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */; };
@@ -55,6 +54,7 @@
 		EE5E8AD7237654B20013120E /* Divine_GateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E8AD6237654B20013120E /* Divine_GateUITests.swift */; };
 		EE9AE19323F215B9006188D5 /* n36.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE9AE19223F215B9006188D5 /* n36.mp3 */; };
 		EE9AE19523F215C8006188D5 /* n74.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE9AE19423F215C7006188D5 /* n74.mp3 */; };
+		EE9AE19723F2225B006188D5 /* n137.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE9AE19623F2225B006188D5 /* n137.mp3 */; };
 		EEB0F00E23F19357006370DE /* FireEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = EEB0F00D23F19357006370DE /* FireEf.sks */; };
 		EEB0F01023F19BA7006370DE /* LightEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = EEB0F00F23F19BA6006370DE /* LightEf.sks */; };
 		EEB0F01423F19E88006370DE /* DarkEf.sks in Resources */ = {isa = PBXBuildFile; fileRef = EEB0F01323F19E88006370DE /* DarkEf.sks */; };
@@ -116,7 +116,6 @@
 		CFA596D123F132060069EC17 /* SearchPanelGenerate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPanelGenerate.swift; sourceTree = "<group>"; };
 		CFA596D223F132060069EC17 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		CFB990F523CA331900562371 /* RequirePanelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirePanelModel.swift; sourceTree = "<group>"; };
-		CFD33D0423CFF647009BAD70 /* SearchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScene.swift; sourceTree = "<group>"; };
 		CFD33D0623CFF6A1009BAD70 /* Search.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Search.sks; sourceTree = "<group>"; };
 		CFDE181A23A08700001EA9E9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalSkillQueue.swift; sourceTree = "<group>"; };
@@ -139,6 +138,7 @@
 		EE5E8AD8237654B20013120E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE9AE19223F215B9006188D5 /* n36.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = n36.mp3; path = ../../../../../../Downloads/n36.mp3; sourceTree = "<group>"; };
 		EE9AE19423F215C7006188D5 /* n74.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = n74.mp3; path = ../../../../../../Downloads/n74.mp3; sourceTree = "<group>"; };
+		EE9AE19623F2225B006188D5 /* n137.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = n137.mp3; path = ../../../../../../Downloads/n137.mp3; sourceTree = "<group>"; };
 		EEB0F00D23F19357006370DE /* FireEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireEf.sks; sourceTree = "<group>"; };
 		EEB0F00F23F19BA6006370DE /* LightEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LightEf.sks; sourceTree = SOURCE_ROOT; };
 		EEB0F01323F19E88006370DE /* DarkEf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DarkEf.sks; sourceTree = SOURCE_ROOT; };
@@ -254,6 +254,7 @@
 				EE5E8ABA237654B00013120E /* Main.storyboard */,
 				EE5E8ABD237654B20013120E /* Assets.xcassets */,
 				EE5E8ABF237654B20013120E /* LaunchScreen.storyboard */,
+				EE9AE19623F2225B006188D5 /* n137.mp3 */,
 				EE5E8AC2237654B20013120E /* Info.plist */,
 				CF4DBF96237672FB005E6E10 /* Panel.swift */,
 				CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */,
@@ -268,7 +269,6 @@
 				CF2EDA4323CB683F00F99702 /* BattleUserInformationNode.swift */,
 				CF1A6A6323CE6A3600834D1C /* EnemyDivNode.swift */,
 				CF1A6A6523CEB7D800834D1C /* SkillDescriptionPopupNode.swift */,
-				CFD33D0423CFF647009BAD70 /* SearchScene.swift */,
 				CFD33D0623CFF6A1009BAD70 /* Search.sks */,
 				EEB0F01723F1A27B006370DE /* WaterEf.sks */,
 				EEB0F01923F1A2F7006370DE /* WindEf.sks */,
@@ -418,6 +418,7 @@
 				EEB0F01423F19E88006370DE /* DarkEf.sks in Resources */,
 				EEB0F01023F19BA7006370DE /* LightEf.sks in Resources */,
 				EEB0F00E23F19357006370DE /* FireEf.sks in Resources */,
+				EE9AE19723F2225B006188D5 /* n137.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,7 +578,6 @@
 				CFA596D723F132060069EC17 /* Container.swift in Sources */,
 				EE5E8AB1237654B00013120E /* AppDelegate.swift in Sources */,
 				CFA596DD23F132060069EC17 /* SearchPanelContainer.swift in Sources */,
-				CFD33D0523CFF648009BAD70 /* SearchScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

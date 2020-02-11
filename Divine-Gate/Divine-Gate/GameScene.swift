@@ -146,7 +146,7 @@ class GameScene: SKScene {
         backgroundBar.size = CGSize(width: self.units_hpsum.width, height: self.units_hpsum.height);
         
         self.userInformationNode.addChild(self.units_hpsum);
-        self.userInformationNode.addChild(backgroundBar)
+        self.userInformationNode.addChild(backgroundBar);
     }
     
     func initEnemyHPsum(){
