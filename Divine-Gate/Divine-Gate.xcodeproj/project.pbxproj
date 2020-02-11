@@ -30,6 +30,9 @@
 		CF3E061423A200DA00E10C91 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3E061323A200DA00E10C91 /* Enemy.swift */; };
 		CF4DBF97237672FB005E6E10 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF96237672FB005E6E10 /* Panel.swift */; };
 		CF4DBF9B23767E78005E6E10 /* PanelGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */; };
+		CF54F24323F2F843006CEE25 /* n137.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF54F24223F2F843006CEE25 /* n137.mp3 */; };
+		CF54F24523F2F84A006CEE25 /* n74.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF54F24423F2F84A006CEE25 /* n74.mp3 */; };
+		CF54F24723F2F851006CEE25 /* n36.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF54F24623F2F850006CEE25 /* n36.mp3 */; };
 		CF704A5823F2DA5B007DFC89 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF704A5723F2DA5B007DFC89 /* TitleScene.swift */; };
 		CF704A5A23F2DB5B007DFC89 /* TitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF704A5923F2DB5B007DFC89 /* TitleScene.sks */; };
 		CFA38B2A23C8CA05000248CD /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA38B2923C8CA05000248CD /* TimerLabel.swift */; };
@@ -109,9 +112,12 @@
 		CF2EDA3F23CB5D3500F99702 /* BattleNormalSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleNormalSkill.swift; sourceTree = "<group>"; };
 		CF2EDA4123CB5F6E00F99702 /* BattleRequirePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRequirePanel.swift; sourceTree = "<group>"; };
 		CF2EDA4323CB683F00F99702 /* BattleUserInformationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleUserInformationNode.swift; sourceTree = "<group>"; };
-		CF3E061323A200DA00E10C91 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enemy.swift; path = "../../DivineGate/Divine-Gate/Enemy.swift"; sourceTree = "<group>"; };
+		CF3E061323A200DA00E10C91 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		CF4DBF96237672FB005E6E10 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGenerate.swift; sourceTree = "<group>"; };
+		CF54F24223F2F843006CEE25 /* n137.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = n137.mp3; sourceTree = "<group>"; };
+		CF54F24423F2F84A006CEE25 /* n74.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = n74.mp3; sourceTree = "<group>"; };
+		CF54F24623F2F850006CEE25 /* n36.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = n36.mp3; sourceTree = "<group>"; };
 		CF704A5723F2DA5B007DFC89 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		CF704A5923F2DB5B007DFC89 /* TitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitleScene.sks; sourceTree = "<group>"; };
 		CFA38B2923C8CA05000248CD /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
@@ -204,6 +210,107 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CF54F24823F2FC98006CEE25 /* Battle */ = {
+			isa = PBXGroup;
+			children = (
+				EE5E8AB2237654B00013120E /* GameScene.sks */,
+				CF3E061323A200DA00E10C91 /* Enemy.swift */,
+				CFA596CA23F132050069EC17 /* Container.swift */,
+				ACC02F15239BC44D008B314E /* DVUnit.swift */,
+				CFA38B2923C8CA05000248CD /* TimerLabel.swift */,
+				CF4DBF96237672FB005E6E10 /* Panel.swift */,
+				CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */,
+				CF077E10238FA376003B6C47 /* PanelContainer.swift */,
+				CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */,
+				CFDE2B1023A6353500FCC822 /* SkillView.swift */,
+				CF2EDA3D23CB5BB400F99702 /* BattleUnit.swift */,
+				ACC10D52239DDAD300209DC3 /* BattleSkill.swift */,
+				CF2EDA3F23CB5D3500F99702 /* BattleNormalSkill.swift */,
+				CF2EDA4123CB5F6E00F99702 /* BattleRequirePanel.swift */,
+				EE5E8AB6237654B00013120E /* GameScene.swift */,
+			);
+			path = Battle;
+			sourceTree = "<group>";
+		};
+		CF54F24923F2FD75006CEE25 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CFA596D223F132060069EC17 /* Search.swift */,
+				CF2EDA4323CB683F00F99702 /* BattleUserInformationNode.swift */,
+				CFDE181A23A08700001EA9E9 /* ProgressBar.swift */,
+				ACC10D56239DDB0400209DC3 /* Hpsum.swift */,
+				CFA596CD23F132060069EC17 /* BattleCalculation.swift */,
+				CFA596C723F132050069EC17 /* SearchBorn.swift */,
+				CFA596CF23F132060069EC17 /* SearchBornGenerate.swift */,
+				CFA596C823F132050069EC17 /* SearchPanel.swift */,
+				CFA596D023F132060069EC17 /* SearchPanelContainer.swift */,
+				CFA596D123F132060069EC17 /* SearchPanelGenerate.swift */,
+				CFD33D0623CFF6A1009BAD70 /* Search.sks */,
+				CFD33D0423CFF647009BAD70 /* SearchScene.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CF54F24A23F2FD88006CEE25 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				CF704A5723F2DA5B007DFC89 /* TitleScene.swift */,
+				CF704A5923F2DB5B007DFC89 /* TitleScene.sks */,
+			);
+			path = Title;
+			sourceTree = "<group>";
+		};
+		CF54F24B23F2FDCA006CEE25 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFFDE07A23F25C3A0092027C /* EnemyModel.swift */,
+				CFFDE07823F25C2A0092027C /* DungeonEnemy.swift */,
+				CFFDE07623F25C110092027C /* Dungeon.swift */,
+				ACC10D54239DDAE200209DC3 /* NormalSkill.swift */,
+				CFB990F523CA331900562371 /* RequirePanelModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF54F24C23F2FDF3006CEE25 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CF21772923F21EA200B0017E /* TestSprite.swift */,
+				CF21772723F218A400B0017E /* ClickableSpriteNode.swift */,
+				CF1A6A6523CEB7D800834D1C /* SkillDescriptionPopupNode.swift */,
+				CF21772B23F222DB00B0017E /* Button.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		CF54F24D23F2FE2E006CEE25 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				CF21772F23F2242400B0017E /* DungeonSelectScene.swift */,
+				CF21772D23F223FF00B0017E /* DungeonSelectScene.sks */,
+			);
+			path = Select;
+			sourceTree = "<group>";
+		};
+		CF54F24E23F2FEF6006CEE25 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE5E8AB8237654B00013120E /* GameViewController.swift */,
+				CFA596C923F132050069EC17 /* SearchPartViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CF54F24F23F2FF26006CEE25 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				CF54F24223F2F843006CEE25 /* n137.mp3 */,
+				CF54F24423F2F84A006CEE25 /* n74.mp3 */,
+				CF54F24623F2F850006CEE25 /* n36.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		EE5E8AA4237654AF0013120E = {
 			isa = PBXGroup;
 			children = (
@@ -229,58 +336,24 @@
 		EE5E8AAF237654B00013120E /* Divine-Gate */ = {
 			isa = PBXGroup;
 			children = (
-				CF704A5723F2DA5B007DFC89 /* TitleScene.swift */,
-				CFA596CD23F132060069EC17 /* BattleCalculation.swift */,
-				CFA596CA23F132050069EC17 /* Container.swift */,
-				CFA596C723F132050069EC17 /* SearchBorn.swift */,
-				CFA596CF23F132060069EC17 /* SearchBornGenerate.swift */,
-				CFA596C823F132050069EC17 /* SearchPanel.swift */,
-				CFA596D023F132060069EC17 /* SearchPanelContainer.swift */,
-				CFA596D123F132060069EC17 /* SearchPanelGenerate.swift */,
-				CFA596C923F132050069EC17 /* SearchPartViewController.swift */,
+				CF54F24F23F2FF26006CEE25 /* Music */,
+				CF54F24E23F2FEF6006CEE25 /* ViewController */,
+				CF54F24D23F2FE2E006CEE25 /* Select */,
+				CF54F24C23F2FDF3006CEE25 /* Utility */,
+				CF54F24B23F2FDCA006CEE25 /* Model */,
+				CF54F24A23F2FD88006CEE25 /* Title */,
+				CF54F24823F2FC98006CEE25 /* Battle */,
+				CF54F24923F2FD75006CEE25 /* Search */,
 				CFA596CE23F132060069EC17 /* user.json */,
 				EE5E8AB0237654B00013120E /* AppDelegate.swift */,
 				EE5E8AB4237654B00013120E /* Actions.sks */,
 				CF1A6A6723CF1FC900834D1C /* EmptyScene.swift */,
-				CFD33D0623CFF6A1009BAD70 /* Search.sks */,
 				CF1A6A6923CF351500834D1C /* EmptyScene.sks */,
-				CF3E061323A200DA00E10C91 /* Enemy.swift */,
-				EE5E8AB2237654B00013120E /* GameScene.sks */,
-				ACC10D54239DDAE200209DC3 /* NormalSkill.swift */,
-				ACC02F15239BC44D008B314E /* DVUnit.swift */,
-				CFB990F523CA331900562371 /* RequirePanelModel.swift */,
-				ACC10D56239DDB0400209DC3 /* Hpsum.swift */,
-				CFA38B2923C8CA05000248CD /* TimerLabel.swift */,
-				CFDE181A23A08700001EA9E9 /* ProgressBar.swift */,
 				EE5E8ABA237654B00013120E /* Main.storyboard */,
 				EE5E8ABD237654B20013120E /* Assets.xcassets */,
 				EE5E8ABF237654B20013120E /* LaunchScreen.storyboard */,
 				EE5E8AC2237654B20013120E /* Info.plist */,
-				CF4DBF96237672FB005E6E10 /* Panel.swift */,
-				CF4DBF9A23767E78005E6E10 /* PanelGenerate.swift */,
-				CF077E10238FA376003B6C47 /* PanelContainer.swift */,
-				CFDE181C23A09AA4001EA9E9 /* NormalSkillQueue.swift */,
-				CFDE2B1023A6353500FCC822 /* SkillView.swift */,
-				CF2EDA3D23CB5BB400F99702 /* BattleUnit.swift */,
-				ACC10D52239DDAD300209DC3 /* BattleSkill.swift */,
-				CF2EDA3F23CB5D3500F99702 /* BattleNormalSkill.swift */,
-				CF704A5923F2DB5B007DFC89 /* TitleScene.sks */,
-				CF2EDA4123CB5F6E00F99702 /* BattleRequirePanel.swift */,
-				CF2EDA4323CB683F00F99702 /* BattleUserInformationNode.swift */,
 				CF1A6A6323CE6A3600834D1C /* EnemyDivNode.swift */,
-				CF1A6A6523CEB7D800834D1C /* SkillDescriptionPopupNode.swift */,
-				CFD33D0423CFF647009BAD70 /* SearchScene.swift */,
-				CF21772723F218A400B0017E /* ClickableSpriteNode.swift */,
-				CF21772923F21EA200B0017E /* TestSprite.swift */,
-				CF21772B23F222DB00B0017E /* Button.swift */,
-				CFA596D223F132060069EC17 /* Search.swift */,
-				EE5E8AB6237654B00013120E /* GameScene.swift */,
-				CF21772F23F2242400B0017E /* DungeonSelectScene.swift */,
-				CF21772D23F223FF00B0017E /* DungeonSelectScene.sks */,
-				EE5E8AB8237654B00013120E /* GameViewController.swift */,
-				CFFDE07623F25C110092027C /* Dungeon.swift */,
-				CFFDE07823F25C2A0092027C /* DungeonEnemy.swift */,
-				CFFDE07A23F25C3A0092027C /* EnemyModel.swift */,
 			);
 			path = "Divine-Gate";
 			sourceTree = "<group>";
@@ -414,14 +487,17 @@
 			files = (
 				EE5E8ABC237654B00013120E /* Main.storyboard in Resources */,
 				EE5E8AB3237654B00013120E /* GameScene.sks in Resources */,
+				CF54F24723F2F851006CEE25 /* n36.mp3 in Resources */,
 				CF1A6A6A23CF351500834D1C /* EmptyScene.sks in Resources */,
 				CF704A5A23F2DB5B007DFC89 /* TitleScene.sks in Resources */,
 				CF21772E23F223FF00B0017E /* DungeonSelectScene.sks in Resources */,
 				EE5E8ABE237654B20013120E /* Assets.xcassets in Resources */,
+				CF54F24523F2F84A006CEE25 /* n74.mp3 in Resources */,
 				EE5E8AC1237654B20013120E /* LaunchScreen.storyboard in Resources */,
 				CFD33D0723CFF6A1009BAD70 /* Search.sks in Resources */,
 				CFA596DB23F132060069EC17 /* user.json in Resources */,
 				EE5E8AB5237654B00013120E /* Actions.sks in Resources */,
+				CF54F24323F2F843006CEE25 /* n137.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
