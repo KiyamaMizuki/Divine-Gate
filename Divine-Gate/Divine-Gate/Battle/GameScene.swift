@@ -349,7 +349,7 @@ class GameScene: SKScene {
         if (attack_num == attack_span){
             attackFromEnemy();
             if self.userInformationNode.units_hpsum.hp < 0{
-                let scene = DungeonSelectScene(fileNamed: "DungeonSelectScene");
+                let scene = GameOverScene(fileNamed: "GameOverScene");
                 scene?.scaleMode = .aspectFill;
                 self.view!.presentScene(scene);
             }
